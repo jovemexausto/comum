@@ -8,4 +8,10 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 - [x] Wrapper JS/SDKs (mobile/desktop)
 - [x] Perfis de Transporte (NFC/BLE/QR/RNS)
 - [x] Semantica da Capsula Agora (CIP-0003)
-- [~] Release notes e tag remota
+- [x] Release notes e tag remota
+
+## Proximo Roadmap (v0.3)
+
+- [ ] Capsulas Feira e Mutirao (CIP-0003)
+- [ ] Snapshot/Pruning
+- [ ] SDKs mobile estaveis

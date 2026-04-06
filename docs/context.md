@@ -10,6 +10,16 @@
 - Interop matriz e conformance runners
 - Tag v0.1 criada
 
+## 2026-04-06 — v0.2 consolidado
+
+- Commoner facade em comum-rs com validacao e sync
+- Wrapper JS hibrido com N-API opcional
+- Perfis de transporte normativos (BLE/NFC/QR/RNS)
+- Semantica da capsula Agora formalizada
+- Capsula Agora com semantica e testes
+- Simulacao de Agora como pacote separado
+- Release notes v0.2 e tag local
+
 ## Epics entregues
 
 - Epic 0: fundacao e conformidade
