@@ -14,4 +14,4 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
 - [x] Capsulas Feira e Mutirao (CIP-0003)
 - [x] Snapshot/Pruning
-- [ ] SDKs mobile estaveis
+- [~] SDKs mobile estaveis
