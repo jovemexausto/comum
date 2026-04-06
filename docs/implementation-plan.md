@@ -50,10 +50,10 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Proximidade (NFC/BLE)
 - [x] Beacon comunitario
 - [x] Ancora de lugar
-- [~] Vouch comunitario
+- [x] Vouch comunitario
 
 ## Epic 5 — Genesis e Governanca
-- [ ] Testimony de Genesis (minimo 3)
+- [~] Testimony de Genesis (minimo 3)
 - [ ] FROST (threshold signature)
 - [ ] Capsula de governanca (vote/propose)
 

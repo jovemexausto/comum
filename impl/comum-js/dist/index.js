@@ -85,7 +85,20 @@ function encodeUint(n) {
             (n >> 8) & 0xff,
             n & 0xff,
         ]);
-    throw new Error("uint too large");
+    const big = BigInt(n);
+    if (big > BigInt(Number.MAX_SAFE_INTEGER))
+        throw new Error("uint too large");
+    return new Uint8Array([
+        0x1b,
+        Number((big >> 56n) & 0xffn),
+        Number((big >> 48n) & 0xffn),
+        Number((big >> 40n) & 0xffn),
+        Number((big >> 32n) & 0xffn),
+        Number((big >> 24n) & 0xffn),
+        Number((big >> 16n) & 0xffn),
+        Number((big >> 8n) & 0xffn),
+        Number(big & 0xffn),
+    ]);
 }
 function encodeBstr(data) {
     const header = encodeUnsignedHeader(0x40, data.length);
@@ -162,6 +175,20 @@ function decodeUnsigned(data, offset) {
                 (data[offset + 3] << 8) |
                 data[offset + 4];
         size = 5;
+    }
+    else if (ai === 27) {
+        const big = (BigInt(data[offset + 1]) << 56n) |
+            (BigInt(data[offset + 2]) << 48n) |
+            (BigInt(data[offset + 3]) << 40n) |
+            (BigInt(data[offset + 4]) << 32n) |
+            (BigInt(data[offset + 5]) << 24n) |
+            (BigInt(data[offset + 6]) << 16n) |
+            (BigInt(data[offset + 7]) << 8n) |
+            BigInt(data[offset + 8]);
+        if (big > BigInt(Number.MAX_SAFE_INTEGER))
+            throw new Error("uint too large");
+        value = Number(big);
+        size = 9;
     }
     else {
         throw new Error("unsupported uint size");
