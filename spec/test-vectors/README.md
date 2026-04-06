@@ -8,6 +8,8 @@ Os vetores aqui sao iniciais e validam:
 
 `expected_id` deve ser calculado a partir de
 `testimony_without_id` usando SHA3-256.
+Quando presente, `testimony_without_id_cbor_hex` deve corresponder
+ao CBOR canonical do objeto acima.
 
 Formato:
 
