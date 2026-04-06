@@ -12,7 +12,8 @@ use ed25519_dalek::SigningKey;
 use sha3::{Digest, Sha3_256};
 
 use crate::{
-    build_hello, build_request, encode_uint, fragment_cte, reassemble_fragments, Cte, CteFragment,
+    build_hello, build_request, compute_snapshot_id, encode_uint, fragment_cte,
+    reassemble_fragments, validate_epoch_snapshot_cbor, Cte, CteFragment,
 };
 
 pub struct Commoner {
@@ -25,9 +26,11 @@ pub struct Commoner {
     clock: u64,
     known_ids: HashSet<[u8; 32]>,
     known_nullifiers: HashSet<[u8; 32]>,
+    known_snapshot_ids: HashSet<[u8; 32]>,
     last_ids: HashMap<[u8; 32], [u8; 32]>,
     keybook: HashMap<[u8; 32], [u8; 32]>,
     store: Vec<Vec<u8>>,
+    snapshot_store: Vec<Vec<u8>>,
 }
 
 impl Commoner {
@@ -47,9 +50,11 @@ impl Commoner {
             clock: 0,
             known_ids: HashSet::new(),
             known_nullifiers: HashSet::new(),
+            known_snapshot_ids: HashSet::new(),
             last_ids: HashMap::new(),
             keybook,
             store: Vec::new(),
+            snapshot_store: Vec::new(),
         }
     }
 
@@ -115,6 +120,30 @@ impl Commoner {
 
     pub fn apply_response(&mut self, payload: &[u8]) -> Result<(), CommonerError> {
         sync::apply_response(self, payload)
+    }
+
+    pub fn build_snapshot_request(&self, since: &[u8], limit: u64) -> Vec<u8> {
+        build_request("snapshots", since, limit)
+    }
+
+    pub fn apply_snapshot_response(&mut self, payload: &[u8]) -> Result<(), CommonerError> {
+        sync::apply_snapshot_response(self, payload)
+    }
+
+    pub fn ingest_snapshot(&mut self, snapshot_cbor: &[u8]) -> Result<(), CommonerError> {
+        validate_epoch_snapshot_cbor(snapshot_cbor)
+            .map_err(|e| CommonerError::format(&format!("snapshot invalid: {:?}", e)))?;
+        let id = compute_snapshot_id(snapshot_cbor);
+        if self.known_snapshot_ids.contains(&id) {
+            return Ok(());
+        }
+        self.known_snapshot_ids.insert(id);
+        self.snapshot_store.push(snapshot_cbor.to_vec());
+        Ok(())
+    }
+
+    pub fn snapshot_count(&self) -> usize {
+        self.snapshot_store.len()
     }
 
     pub fn encode_cte(&self, payload: &[u8]) -> Vec<u8> {

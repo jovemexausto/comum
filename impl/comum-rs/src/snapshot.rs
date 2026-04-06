@@ -1,5 +1,6 @@
 use crate::decoder::{CborValue, DecodeError, Decoder};
 use crate::{encode_array, encode_bstr, encode_map, encode_tstr, encode_uint};
+use sha3::{Digest, Sha3_256};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EpochSnapshot {
@@ -124,6 +125,15 @@ pub fn validate_epoch_snapshot_cbor(data: &[u8]) -> Result<(), DecodeError> {
         return Err(DecodeError::InvalidValue);
     }
     Ok(())
+}
+
+pub fn compute_snapshot_id(data: &[u8]) -> [u8; 32] {
+    let mut hasher = Sha3_256::new();
+    hasher.update(data);
+    let digest = hasher.finalize();
+    let mut out = [0u8; 32];
+    out.copy_from_slice(&digest[..32]);
+    out
 }
 
 fn read_root(value: Option<&CborValue>) -> Result<[u8; 32], DecodeError> {

@@ -1,4 +1,7 @@
-use comum_rs::{decode_epoch_snapshot, encode_epoch_snapshot, validate_epoch_snapshot_cbor, EpochSnapshot};
+use comum_rs::{
+    build_response, decode_epoch_snapshot, encode_epoch_snapshot, validate_epoch_snapshot_cbor,
+    Commoner, EpochSnapshot,
+};
 
 fn root(byte: u8) -> [u8; 32] {
     [byte; 32]
@@ -40,4 +43,25 @@ fn snapshot_rejects_bad_period() {
 
     let cbor = encode_epoch_snapshot(&snapshot);
     assert!(validate_epoch_snapshot_cbor(&cbor).is_err());
+}
+
+#[test]
+fn snapshot_response_ingest() {
+    let snapshot = EpochSnapshot {
+        epoch: 3,
+        period_start: 10,
+        period_end: 20,
+        balances_root: root(0x10),
+        reputation_root: root(0x11),
+        nullifiers_root: root(0x12),
+        capsules_root: root(0x13),
+        prev_snapshot: root(0x14),
+        signatures: vec![vec![0xCC; 64]],
+    };
+    let cbor = encode_epoch_snapshot(&snapshot);
+    let response = build_response(&[cbor]);
+
+    let mut node = Commoner::new([0x11u8; 32], 1);
+    node.apply_snapshot_response(&response).expect("apply snapshot response");
+    assert_eq!(node.snapshot_count(), 1);
 }

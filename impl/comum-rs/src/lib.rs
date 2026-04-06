@@ -44,7 +44,10 @@ mod verbs;
 pub use verbs::*;
 
 mod snapshot;
-pub use snapshot::{decode_epoch_snapshot, encode_epoch_snapshot, validate_epoch_snapshot_cbor, EpochSnapshot};
+pub use snapshot::{
+    compute_snapshot_id, decode_epoch_snapshot, encode_epoch_snapshot,
+    validate_epoch_snapshot_cbor, EpochSnapshot,
+};
 
 mod commoner;
 pub use commoner::{Commoner, CommonerError, CommonerErrorKind, ContextInput, ProofInput, Testimony};

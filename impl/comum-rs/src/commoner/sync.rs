@@ -26,3 +26,30 @@ pub(crate) fn apply_response(commoner: &mut Commoner, payload: &[u8]) -> Result<
     }
     Ok(())
 }
+
+pub(crate) fn apply_snapshot_response(
+    commoner: &mut Commoner,
+    payload: &[u8],
+) -> Result<(), CommonerError> {
+    let mut dec = Decoder::new(payload);
+    let value = dec
+        .decode()
+        .map_err(|e| CommonerError::format(&format!("decode error: {:?}", e)))?;
+    let map = match value {
+        CborValue::MapText(m) => m,
+        _ => return Err(CommonerError::format("invalid response payload")),
+    };
+    let items = match map.get("items") {
+        Some(CborValue::Array(items)) => items,
+        _ => return Err(CommonerError::format("missing items")),
+    };
+    for item in items {
+        match item {
+            CborValue::Bytes(b) => {
+                commoner.ingest_snapshot(b)?;
+            }
+            _ => return Err(CommonerError::format("invalid item type")),
+        }
+    }
+    Ok(())
+}
