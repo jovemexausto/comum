@@ -48,9 +48,9 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 
 ## Epic 4 — Prova de Contexto
 - [x] Proximidade (NFC/BLE)
-- [~] Beacon comunitario
-- [ ] Ancora de lugar
-- [ ] Vouch geografico
+- [x] Beacon comunitario
+- [x] Ancora de lugar
+- [~] Vouch geografico
 
 ## Epic 5 — Genesis e Governanca
 - [ ] Testimony de Genesis (minimo 3)
