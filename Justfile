@@ -38,5 +38,8 @@ capsula-agora-build:
 sim:
   cargo run --manifest-path impl/comum-rs/Cargo.toml --bin sim
 
+agora-sim:
+  cargo run -p agora-sim
+
 list:
   @just --list

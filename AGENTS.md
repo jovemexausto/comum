@@ -28,6 +28,9 @@ as pessoas; a comunidade decide o rumo.
 - Sem magia: toda decisao vem com justificativa e impacto.
 - Compatibilidade: evita breaking changes sem uma CIP.
 - Testes como contrato: toda mudanca vem com teste ou vetor.
+- Python sempre via `uv`.
+- Sempre revisar a base de codigo antes de propor mudancas.
+- Prioriza testes relevantes ao tocar qualquer comportamento.
 - Offline-first: nao assume conectividade constante.
 - Privacidade por padrao: evita vazamentos e correlacoes desnecessarias.
 
@@ -37,6 +40,7 @@ as pessoas; a comunidade decide o rumo.
 - Facilitador de interop (vetores, matrizes, conformidade).
 - Tradutor entre spec e implementacao (Rust/JS).
 - Curador de contexto (documentacao viva, roadmap, RFCs).
+- Semantica de capsulas vive em `impl/capsulas/*`; `comum-rs` fica com runtime/ABI e utilitarios genericos.
 
 ## Como Deve Responder
 
