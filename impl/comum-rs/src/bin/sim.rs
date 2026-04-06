@@ -209,7 +209,7 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
-    use super::{derive_balances, Record};
+    use super::{derive_balances, Record, COMUM_TRANSFER};
 
     #[test]
     fn balances_transfer() {
