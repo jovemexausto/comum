@@ -130,7 +130,7 @@ def main(paths: list[str], force_no_colons: bool) -> None:
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print(
-            "Usage: python tools/format_tables.py [--keep-colons] <path-or-md-file> [more...]"
+            "Usage: uv run tools/format_tables.py [--keep-colons] <path-or-md-file> [more...]"
         )
         raise SystemExit(2)
     args = sys.argv[1:]
@@ -140,7 +140,7 @@ if __name__ == "__main__":
         args = [arg for arg in args if arg != "--keep-colons"]
     if not args:
         print(
-            "Usage: python tools/format_tables.py [--keep-colons] <path-or-md-file> [more...]"
+            "Usage: uv run tools/format_tables.py [--keep-colons] <path-or-md-file> [more...]"
         )
         raise SystemExit(2)
     main(args, force_no_colons)
