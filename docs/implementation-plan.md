@@ -31,8 +31,14 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Runtime WASM MVP (sandbox + syscalls)
 - [x] Capsula Agora (propose/vote) compilada para .wasm
 - [x] Teste de invocacao local
-- [~] Runtime WASM completo (limites de memoria/tempo, determinismo, fuel)
+- [x] Runtime WASM completo (limites de memoria/tempo, determinismo, fuel)
+- [x] Atualizar CIP-0001 (limites, ABI, ordenacao canonical, fragmentacao)
 - [ ] ABI formal de syscalls (tipos e convencoes)
+- [ ] Constantes normativas (fuel, memoria, timeout)
+- [ ] Limites de reassembly (fragmentos e timeout)
+- [ ] Ordenacao canonical de chaves textuais (regra explicita)
+- [ ] Sync payloads: regra de ordenacao canonical
+- [ ] Versao e dependencias do runtime (wasmtime)
 - [ ] Capsulas em Rust (wasm32-unknown-unknown, no_std)
 
 ## Epic 4 — Prova de Contexto

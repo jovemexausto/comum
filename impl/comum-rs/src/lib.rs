@@ -17,7 +17,10 @@ mod did;
 pub use did::{build_key_rotate_payload, derive_did, validate_key_rotate_payload};
 
 mod wasm_runtime;
-pub use wasm_runtime::run_capsule;
+pub use wasm_runtime::{run_capsule, run_capsule_with_limits};
+
+mod abi;
+pub use abi::*;
 
 #[derive(Debug, Deserialize)]
 pub struct Proof {
