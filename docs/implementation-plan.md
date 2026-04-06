@@ -5,7 +5,7 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 ## Roadmap Atual (v0.2)
 
 - [x] Commoner facade em comum-rs (API de no)
-- [ ] Wrapper JS/SDKs (mobile/desktop)
+- [~] Wrapper JS/SDKs (mobile/desktop)
 - [x] Perfis de Transporte (NFC/BLE/QR/RNS)
-- [~] Semantica da Capsula Agora (CIP-0003)
+- [x] Semantica da Capsula Agora (CIP-0003)
 - [ ] Release notes e tag remota
