@@ -1,6 +1,6 @@
 use comum_rs::{
     build_response, decode_epoch_snapshot, encode_epoch_snapshot, validate_epoch_snapshot_cbor,
-    Commoner, EpochSnapshot,
+    Commoner, ContextInput, EpochSnapshot, ProofInput, COMUM_TRANSFER,
 };
 
 fn root(byte: u8) -> [u8; 32] {
@@ -64,4 +64,50 @@ fn snapshot_response_ingest() {
     let mut node = Commoner::new([0x11u8; 32], 1);
     node.apply_snapshot_response(&response).expect("apply snapshot response");
     assert_eq!(node.snapshot_count(), 1);
+}
+
+#[test]
+fn prune_before_removes_all() {
+    let mut node = Commoner::new([0x11u8; 32], 1);
+    let ctx = ContextInput {
+        r#type: "none".to_string(),
+        payload_cbor: vec![0xa0],
+        proof: ProofInput::default(),
+    };
+    node.emit(COMUM_TRANSFER, &[], ctx.clone()).expect("emit");
+    node.emit(COMUM_TRANSFER, &[], ctx).expect("emit");
+    assert_eq!(node.testimony_count(), 2);
+
+    let removed = node.prune_before(u64::MAX).expect("prune");
+    assert_eq!(removed, 2);
+    assert_eq!(node.testimony_count(), 0);
+}
+
+#[test]
+fn prune_to_snapshot_uses_period_start() {
+    let mut node = Commoner::new([0x22u8; 32], 1);
+    let ctx = ContextInput {
+        r#type: "none".to_string(),
+        payload_cbor: vec![0xa0],
+        proof: ProofInput::default(),
+    };
+    node.emit(COMUM_TRANSFER, &[], ctx.clone()).expect("emit");
+    node.emit(COMUM_TRANSFER, &[], ctx).expect("emit");
+    assert_eq!(node.testimony_count(), 2);
+
+    let snapshot = EpochSnapshot {
+        epoch: 9,
+        period_start: u64::MAX,
+        period_end: u64::MAX,
+        balances_root: root(0x01),
+        reputation_root: root(0x02),
+        nullifiers_root: root(0x03),
+        capsules_root: root(0x04),
+        prev_snapshot: root(0x05),
+        signatures: vec![vec![0xAA; 64]],
+    };
+    let cbor = encode_epoch_snapshot(&snapshot);
+    let removed = node.prune_to_snapshot(&cbor).expect("prune snapshot");
+    assert_eq!(removed, 2);
+    assert_eq!(node.testimony_count(), 0);
 }

@@ -13,5 +13,5 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 ## Proximo Roadmap (v0.3)
 
 - [x] Capsulas Feira e Mutirao (CIP-0003)
-- [~] Snapshot/Pruning
+- [x] Snapshot/Pruning
 - [ ] SDKs mobile estaveis

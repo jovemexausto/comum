@@ -12,8 +12,8 @@ use ed25519_dalek::SigningKey;
 use sha3::{Digest, Sha3_256};
 
 use crate::{
-    build_hello, build_request, compute_snapshot_id, encode_uint, fragment_cte,
-    reassemble_fragments, validate_epoch_snapshot_cbor, Cte, CteFragment,
+    build_hello, build_request, compute_snapshot_id, decode_epoch_snapshot, encode_uint,
+    fragment_cte, reassemble_fragments, validate_epoch_snapshot_cbor, Cte, CteFragment,
 };
 
 pub struct Commoner {
@@ -144,6 +144,34 @@ impl Commoner {
 
     pub fn snapshot_count(&self) -> usize {
         self.snapshot_store.len()
+    }
+
+    pub fn testimony_count(&self) -> usize {
+        self.store.len()
+    }
+
+    pub fn prune_before(&mut self, cutoff_ms: u64) -> Result<usize, CommonerError> {
+        let mut removed = 0usize;
+        let mut kept = Vec::with_capacity(self.store.len());
+        for item in self.store.drain(..) {
+            let keep = match codec::decode_testimony(&item) {
+                Ok(decoded) => decoded.timestamp >= cutoff_ms,
+                Err(_) => true,
+            };
+            if keep {
+                kept.push(item);
+            } else {
+                removed += 1;
+            }
+        }
+        self.store = kept;
+        Ok(removed)
+    }
+
+    pub fn prune_to_snapshot(&mut self, snapshot_cbor: &[u8]) -> Result<usize, CommonerError> {
+        let snapshot = decode_epoch_snapshot(snapshot_cbor)
+            .map_err(|e| CommonerError::format(&format!("snapshot decode: {:?}", e)))?;
+        self.prune_before(snapshot.period_start)
     }
 
     pub fn encode_cte(&self, payload: &[u8]) -> Vec<u8> {
