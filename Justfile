@@ -32,7 +32,12 @@ comum-js-tests:
 capsula-agora-build:
   rustup target add wasm32-unknown-unknown
   (cd impl/capsulas/agora && RUSTFLAGS="-C link-arg=--export=invoke -C link-arg=--export-memory" cargo build --release --target wasm32-unknown-unknown)
-  cp impl/capsulas/agora/target/wasm32-unknown-unknown/release/capsula_agora.wasm impl/capsulas/agora/agora.wasm
+  cp target/wasm32-unknown-unknown/release/capsula_agora.wasm impl/capsulas/agora/agora.wasm
+
+capsula-governanca-build:
+  rustup target add wasm32-unknown-unknown
+  (cd impl/capsulas/governanca && RUSTFLAGS="-C link-arg=--export=invoke -C link-arg=--export-memory" cargo build --release --target wasm32-unknown-unknown)
+  cp target/wasm32-unknown-unknown/release/capsula_governanca.wasm impl/capsulas/governanca/governanca.wasm
 
 sim:
   cargo run --manifest-path impl/comum-rs/Cargo.toml --bin sim

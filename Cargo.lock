@@ -130,6 +130,10 @@ name = "capsula-agora"
 version = "0.1.0"
 
 [[package]]
+name = "capsula_governanca"
+version = "0.1.0"
+
+[[package]]
 name = "cc"
 version = "1.2.59"
 source = "registry+https://github.com/rust-lang/crates.io-index"
