@@ -41,16 +41,16 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Versao e dependencias do runtime (wasmtime)
 - [x] Capsulas em Rust (wasm32-unknown-unknown, no_std)
 
+## Epic 3B — Simulacoes Locais
+- [x] Simulador basico de nos (A, B, C)
+- [x] Cenario: encounter + transfer + sync
+- [x] Logs e asserts de estado
+
 ## Epic 4 — Prova de Contexto
 - [~] Proximidade (NFC/BLE)
 - [ ] Beacon comunitario
 - [ ] Ancora de lugar
 - [ ] Vouch geografico
-
-## Epic 0.5 — Simulacoes Locais
-- [x] Simulador basico de nos (A, B, C)
-- [x] Cenario: encounter + transfer + sync
-- [x] Logs e asserts de estado
 
 ## Epic 5 — Genesis e Governanca
 - [ ] Testimony de Genesis (minimo 3)

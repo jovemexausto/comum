@@ -142,6 +142,8 @@ dependencies = [
  "hex",
  "napi",
  "napi-derive",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
