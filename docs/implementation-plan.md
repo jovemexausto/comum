@@ -50,7 +50,7 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Proximidade (NFC/BLE)
 - [x] Beacon comunitario
 - [x] Ancora de lugar
-- [~] Vouch geografico
+- [~] Vouch comunitario
 
 ## Epic 5 — Genesis e Governanca
 - [ ] Testimony de Genesis (minimo 3)
