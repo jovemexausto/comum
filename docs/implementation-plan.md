@@ -47,6 +47,11 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [ ] Ancora de lugar
 - [ ] Vouch geografico
 
+## Epic 0.5 — Simulacoes Locais
+- [x] Simulador basico de nos (A, B, C)
+- [x] Cenario: encounter + transfer + sync
+- [x] Logs e asserts de estado
+
 ## Epic 5 — Genesis e Governanca
 - [ ] Testimony de Genesis (minimo 3)
 - [ ] FROST (threshold signature)

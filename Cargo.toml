@@ -1,0 +1,9 @@
+[workspace]
+members = [
+  "impl/comum-rs",
+  "impl/comum-rs/napi",
+  "impl/capsulas/agora"
+]
+
+[workspace.package]
+edition = "2021"

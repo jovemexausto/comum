@@ -15,6 +15,10 @@ path = "src/bin/comum-cbor.rs"
 name = "wat2wasm"
 path = "src/bin/wat2wasm.rs"
 
+[[bin]]
+name = "sim"
+path = "src/bin/sim.rs"
+
 [dependencies]
 bs58 = "0.5"
 ed25519-dalek = "2.1"
