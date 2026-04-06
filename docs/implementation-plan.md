@@ -23,12 +23,12 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] API did:comum (resolucao local + key_rotate)
 
 ## Epic 2 — comum-js (Wrapper)
-- [~] API encode/verify (JS)
-- [ ] Tests com vetores
-- [ ] Pipeline de build (node + binario comum-cbor)
+- [x] API encode/verify (JS)
+- [x] Tests com vetores
+- [x] Pipeline de build (node + binario comum-cbor)
 
 ## Epic 3 — Capsulas (WASM)
-- [ ] Runtime WASM MVP (sandbox + syscalls)
+- [~] Runtime WASM MVP (sandbox + syscalls)
 - [ ] Capsula Agora (propose/vote) compilada para .wasm
 - [ ] Teste de invocacao local
 

@@ -16,5 +16,15 @@ comum-rs-cli-file FILE:
 interop:
   node tests/conformance/run.js
 
+all:
+  node tests/conformance/run.js
+  cargo test --manifest-path impl/comum-rs/Cargo.toml
+
+comum-js-tests:
+  cargo build --manifest-path impl/comum-rs/Cargo.toml
+  (cd impl/comum-js && npm install)
+  (cd impl/comum-js && npm run build)
+  (cd impl/comum-js && npm test)
+
 list:
   @just --list

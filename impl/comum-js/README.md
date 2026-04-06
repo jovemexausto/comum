@@ -1,4 +1,8 @@
 # comum-js
 
-SDK TypeScript para mobile-first, com bindings nativos ao comum-rs.
-Neste estágio, usa o binario `comum-cbor` para encode e hash.
+SDK TypeScript (ESM) para mobile-first.
+
+Dois modos:
+
+- CLI: usa o binario `comum-cbor` para encode e hash.
+- NAPI (planejado): bindings nativos via `impl/comum-rs/napi`.

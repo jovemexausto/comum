@@ -1,6 +1,16 @@
 {
   "name": "comum-js",
   "version": "0.1.0",
-  "main": "index.js",
-  "license": "CC0-1.0"
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "CC0-1.0",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node dist/tests/vectors.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.5.4"
+  }
 }
