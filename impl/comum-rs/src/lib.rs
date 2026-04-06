@@ -16,6 +16,9 @@ pub use crypto::{sign_ed25519, verify_ed25519};
 mod did;
 pub use did::{build_key_rotate_payload, derive_did, validate_key_rotate_payload};
 
+mod wasm_runtime;
+pub use wasm_runtime::run_capsule;
+
 #[derive(Debug, Deserialize)]
 pub struct Proof {
     pub version: u64,

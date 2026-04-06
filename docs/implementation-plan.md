@@ -28,9 +28,12 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Pipeline de build (node + binario comum-cbor)
 
 ## Epic 3 — Capsulas (WASM)
-- [~] Runtime WASM MVP (sandbox + syscalls)
-- [ ] Capsula Agora (propose/vote) compilada para .wasm
-- [ ] Teste de invocacao local
+- [x] Runtime WASM MVP (sandbox + syscalls)
+- [x] Capsula Agora (propose/vote) compilada para .wasm
+- [x] Teste de invocacao local
+- [~] Runtime WASM completo (limites de memoria/tempo, determinismo, fuel)
+- [ ] ABI formal de syscalls (tipos e convencoes)
+- [ ] Capsulas em Rust (wasm32-unknown-unknown, no_std)
 
 ## Epic 4 — Prova de Contexto
 - [ ] Proximidade (NFC/BLE)

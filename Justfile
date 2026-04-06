@@ -16,15 +16,21 @@ comum-rs-cli-file FILE:
 interop:
   node tests/conformance/run.js
 
-all:
+test:
   node tests/conformance/run.js
   cargo test --manifest-path impl/comum-rs/Cargo.toml
+  (cd impl/comum-js && npm install)
+  (cd impl/comum-js && npm run build)
+  (cd impl/comum-js && npm test)
 
 comum-js-tests:
   cargo build --manifest-path impl/comum-rs/Cargo.toml
   (cd impl/comum-js && npm install)
   (cd impl/comum-js && npm run build)
   (cd impl/comum-js && npm test)
+
+capsula-agora-build:
+  cargo run --manifest-path impl/comum-rs/Cargo.toml --bin wat2wasm -- impl/capsulas/agora/agora.wat impl/capsulas/agora/agora.wasm
 
 list:
   @just --list
