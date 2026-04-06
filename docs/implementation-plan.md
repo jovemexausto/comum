@@ -2,6 +2,8 @@
 
 Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
+Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
+
 ## Epic 0 — Fundacao do Repositorio e Conformidade
 - [x] Estrutura de repo (spec/impl/tests/docs)
 - [x] CIP-0001 em spec/cips
@@ -15,7 +17,9 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 ## Epic 1 — comum-rs (Core)
 - [x] Decoder CBOR canonical + validacao estrutural
 - [x] Validacao completa do Testimony (refs, prev_id, suites, context, proof)
-- [~] CTE encode/decode + fragmentacao
+- [x] CTE encode/decode + fragmentacao
+- [x] Sync state machine (HELLO/REQUEST/RESPONSE)
+- [~] Suite CLASSIC_1 (assinatura real)
 - [ ] CTE encode/decode + fragmentacao
 - [ ] Sync state machine (HELLO/REQUEST/RESPONSE)
 - [ ] Suite CLASSIC_1 (assinatura real)
@@ -45,4 +49,4 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 ## Epic 6 — Interop e Release
 - [ ] Vetores adicionais (author omitido + CTE fragmentado)
 - [ ] Matriz interop em docs/interop
-- [ ] Tag de release v0.3
+- [ ] Tag de release v0.1

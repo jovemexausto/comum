@@ -7,6 +7,7 @@ pub enum CborValue {
     Text(String),
     Array(Vec<CborValue>),
     Map(BTreeMap<u64, CborValue>),
+    MapText(BTreeMap<String, CborValue>),
 }
 
 #[derive(Debug)]
@@ -20,13 +21,13 @@ pub enum DecodeError {
     InvalidValue,
 }
 
-struct Decoder<'a> {
+pub(crate) struct Decoder<'a> {
     data: &'a [u8],
     pos: usize,
 }
 
 impl<'a> Decoder<'a> {
-    fn new(data: &'a [u8]) -> Self {
+    pub(crate) fn new(data: &'a [u8]) -> Self {
         Self { data, pos: 0 }
     }
 
@@ -88,7 +89,7 @@ impl<'a> Decoder<'a> {
         Ok(())
     }
 
-    fn decode(&mut self) -> Result<CborValue, DecodeError> {
+    pub(crate) fn decode(&mut self) -> Result<CborValue, DecodeError> {
         let initial = self.read_u8()?;
         let major = initial >> 5;
         let ai = initial & 0x1f;
@@ -124,24 +125,53 @@ impl<'a> Decoder<'a> {
             5 => {
                 let len = self.decode_len(ai)?;
                 Self::check_canonical_len(ai, len)?;
-                let mut map = BTreeMap::new();
-                let mut last_key: Option<u64> = None;
+                let mut map_num = BTreeMap::new();
+                let mut map_text = BTreeMap::new();
+                let mut last_num: Option<u64> = None;
+                let mut last_text: Option<Vec<u8>> = None;
+                let mut text_keys = false;
                 for _ in 0..len {
                     let key_val = self.decode()?;
-                    let key = match key_val {
-                        CborValue::Unsigned(v) => v,
-                        _ => return Err(DecodeError::InvalidMapKey),
-                    };
-                    if let Some(prev) = last_key {
-                        if key <= prev {
-                            return Err(DecodeError::NonCanonical);
-                        }
-                    }
-                    last_key = Some(key);
                     let val = self.decode()?;
-                    map.insert(key, val);
+                    match key_val {
+                        CborValue::Unsigned(v) => {
+                            if text_keys {
+                                return Err(DecodeError::InvalidMapKey);
+                            }
+                            if let Some(prev) = last_num {
+                                if v <= prev {
+                                    return Err(DecodeError::NonCanonical);
+                                }
+                            }
+                            last_num = Some(v);
+                            map_num.insert(v, val);
+                        }
+                        CborValue::Text(s) => {
+                            text_keys = true;
+                            let s_bytes = s.as_bytes().to_vec();
+                            if let Some(prev) = &last_text {
+                                let prev_len = prev.len();
+                                let s_len = s_bytes.len();
+                                let ordered = if s_len != prev_len {
+                                    s_len > prev_len
+                                } else {
+                                    s_bytes > *prev
+                                };
+                                if !ordered {
+                                    return Err(DecodeError::NonCanonical);
+                                }
+                            }
+                            last_text = Some(s_bytes);
+                            map_text.insert(s, val);
+                        }
+                        _ => return Err(DecodeError::InvalidMapKey),
+                    }
                 }
-                Ok(CborValue::Map(map))
+                if text_keys {
+                    Ok(CborValue::MapText(map_text))
+                } else {
+                    Ok(CborValue::Map(map_num))
+                }
             }
             _ => Err(DecodeError::InvalidType),
         }

@@ -4,6 +4,12 @@ use sha3::{Digest, Sha3_256};
 mod decoder;
 pub use decoder::validate_testimony_cbor;
 
+mod cte;
+pub use cte::{decode_cte, encode_cte, fragment_cte, reassemble_fragments, Cte, CteFragment};
+
+mod sync;
+pub use sync::{build_hello, build_hello_ack, build_request, build_response, decode_payload_kv};
+
 #[derive(Debug, Deserialize)]
 pub struct Proof {
     pub version: u64,
@@ -47,7 +53,7 @@ pub struct Vector {
     pub testimony_without_id_cbor_hex: Option<String>,
 }
 
-fn encode_uint(n: u64) -> Vec<u8> {
+pub(crate) fn encode_uint(n: u64) -> Vec<u8> {
     if n < 24 {
         return vec![n as u8];
     }
@@ -79,7 +85,7 @@ fn encode_uint(n: u64) -> Vec<u8> {
     ]
 }
 
-fn encode_bstr(data: &[u8]) -> Vec<u8> {
+pub(crate) fn encode_bstr(data: &[u8]) -> Vec<u8> {
     let len = data.len();
     if len < 24 {
         let mut out = vec![0x40 + len as u8];
@@ -99,7 +105,7 @@ fn encode_bstr(data: &[u8]) -> Vec<u8> {
     panic!("bstr too long");
 }
 
-fn encode_tstr(s: &str) -> Vec<u8> {
+pub(crate) fn encode_tstr(s: &str) -> Vec<u8> {
     let data = s.as_bytes();
     let len = data.len();
     if len < 24 {
@@ -120,7 +126,7 @@ fn encode_tstr(s: &str) -> Vec<u8> {
     panic!("tstr too long");
 }
 
-fn encode_array(items: Vec<Vec<u8>>) -> Vec<u8> {
+pub(crate) fn encode_array(items: Vec<Vec<u8>>) -> Vec<u8> {
     let len = items.len();
     let mut out = if len < 24 {
         vec![0x80 + len as u8]
@@ -137,7 +143,7 @@ fn encode_array(items: Vec<Vec<u8>>) -> Vec<u8> {
     out
 }
 
-fn encode_map(pairs: Vec<Vec<u8>>) -> Vec<u8> {
+pub(crate) fn encode_map(pairs: Vec<Vec<u8>>) -> Vec<u8> {
     let len = pairs.len();
     let mut out = if len < 24 {
         vec![0xa0 + len as u8]
@@ -154,7 +160,7 @@ fn encode_map(pairs: Vec<Vec<u8>>) -> Vec<u8> {
     out
 }
 
-fn decode_hex(s: &str) -> Vec<u8> {
+pub(crate) fn decode_hex(s: &str) -> Vec<u8> {
     hex::decode(s).expect("invalid hex")
 }
 
