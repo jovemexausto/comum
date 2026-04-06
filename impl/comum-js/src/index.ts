@@ -1,4 +1,5 @@
 import { spawnSync } from "node:child_process";
+import { createRequire } from "node:module";
 import bs58 from "bs58";
 import { sha3_256 } from "@noble/hashes/sha3";
 import { sha256 } from "@noble/hashes/sha2";
@@ -14,12 +15,81 @@ export type EncodeOptions = {
   bin?: string;
 };
 
+type NativeModule = {
+  encode_testimony?: (json: string) => string;
+  Commoner?: new (sk: Buffer, suite: number) => NativeCommoner;
+};
+
+type NativeCommoner = {
+  did(): string;
+  clock(): number;
+  register_pk(pk: Buffer): Buffer;
+  add_supported_suite(suite: number): void;
+  validate(testimony_cbor: Buffer): void;
+  ingest(testimony_cbor: Buffer): void;
+  emit(verb: string, payload_cbor: Buffer, context: NativeContextInput): NativeEmitResult;
+  build_hello(profile: string): Buffer;
+  build_request(clock: number, limit: number): Buffer;
+  apply_response(payload: Buffer): void;
+  encode_cte(payload: Buffer): Buffer;
+  fragment_cte(cte: Buffer, mtu: number, frag_id: Buffer): NativeCteFragment[];
+  reassemble(fragments: NativeCteFragment[]): Buffer;
+};
+
+type NativeContextInput = {
+  type: string;
+  payload_cbor: Buffer;
+  proof: NativeProofInput;
+};
+
+type NativeProofInput = {
+  version: number;
+  signatures: Buffer[];
+  zk_proofs: Buffer[];
+  nullifiers: Buffer[];
+};
+
+type NativeEmitResult = {
+  id_hex: string;
+  cbor: Buffer;
+};
+
+type NativeCteFragment = {
+  frag_id: Buffer;
+  frag_index: number;
+  frag_total: number;
+  frag_payload: Buffer;
+};
+
+let nativeCache: NativeModule | null | undefined;
+
+export function loadNative(): NativeModule | null {
+  if (nativeCache !== undefined) return nativeCache;
+  const require = createRequire(import.meta.url);
+  try {
+    if (process.env.COMUM_NAPI_PATH) {
+      nativeCache = require(process.env.COMUM_NAPI_PATH) as NativeModule;
+      return nativeCache;
+    }
+    nativeCache = require("comum-napi") as NativeModule;
+    return nativeCache;
+  } catch {
+    nativeCache = null;
+    return null;
+  }
+}
+
 export function encodeTestimony(
   testimonyWithoutId: unknown,
   options: EncodeOptions = {}
 ): EncodeResult {
-  const bin = options.bin || process.env.COMUM_RS_BIN || "comum-cbor";
   const input = JSON.stringify(testimonyWithoutId);
+  const native = loadNative();
+  if (native?.encode_testimony) {
+    const out = native.encode_testimony(input);
+    return JSON.parse(out) as EncodeResult;
+  }
+  const bin = options.bin || process.env.COMUM_RS_BIN || "comum-cbor";
   const res = spawnSync(bin, [], { input, encoding: "utf8" });
   if (res.error) throw res.error;
   if (res.status !== 0) throw new Error(res.stderr || "comum-cbor failed");
@@ -33,6 +103,119 @@ export function verifyTestimony(
 ): boolean {
   const out = encodeTestimony(testimonyWithoutId, options);
   return out.id === expectedId;
+}
+
+export type CommonerContextInput = {
+  type: string;
+  payload_cbor: Uint8Array;
+  proof: CommonerProofInput;
+};
+
+export type CommonerProofInput = {
+  version: number;
+  signatures: Uint8Array[];
+  zk_proofs: Uint8Array[];
+  nullifiers: Uint8Array[];
+};
+
+export type CommonerEmitResult = {
+  id_hex: string;
+  cbor: Uint8Array;
+};
+
+export type CteFragment = {
+  frag_id: Uint8Array;
+  frag_index: number;
+  frag_total: number;
+  frag_payload: Uint8Array;
+};
+
+export class Commoner {
+  private native: NativeCommoner;
+
+  constructor(sk: Uint8Array, suite: number) {
+    const native = loadNative();
+    if (!native?.Commoner) {
+      throw new Error("comum-napi not available; set COMUM_NAPI_PATH or install comum-napi");
+    }
+    this.native = new native.Commoner(Buffer.from(sk), suite);
+  }
+
+  did(): string {
+    return this.native.did();
+  }
+
+  clock(): number {
+    return this.native.clock();
+  }
+
+  registerPk(pk: Uint8Array): Uint8Array {
+    return this.native.register_pk(Buffer.from(pk));
+  }
+
+  addSupportedSuite(suite: number): void {
+    this.native.add_supported_suite(suite);
+  }
+
+  validate(testimonyCbor: Uint8Array): void {
+    this.native.validate(Buffer.from(testimonyCbor));
+  }
+
+  ingest(testimonyCbor: Uint8Array): void {
+    this.native.ingest(Buffer.from(testimonyCbor));
+  }
+
+  emit(verb: string, payloadCbor: Uint8Array, context: CommonerContextInput): CommonerEmitResult {
+    const out = this.native.emit(verb, Buffer.from(payloadCbor), {
+      type: context.type,
+      payload_cbor: Buffer.from(context.payload_cbor),
+      proof: {
+        version: context.proof.version,
+        signatures: context.proof.signatures.map((s) => Buffer.from(s)),
+        zk_proofs: context.proof.zk_proofs.map((s) => Buffer.from(s)),
+        nullifiers: context.proof.nullifiers.map((s) => Buffer.from(s)),
+      },
+    });
+    return { id_hex: out.id_hex, cbor: new Uint8Array(out.cbor) };
+  }
+
+  buildHello(profile: string): Uint8Array {
+    return new Uint8Array(this.native.build_hello(profile));
+  }
+
+  buildRequest(clock: number, limit: number): Uint8Array {
+    return new Uint8Array(this.native.build_request(clock, limit));
+  }
+
+  applyResponse(payload: Uint8Array): void {
+    this.native.apply_response(Buffer.from(payload));
+  }
+
+  encodeCte(payload: Uint8Array): Uint8Array {
+    return new Uint8Array(this.native.encode_cte(Buffer.from(payload)));
+  }
+
+  fragmentCte(cte: Uint8Array, mtu: number, fragId: Uint8Array): CteFragment[] {
+    return this.native.fragment_cte(Buffer.from(cte), mtu, Buffer.from(fragId)).map((f) => ({
+      frag_id: new Uint8Array(f.frag_id),
+      frag_index: f.frag_index,
+      frag_total: f.frag_total,
+      frag_payload: new Uint8Array(f.frag_payload),
+    }));
+  }
+
+  reassemble(fragments: CteFragment[]): Uint8Array {
+    return new Uint8Array(
+      this.native.reassemble(
+        fragments.map((f) => ({
+          frag_id: Buffer.from(f.frag_id),
+          frag_index: f.frag_index,
+          frag_total: f.frag_total,
+          frag_payload: Buffer.from(f.frag_payload),
+        }))
+      )
+    );
+  }
 }
 
 export function deriveDid(pk: Uint8Array): string {

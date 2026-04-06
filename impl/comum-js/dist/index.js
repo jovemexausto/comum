@@ -1,12 +1,36 @@
 import { spawnSync } from "node:child_process";
+import { createRequire } from "node:module";
 import bs58 from "bs58";
 import { sha3_256 } from "@noble/hashes/sha3";
 import { sha256 } from "@noble/hashes/sha2";
 import { hkdf } from "@noble/hashes/hkdf";
 import { hmac } from "@noble/hashes/hmac";
+let nativeCache;
+export function loadNative() {
+    if (nativeCache !== undefined)
+        return nativeCache;
+    const require = createRequire(import.meta.url);
+    try {
+        if (process.env.COMUM_NAPI_PATH) {
+            nativeCache = require(process.env.COMUM_NAPI_PATH);
+            return nativeCache;
+        }
+        nativeCache = require("comum-napi");
+        return nativeCache;
+    }
+    catch {
+        nativeCache = null;
+        return null;
+    }
+}
 export function encodeTestimony(testimonyWithoutId, options = {}) {
-    const bin = options.bin || process.env.COMUM_RS_BIN || "comum-cbor";
     const input = JSON.stringify(testimonyWithoutId);
+    const native = loadNative();
+    if (native?.encode_testimony) {
+        const out = native.encode_testimony(input);
+        return JSON.parse(out);
+    }
+    const bin = options.bin || process.env.COMUM_RS_BIN || "comum-cbor";
     const res = spawnSync(bin, [], { input, encoding: "utf8" });
     if (res.error)
         throw res.error;
@@ -17,6 +41,74 @@ export function encodeTestimony(testimonyWithoutId, options = {}) {
 export function verifyTestimony(testimonyWithoutId, expectedId, options = {}) {
     const out = encodeTestimony(testimonyWithoutId, options);
     return out.id === expectedId;
+}
+export class Commoner {
+    constructor(sk, suite) {
+        const native = loadNative();
+        if (!native?.Commoner) {
+            throw new Error("comum-napi not available; set COMUM_NAPI_PATH or install comum-napi");
+        }
+        this.native = new native.Commoner(Buffer.from(sk), suite);
+    }
+    did() {
+        return this.native.did();
+    }
+    clock() {
+        return this.native.clock();
+    }
+    registerPk(pk) {
+        return this.native.register_pk(Buffer.from(pk));
+    }
+    addSupportedSuite(suite) {
+        this.native.add_supported_suite(suite);
+    }
+    validate(testimonyCbor) {
+        this.native.validate(Buffer.from(testimonyCbor));
+    }
+    ingest(testimonyCbor) {
+        this.native.ingest(Buffer.from(testimonyCbor));
+    }
+    emit(verb, payloadCbor, context) {
+        const out = this.native.emit(verb, Buffer.from(payloadCbor), {
+            type: context.type,
+            payload_cbor: Buffer.from(context.payload_cbor),
+            proof: {
+                version: context.proof.version,
+                signatures: context.proof.signatures.map((s) => Buffer.from(s)),
+                zk_proofs: context.proof.zk_proofs.map((s) => Buffer.from(s)),
+                nullifiers: context.proof.nullifiers.map((s) => Buffer.from(s)),
+            },
+        });
+        return { id_hex: out.id_hex, cbor: new Uint8Array(out.cbor) };
+    }
+    buildHello(profile) {
+        return new Uint8Array(this.native.build_hello(profile));
+    }
+    buildRequest(clock, limit) {
+        return new Uint8Array(this.native.build_request(clock, limit));
+    }
+    applyResponse(payload) {
+        this.native.apply_response(Buffer.from(payload));
+    }
+    encodeCte(payload) {
+        return new Uint8Array(this.native.encode_cte(Buffer.from(payload)));
+    }
+    fragmentCte(cte, mtu, fragId) {
+        return this.native.fragment_cte(Buffer.from(cte), mtu, Buffer.from(fragId)).map((f) => ({
+            frag_id: new Uint8Array(f.frag_id),
+            frag_index: f.frag_index,
+            frag_total: f.frag_total,
+            frag_payload: new Uint8Array(f.frag_payload),
+        }));
+    }
+    reassemble(fragments) {
+        return new Uint8Array(this.native.reassemble(fragments.map((f) => ({
+            frag_id: Buffer.from(f.frag_id),
+            frag_index: f.frag_index,
+            frag_total: f.frag_total,
+            frag_payload: Buffer.from(f.frag_payload),
+        }))));
+    }
 }
 export function deriveDid(pk) {
     if (pk.length !== 32)
