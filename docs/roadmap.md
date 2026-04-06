@@ -4,12 +4,12 @@
 
 - Commoner facade (API de no)
 - Perfis de transporte NFC/BLE/QR/RNS
-- Semantica formal da Capsula Agora (RFC-0003)
+- Semantica formal da Capsula Agora (CIP-0003)
 - SDKs iniciais (JS/mobile)
 
 ## v0.3
 
-- Capsulas Feira e Mutirao (RFC-0003)
+- Capsulas Feira e Mutirao (CIP-0003)
 - Snapshot/Pruning
 - SDKs mobile estaveis
 

@@ -90,4 +90,4 @@ Inicialmente em `comum-rs`, com wrapper opcional em `comum-js`.
 
 ## Status
 
-- Proposto
+- Superseded by CIP-0002
