@@ -1,9 +1,16 @@
 # Capsula Agora
 
-Capsula de referencia para governanca (propose/vote).
-Este modulo e um artefato WASM minimo para validar o pipeline.
+Placeholder minimo em Rust, compila para WASM (wasm32-unknown-unknown, no_std).
+Sem semantica de negocio definida nesta etapa.
 
-Artefatos:
+Build manual:
 
-- agora.wat (fonte)
-- agora.wasm (binario)
+```
+rustup target add wasm32-unknown-unknown
+RUSTFLAGS="-C link-arg=--export=invoke -C link-arg=--export-memory" \
+  cargo build --release --target wasm32-unknown-unknown
+```
+
+Artefato:
+
+`target/wasm32-unknown-unknown/release/capsula_agora.wasm`

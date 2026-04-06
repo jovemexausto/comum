@@ -33,16 +33,16 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Teste de invocacao local
 - [x] Runtime WASM completo (limites de memoria/tempo, determinismo, fuel)
 - [x] Atualizar CIP-0001 (limites, ABI, ordenacao canonical, fragmentacao)
-- [ ] ABI formal de syscalls (tipos e convencoes)
-- [ ] Constantes normativas (fuel, memoria, timeout)
-- [ ] Limites de reassembly (fragmentos e timeout)
-- [ ] Ordenacao canonical de chaves textuais (regra explicita)
-- [ ] Sync payloads: regra de ordenacao canonical
-- [ ] Versao e dependencias do runtime (wasmtime)
-- [ ] Capsulas em Rust (wasm32-unknown-unknown, no_std)
+- [x] ABI formal de syscalls (tipos e convencoes)
+- [x] Constantes normativas (fuel, memoria, timeout)
+- [x] Limites de reassembly (fragmentos e timeout)
+- [x] Ordenacao canonical de chaves textuais (regra explicita)
+- [x] Sync payloads: regra de ordenacao canonical
+- [x] Versao e dependencias do runtime (wasmtime)
+- [x] Capsulas em Rust (wasm32-unknown-unknown, no_std)
 
 ## Epic 4 — Prova de Contexto
-- [ ] Proximidade (NFC/BLE)
+- [~] Proximidade (NFC/BLE)
 - [ ] Beacon comunitario
 - [ ] Ancora de lugar
 - [ ] Vouch geografico

@@ -1,12 +1,17 @@
 use wasmtime::{Config, Engine, Linker, Module, Store};
 
+use crate::abi::{WASM_FUEL_DEFAULT, WASM_MAX_MEMORY_PAGES};
+
 pub fn run_capsule(wasm_bytes: &[u8]) -> Result<i32, String> {
     let mut config = Config::new();
     config.consume_fuel(true);
     let engine = Engine::new(&config).map_err(|e| e.to_string())?;
     let module = Module::from_binary(&engine, wasm_bytes).map_err(|e| e.to_string())?;
     let mut store = Store::new(&engine, ());
-    store.set_fuel(10_000).map_err(|e| e.to_string())?;
+    let _ = WASM_MAX_MEMORY_PAGES;
+    store
+        .set_fuel(WASM_FUEL_DEFAULT)
+        .map_err(|e| e.to_string())?;
 
     let mut linker = Linker::new(&engine);
 
@@ -35,6 +40,7 @@ pub fn run_capsule_with_limits(wasm_bytes: &[u8], fuel: u64) -> Result<i32, Stri
     let engine = Engine::new(&config).map_err(|e| e.to_string())?;
     let module = Module::from_binary(&engine, wasm_bytes).map_err(|e| e.to_string())?;
     let mut store = Store::new(&engine, ());
+    let _ = WASM_MAX_MEMORY_PAGES;
     store.set_fuel(fuel).map_err(|e| e.to_string())?;
 
     let mut linker = Linker::new(&engine);

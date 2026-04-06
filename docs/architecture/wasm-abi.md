@@ -45,3 +45,9 @@ Retorna ponteiro para id do Testemunho.
 - ERR_INVALID_PTR = -1
 - ERR_INVALID_LEN = -2
 - ERR_NOT_SUPPORTED = -3
+
+## Limites normativos
+
+- WASM_MAX_MEMORY_PAGES = 16
+- WASM_FUEL_DEFAULT = 10_000
+- WASM_EXECUTION_TIMEOUT_MS = 200

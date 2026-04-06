@@ -120,3 +120,12 @@ fn did_derivation_and_key_rotate_payload() {
     let payload = build_key_rotate_payload(&community, &old_pk, &new_pk, 123456);
     validate_key_rotate_payload(&payload).expect("valid key_rotate payload");
 }
+
+#[test]
+fn abi_constants_present() {
+    use comum_rs::{WASM_EXECUTION_TIMEOUT_MS, WASM_FUEL_DEFAULT, WASM_MAX_MEMORY_PAGES};
+
+    assert!(WASM_FUEL_DEFAULT > 0);
+    assert!(WASM_MAX_MEMORY_PAGES > 0);
+    assert!(WASM_EXECUTION_TIMEOUT_MS > 0);
+}

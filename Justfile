@@ -30,7 +30,9 @@ comum-js-tests:
   (cd impl/comum-js && npm test)
 
 capsula-agora-build:
-  cargo run --manifest-path impl/comum-rs/Cargo.toml --bin wat2wasm -- impl/capsulas/agora/agora.wat impl/capsulas/agora/agora.wasm
+  rustup target add wasm32-unknown-unknown
+  (cd impl/capsulas/agora && RUSTFLAGS="-C link-arg=--export=invoke -C link-arg=--export-memory" cargo build --release --target wasm32-unknown-unknown)
+  cp impl/capsulas/agora/target/wasm32-unknown-unknown/release/capsula_agora.wasm impl/capsulas/agora/agora.wasm
 
 list:
   @just --list
