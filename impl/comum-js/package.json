@@ -7,7 +7,7 @@
   "license": "CC0-1.0",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node dist/tests/vectors.test.js"
+    "test": "node dist/tests/vectors.test.js && node dist/tests/context.test.js"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

@@ -22,6 +22,12 @@ pub use wasm_runtime::{run_capsule, run_capsule_with_limits};
 mod abi;
 pub use abi::*;
 
+mod context;
+pub use context::{
+    build_beacon_context_payload, build_place_context_payload, build_proximity_context_payload,
+    build_vouch_context_payload, validate_context_payload,
+};
+
 #[derive(Debug, Deserialize)]
 pub struct Proof {
     pub version: u64,

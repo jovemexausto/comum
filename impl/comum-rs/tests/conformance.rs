@@ -129,3 +129,125 @@ fn abi_constants_present() {
     assert!(WASM_MAX_MEMORY_PAGES > 0);
     assert!(WASM_EXECUTION_TIMEOUT_MS > 0);
 }
+
+#[test]
+fn proximity_context_payload_roundtrip() {
+    use comum_rs::{build_proximity_context_payload, validate_context_payload};
+
+    let nonce = [0xAB; 16];
+    let payload = build_proximity_context_payload("nfc", &nonce, 123);
+    validate_context_payload("proximity", &payload).expect("valid proximity payload");
+}
+
+#[test]
+fn context_payloads_roundtrip() {
+    use comum_rs::{
+        build_beacon_context_payload, build_place_context_payload, build_vouch_context_payload,
+        derive_did, validate_context_payload,
+    };
+
+    let beacon_id = [0x11; 32];
+    let token = [0xAA, 0xBB, 0xCC];
+    let beacon_payload = build_beacon_context_payload(&beacon_id, &token, 456);
+    validate_context_payload("beacon", &beacon_payload).expect("valid beacon payload");
+
+    let place_hash = [0x22; 32];
+    let place_payload = build_place_context_payload(&place_hash, 789);
+    validate_context_payload("place", &place_payload).expect("valid place payload");
+
+    let pk = [0x33; 32];
+    let subject = derive_did(&pk);
+    let community = [0x44; 32];
+    let vouch_payload = build_vouch_context_payload(&subject, &community, 987);
+    validate_context_payload("vouch", &vouch_payload).expect("valid vouch payload");
+}
+
+fn encode_uint(n: u64) -> Vec<u8> {
+    if n < 24 {
+        return vec![n as u8];
+    }
+    if n < 256 {
+        return vec![0x18, n as u8];
+    }
+    if n < 65536 {
+        return vec![0x19, ((n >> 8) & 0xff) as u8, (n & 0xff) as u8];
+    }
+    vec![
+        0x1a,
+        ((n >> 24) & 0xff) as u8,
+        ((n >> 16) & 0xff) as u8,
+        ((n >> 8) & 0xff) as u8,
+        (n & 0xff) as u8,
+    ]
+}
+
+fn encode_bstr(data: &[u8]) -> Vec<u8> {
+    let len = data.len();
+    if len < 24 {
+        let mut out = vec![0x40 + len as u8];
+        out.extend_from_slice(data);
+        return out;
+    }
+    if len < 256 {
+        let mut out = vec![0x58, len as u8];
+        out.extend_from_slice(data);
+        return out;
+    }
+    panic!("bstr too long");
+}
+
+fn encode_tstr(s: &str) -> Vec<u8> {
+    let data = s.as_bytes();
+    let len = data.len();
+    if len < 24 {
+        let mut out = vec![0x60 + len as u8];
+        out.extend_from_slice(data);
+        return out;
+    }
+    if len < 256 {
+        let mut out = vec![0x78, len as u8];
+        out.extend_from_slice(data);
+        return out;
+    }
+    panic!("tstr too long");
+}
+
+fn encode_map(pairs: Vec<Vec<u8>>) -> Vec<u8> {
+    let len = pairs.len();
+    if len >= 24 {
+        panic!("map too large");
+    }
+    let mut out = vec![0xa0 + len as u8];
+    for pair in pairs {
+        out.extend_from_slice(&pair);
+    }
+    out
+}
+
+#[test]
+fn context_payloads_invalid() {
+    use comum_rs::validate_context_payload;
+
+    let beacon_id = [0x11u8; 32];
+    let beacon_payload = encode_map(vec![
+        [encode_tstr("token"), encode_bstr(&[])].concat(),
+        [encode_tstr("beacon_id"), encode_bstr(&beacon_id)].concat(),
+        [encode_tstr("timestamp"), encode_uint(456)].concat(),
+    ]);
+    assert!(validate_context_payload("beacon", &beacon_payload).is_err());
+
+    let place_hash = [0x22u8; 31];
+    let place_payload = encode_map(vec![
+        [encode_tstr("timestamp"), encode_uint(789)].concat(),
+        [encode_tstr("place_hash"), encode_bstr(&place_hash)].concat(),
+    ]);
+    assert!(validate_context_payload("place", &place_payload).is_err());
+
+    let community = [0x44u8; 32];
+    let vouch_payload = encode_map(vec![
+        [encode_tstr("subject"), encode_tstr("did:wrong:abc")].concat(),
+        [encode_tstr("community"), encode_bstr(&community)].concat(),
+        [encode_tstr("timestamp"), encode_uint(987)].concat(),
+    ]);
+    assert!(validate_context_payload("vouch", &vouch_payload).is_err());
+}

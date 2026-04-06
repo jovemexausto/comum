@@ -47,8 +47,8 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Logs e asserts de estado
 
 ## Epic 4 — Prova de Contexto
-- [~] Proximidade (NFC/BLE)
-- [ ] Beacon comunitario
+- [x] Proximidade (NFC/BLE)
+- [~] Beacon comunitario
 - [ ] Ancora de lugar
 - [ ] Vouch geografico
 
