@@ -224,6 +224,76 @@ fn encode_map(pairs: Vec<Vec<u8>>) -> Vec<u8> {
     out
 }
 
+fn encode_array(items: Vec<Vec<u8>>) -> Vec<u8> {
+    let len = items.len();
+    if len >= 24 {
+        panic!("array too large");
+    }
+    let mut out = vec![0x80 + len as u8];
+    for item in items {
+        out.extend_from_slice(&item);
+    }
+    out
+}
+
+fn build_minimal_testimony(proof_signatures: Vec<Vec<u8>>, context_type: &str) -> Vec<u8> {
+    let claim_map = encode_map(vec![
+        [encode_uint(0), encode_tstr("comum/transfer")].concat(),
+        [encode_uint(1), encode_bstr(&[])].concat(),
+    ]);
+
+    let context_proof = encode_map(vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(vec![])].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ]);
+
+    let context_map = encode_map(vec![
+        [encode_uint(0), encode_tstr(context_type)].concat(),
+        [encode_uint(1), encode_bstr(&[])].concat(),
+        [encode_uint(2), context_proof].concat(),
+    ]);
+
+    let sig_items = proof_signatures
+        .into_iter()
+        .map(|s| encode_bstr(&s))
+        .collect();
+    let proof_map = encode_map(vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(sig_items)].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ]);
+
+    encode_map(vec![
+        [encode_uint(0), encode_uint(3)].concat(),
+        [encode_uint(3), encode_uint(1)].concat(),
+        [encode_uint(4), encode_uint(1)].concat(),
+        [encode_uint(6), encode_array(vec![])].concat(),
+        [encode_uint(7), claim_map].concat(),
+        [encode_uint(8), context_map].concat(),
+        [encode_uint(9), proof_map].concat(),
+    ])
+}
+
+fn build_testimony_with_maps(
+    refs: Vec<Vec<u8>>,
+    claim_map: Vec<Vec<u8>>,
+    context_map: Vec<Vec<u8>>,
+    proof_map: Vec<Vec<u8>>,
+) -> Vec<u8> {
+    encode_map(vec![
+        [encode_uint(0), encode_uint(3)].concat(),
+        [encode_uint(3), encode_uint(1)].concat(),
+        [encode_uint(4), encode_uint(1)].concat(),
+        [encode_uint(6), encode_array(refs)].concat(),
+        [encode_uint(7), encode_map(claim_map)].concat(),
+        [encode_uint(8), encode_map(context_map)].concat(),
+        [encode_uint(9), encode_map(proof_map)].concat(),
+    ])
+}
+
 #[test]
 fn context_payloads_invalid() {
     use comum_rs::validate_context_payload;
@@ -281,4 +351,100 @@ fn receive_payload_invalid() {
 
     let missing_of = encode_map(vec![[encode_tstr("timestamp"), encode_uint(1234)].concat()]);
     assert!(validate_receive_payload(&missing_of).is_err());
+}
+
+#[test]
+fn security_rejects_empty_signatures() {
+    let data = build_minimal_testimony(vec![], "proximity");
+    assert!(validate_testimony_cbor(&data).is_err());
+}
+
+#[test]
+fn security_rejects_unknown_context_type() {
+    let sig = vec![0x11u8; 64];
+    let data = build_minimal_testimony(vec![sig], "unknown");
+    assert!(validate_testimony_cbor(&data).is_err());
+}
+
+#[test]
+fn security_rejects_empty_signature_item() {
+    let sigs = vec![vec![]];
+    let data = build_minimal_testimony(sigs, "proximity");
+    assert!(validate_testimony_cbor(&data).is_err());
+}
+
+#[test]
+fn security_rejects_refs_wrong_length() {
+    let claim_map = vec![
+        [encode_uint(0), encode_tstr("comum/transfer")].concat(),
+        [encode_uint(1), encode_bstr(&[])].concat(),
+    ];
+    let context_proof = vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(vec![])].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ];
+    let context_map = vec![
+        [encode_uint(0), encode_tstr("proximity")].concat(),
+        [encode_uint(1), encode_bstr(&[])].concat(),
+        [encode_uint(2), encode_map(context_proof)].concat(),
+    ];
+    let proof_map = vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(vec![encode_bstr(&[0x11; 64])])].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ];
+    let refs = vec![encode_bstr(&[0x22; 31])];
+    let data = build_testimony_with_maps(refs, claim_map, context_map, proof_map);
+    assert!(validate_testimony_cbor(&data).is_err());
+}
+
+#[test]
+fn security_rejects_claim_payload_not_bstr() {
+    let claim_map = vec![
+        [encode_uint(0), encode_tstr("comum/transfer")].concat(),
+        [encode_uint(1), encode_uint(1)].concat(),
+    ];
+    let context_proof = vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(vec![])].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ];
+    let context_map = vec![
+        [encode_uint(0), encode_tstr("proximity")].concat(),
+        [encode_uint(1), encode_bstr(&[])].concat(),
+        [encode_uint(2), encode_map(context_proof)].concat(),
+    ];
+    let proof_map = vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(vec![encode_bstr(&[0x11; 64])])].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ];
+    let data = build_testimony_with_maps(vec![], claim_map, context_map, proof_map);
+    assert!(validate_testimony_cbor(&data).is_err());
+}
+
+#[test]
+fn security_rejects_context_proof_not_map() {
+    let claim_map = vec![
+        [encode_uint(0), encode_tstr("comum/transfer")].concat(),
+        [encode_uint(1), encode_bstr(&[])].concat(),
+    ];
+    let context_map = vec![
+        [encode_uint(0), encode_tstr("proximity")].concat(),
+        [encode_uint(1), encode_bstr(&[])].concat(),
+        [encode_uint(2), encode_bstr(&[0x01])].concat(),
+    ];
+    let proof_map = vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(vec![encode_bstr(&[0x11; 64])])].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ];
+    let data = build_testimony_with_maps(vec![], claim_map, context_map, proof_map);
+    assert!(validate_testimony_cbor(&data).is_err());
 }
