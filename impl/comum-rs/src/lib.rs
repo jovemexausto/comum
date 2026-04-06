@@ -1,6 +1,9 @@
 use serde::Deserialize;
 use sha3::{Digest, Sha3_256};
 
+mod decoder;
+pub use decoder::validate_testimony_cbor;
+
 #[derive(Debug, Deserialize)]
 pub struct Proof {
     pub version: u64,

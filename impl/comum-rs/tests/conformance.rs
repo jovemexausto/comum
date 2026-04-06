@@ -1,7 +1,7 @@
 use std::fs;
 use std::path::Path;
 
-use comum_rs::{compute_id_hex, encode_testimony_without_id, Vector};
+use comum_rs::{compute_id_hex, encode_testimony_without_id, validate_testimony_cbor, Vector};
 
 #[test]
 fn vectors_match() {
@@ -22,7 +22,9 @@ fn vectors_match() {
         assert_eq!(id, vector.expected_id, "id mismatch for {}", vector.name);
 
         if let Some(hex) = vector.testimony_without_id_cbor_hex {
-            assert_eq!(hex, hex::encode(cbor), "cbor mismatch for {}", vector.name);
+            assert_eq!(hex, hex::encode(&cbor), "cbor mismatch for {}", vector.name);
         }
+
+        validate_testimony_cbor(&cbor).expect("invalid testimony cbor");
     }
 }

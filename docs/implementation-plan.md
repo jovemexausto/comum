@@ -13,8 +13,9 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 - [x] Ajustar Justfile (comum-rs-cli com input/arquivo)
 
 ## Epic 1 — comum-rs (Core)
-- [~] Decoder CBOR canonical + validacao estrutural
-- [ ] Validacao completa do Testimony (refs, prev_id, suites, context, proof)
+- [x] Decoder CBOR canonical + validacao estrutural
+- [x] Validacao completa do Testimony (refs, prev_id, suites, context, proof)
+- [~] CTE encode/decode + fragmentacao
 - [ ] CTE encode/decode + fragmentacao
 - [ ] Sync state machine (HELLO/REQUEST/RESPONSE)
 - [ ] Suite CLASSIC_1 (assinatura real)
