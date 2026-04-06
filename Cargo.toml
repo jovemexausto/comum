@@ -4,7 +4,11 @@ members = [
   "impl/comum-rs",
   "impl/comum-rs/napi",
   "impl/capsulas/agora",
-  "impl/simulations/agora-sim"
+  "impl/capsulas/feira",
+  "impl/capsulas/mutirao",
+  "impl/simulations/agora-sim",
+  "impl/simulations/feira-sim",
+  "impl/simulations/mutirao-sim"
 ]
 
 [profile.release]

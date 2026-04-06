@@ -1,0 +1,10 @@
+[package]
+name = "feira-sim"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+capsula-feira = { path = "../../capsulas/feira" }
+comum-rs = { path = "../../comum-rs" }
+ed25519-dalek = "2.1"
+sha3 = "0.10"
