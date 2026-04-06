@@ -5,6 +5,17 @@ export type EncodeResult = {
 export type EncodeOptions = {
     bin?: string;
 };
+export declare const VERB_COMUM_TRANSFER = "comum/transfer";
+export declare const VERB_COMUM_VOUCH = "comum/vouch";
+export declare const VERB_COMUM_ENCOUNTER = "comum/encounter";
+export declare const VERB_COMUM_VOTE = "comum/vote";
+export declare const VERB_COMUM_PROPOSE = "comum/propose";
+export declare const VERB_COMUM_REVOKE = "comum/revoke";
+export declare const VERB_COMUM_KEY_ROTATE = "comum/key_rotate";
+export declare const VERB_COMUM_RECEIVE = "comum/receive";
+export declare const VERB_CAPSULE_INVOKE = "capsule/invoke";
+export declare const VERB_CAPSULE_RESULT = "capsule/result";
+export declare const VERB_GENESIS = "genesis";
 type NativeModule = {
     encode_testimony?: (json: string) => string;
     Commoner?: new (sk: Buffer, suite: number) => NativeCommoner;

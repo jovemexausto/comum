@@ -1,6 +1,9 @@
 use std::collections::{HashMap, HashSet};
 
-use comum_rs::{compute_id_hex, encode_testimony_without_id, validate_testimony_cbor, TestimonyWithoutId};
+use comum_rs::{
+    compute_id_hex, encode_testimony_without_id, validate_testimony_cbor, TestimonyWithoutId,
+    COMUM_ENCOUNTER, COMUM_TRANSFER,
+};
 use sha3::{Digest, Sha3_256};
 
 #[derive(Clone)]
@@ -104,7 +107,7 @@ fn sync(a: &Node, b: &mut Node) -> (usize, usize) {
 fn derive_balances(records: &[Record]) -> HashMap<String, i64> {
     let mut balances: HashMap<String, i64> = HashMap::new();
     for r in records {
-        if r.verb == "comum/transfer" {
+        if r.verb == COMUM_TRANSFER {
             if let (Some(to), Some(amount)) = (&r.to, r.amount) {
                 *balances.entry(r.author.clone()).or_insert(0) -= amount as i64;
                 *balances.entry(to.clone()).or_insert(0) += amount as i64;
@@ -163,7 +166,7 @@ fn main() {
     println!("[sim] ids: A={} B={} C={}", short(&a_did), short(&b_did), short(&c_did));
 
     println!("[sim] criando encounter A<->B");
-    let encounter = a.make_testimony("comum/encounter", None, None);
+    let encounter = a.make_testimony(COMUM_ENCOUNTER, None, None);
     println!(
         "[sim] encounter id={} author=A refs=0",
         short(&encounter.id)
@@ -177,7 +180,7 @@ fn main() {
     print_state("B", &b, &aliases);
 
     println!("[sim] A cria transferencia para B (5)");
-    let mut transfer = a.make_testimony("comum/transfer", Some(b_did.clone()), Some(5));
+    let mut transfer = a.make_testimony(COMUM_TRANSFER, Some(b_did.clone()), Some(5));
     transfer.refs = vec![encounter.id.clone()];
     println!(
         "[sim] transfer id={} de=A para=B valor=5 refs=[{}]",
@@ -213,7 +216,7 @@ mod tests {
         let r = Record {
             id: "id".to_string(),
             cbor: vec![],
-            verb: "comum/transfer".to_string(),
+            verb: COMUM_TRANSFER.to_string(),
             author: "A".to_string(),
             to: Some("B".to_string()),
             amount: Some(10),
@@ -232,7 +235,7 @@ mod tests {
         let mut b = Node::new("B");
         let b_did = b.author_hex();
 
-        let transfer = a.make_testimony("comum/transfer", Some(b_did), Some(5));
+        let transfer = a.make_testimony(COMUM_TRANSFER, Some(b_did), Some(5));
         a.add(transfer);
 
         let (_n, _skipped) = sync(&a, &mut b);

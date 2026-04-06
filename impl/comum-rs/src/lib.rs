@@ -40,6 +40,9 @@ pub use context::{
 mod transport;
 pub use transport::TransportProfile;
 
+mod verbs;
+pub use verbs::*;
+
 mod commoner;
 pub use commoner::{Commoner, CommonerError, CommonerErrorKind, ContextInput, ProofInput, Testimony};
 

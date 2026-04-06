@@ -1,4 +1,4 @@
-use comum_rs::{Commoner, CommonerErrorKind, ContextInput, ProofInput};
+use comum_rs::{Commoner, CommonerErrorKind, ContextInput, ProofInput, COMUM_TRANSFER, COMUM_VOUCH};
 
 fn empty_map() -> Vec<u8> {
     vec![0xa0]
@@ -16,7 +16,7 @@ fn commoner_emit_and_ingest_roundtrip() {
     };
 
     let testimony = a
-        .emit("comum/transfer", &empty_map(), ctx)
+        .emit(COMUM_TRANSFER, &empty_map(), ctx)
         .expect("emit");
 
     let sk_b = [0x22u8; 32];
@@ -39,7 +39,7 @@ fn commoner_rejects_empty_context_proof_for_vouch() {
     };
 
     let testimony = c
-        .emit("comum/vouch", &empty_map(), ctx)
+        .emit(COMUM_VOUCH, &empty_map(), ctx)
         .expect("emit");
 
     let err = c.validate(&testimony.cbor).expect_err("should fail");
@@ -56,7 +56,7 @@ fn commoner_requires_known_author_key() {
         proof: ProofInput::default(),
     };
     let testimony = a
-        .emit("comum/transfer", &empty_map(), ctx)
+        .emit(COMUM_TRANSFER, &empty_map(), ctx)
         .expect("emit");
 
     let sk_b = [0x55u8; 32];

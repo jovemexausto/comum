@@ -4,7 +4,7 @@ use std::path::Path;
 use capsula_agora::{
     build_close_payload, build_propose_payload, build_vote_payload, tally_votes, AgoraVoteRecord,
 };
-use comum_rs::{Commoner, ContextInput, ProofInput};
+use comum_rs::{Commoner, ContextInput, ProofInput, CAPSULE_INVOKE};
 use ed25519_dalek::SigningKey;
 use sha3::{Digest, Sha3_256};
 
@@ -41,7 +41,7 @@ fn main() {
 
     let ctx = default_context();
     let t_propose = proposer
-        .emit("capsule/invoke", &propose_payload, ctx.clone())
+        .emit(CAPSULE_INVOKE, &propose_payload, ctx.clone())
         .expect("emit propose");
     judge.ingest(&t_propose.cbor).expect("ingest propose");
 
@@ -55,13 +55,13 @@ fn main() {
     let invoke_vote_c = build_invoke_payload(&capsule_id, "vote", &vote_c);
 
     let t_vote_a = proposer
-        .emit("capsule/invoke", &invoke_vote_a, ctx.clone())
+        .emit(CAPSULE_INVOKE, &invoke_vote_a, ctx.clone())
         .expect("emit vote a");
     let t_vote_b = voter_b
-        .emit("capsule/invoke", &invoke_vote_b, ctx.clone())
+        .emit(CAPSULE_INVOKE, &invoke_vote_b, ctx.clone())
         .expect("emit vote b");
     let t_vote_c = voter_c
-        .emit("capsule/invoke", &invoke_vote_c, ctx.clone())
+        .emit(CAPSULE_INVOKE, &invoke_vote_c, ctx.clone())
         .expect("emit vote c");
 
     judge.ingest(&t_vote_a.cbor).expect("ingest vote a");
@@ -71,7 +71,7 @@ fn main() {
     let close_payload = build_close_payload(&proposal_id, 1_700_000_100_100u64);
     let invoke_close = build_invoke_payload(&capsule_id, "close", &close_payload);
     let t_close = proposer
-        .emit("capsule/invoke", &invoke_close, ctx)
+        .emit(CAPSULE_INVOKE, &invoke_close, ctx)
         .expect("emit close");
     judge.ingest(&t_close.cbor).expect("ingest close");
 

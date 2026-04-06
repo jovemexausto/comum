@@ -5,7 +5,7 @@ use capsula_mutirao::{
     build_checkin_payload, build_commit_payload, build_complete_payload, build_reward_payload,
     build_task_payload, compute_task_id,
 };
-use comum_rs::{Commoner, ContextInput, ProofInput};
+use comum_rs::{Commoner, ContextInput, ProofInput, CAPSULE_INVOKE};
 use ed25519_dalek::SigningKey;
 use sha3::{Digest, Sha3_256};
 
@@ -38,19 +38,19 @@ fn main() {
     verifier.register_pk(pk_w);
 
     let ctx = default_context();
-    let t_task = creator.emit("capsule/invoke", &task_invoke, ctx.clone()).expect("task");
+    let t_task = creator.emit(CAPSULE_INVOKE, &task_invoke, ctx.clone()).expect("task");
     verifier.ingest(&t_task.cbor).expect("ingest task");
 
-    let t_commit = worker.emit("capsule/invoke", &commit_invoke, ctx.clone()).expect("commit");
+    let t_commit = worker.emit(CAPSULE_INVOKE, &commit_invoke, ctx.clone()).expect("commit");
     verifier.ingest(&t_commit.cbor).expect("ingest commit");
 
-    let t_checkin = worker.emit("capsule/invoke", &checkin_invoke, ctx.clone()).expect("checkin");
+    let t_checkin = worker.emit(CAPSULE_INVOKE, &checkin_invoke, ctx.clone()).expect("checkin");
     verifier.ingest(&t_checkin.cbor).expect("ingest checkin");
 
-    let t_complete = creator.emit("capsule/invoke", &complete_invoke, ctx.clone()).expect("complete");
+    let t_complete = creator.emit(CAPSULE_INVOKE, &complete_invoke, ctx.clone()).expect("complete");
     verifier.ingest(&t_complete.cbor).expect("ingest complete");
 
-    let t_reward = creator.emit("capsule/invoke", &reward_invoke, ctx).expect("reward");
+    let t_reward = creator.emit(CAPSULE_INVOKE, &reward_invoke, ctx).expect("reward");
     verifier.ingest(&t_reward.cbor).expect("ingest reward");
 
     println!("[mutirao-sim] task_id={}", to_hex(&task_id));

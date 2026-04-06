@@ -1,7 +1,10 @@
 use std::fs;
 use std::path::Path;
 
-use comum_rs::{compute_id_hex, encode_testimony_without_id, validate_testimony_cbor, Vector};
+use comum_rs::{
+    compute_id_hex, encode_testimony_without_id, validate_testimony_cbor, Vector,
+    COMUM_TRANSFER,
+};
 
 #[test]
 fn vectors_match() {
@@ -313,7 +316,7 @@ fn encode_array(items: Vec<Vec<u8>>) -> Vec<u8> {
 
 fn build_minimal_testimony(proof_signatures: Vec<Vec<u8>>, context_type: &str) -> Vec<u8> {
     let claim_map = encode_map(vec![
-        [encode_uint(0), encode_tstr("comum/transfer")].concat(),
+        [encode_uint(0), encode_tstr(COMUM_TRANSFER)].concat(),
         [encode_uint(1), encode_bstr(&[])].concat(),
     ]);
 
@@ -532,7 +535,7 @@ fn security_rejects_empty_signature_item() {
 #[test]
 fn security_rejects_refs_wrong_length() {
     let claim_map = vec![
-        [encode_uint(0), encode_tstr("comum/transfer")].concat(),
+        [encode_uint(0), encode_tstr(COMUM_TRANSFER)].concat(),
         [encode_uint(1), encode_bstr(&[])].concat(),
     ];
     let context_proof = vec![
@@ -560,7 +563,7 @@ fn security_rejects_refs_wrong_length() {
 #[test]
 fn security_rejects_claim_payload_not_bstr() {
     let claim_map = vec![
-        [encode_uint(0), encode_tstr("comum/transfer")].concat(),
+        [encode_uint(0), encode_tstr(COMUM_TRANSFER)].concat(),
         [encode_uint(1), encode_uint(1)].concat(),
     ];
     let context_proof = vec![
@@ -587,7 +590,7 @@ fn security_rejects_claim_payload_not_bstr() {
 #[test]
 fn security_rejects_context_proof_not_map() {
     let claim_map = vec![
-        [encode_uint(0), encode_tstr("comum/transfer")].concat(),
+        [encode_uint(0), encode_tstr(COMUM_TRANSFER)].concat(),
         [encode_uint(1), encode_bstr(&[])].concat(),
     ];
     let context_map = vec![

@@ -5,7 +5,7 @@ use capsula_feira::{
     build_accept_payload, build_dispute_payload, build_offer_payload, build_receipt_payload,
     compute_offer_id,
 };
-use comum_rs::{Commoner, ContextInput, ProofInput};
+use comum_rs::{Commoner, ContextInput, ProofInput, CAPSULE_INVOKE};
 use ed25519_dalek::SigningKey;
 use sha3::{Digest, Sha3_256};
 
@@ -35,16 +35,16 @@ fn main() {
     arbiter.register_pk(pk_b);
 
     let ctx = default_context();
-    let t_offer = seller.emit("capsule/invoke", &offer_invoke, ctx.clone()).expect("offer");
+    let t_offer = seller.emit(CAPSULE_INVOKE, &offer_invoke, ctx.clone()).expect("offer");
     arbiter.ingest(&t_offer.cbor).expect("ingest offer");
 
-    let t_accept = buyer.emit("capsule/invoke", &accept_invoke, ctx.clone()).expect("accept");
+    let t_accept = buyer.emit(CAPSULE_INVOKE, &accept_invoke, ctx.clone()).expect("accept");
     arbiter.ingest(&t_accept.cbor).expect("ingest accept");
 
-    let t_receipt = buyer.emit("capsule/invoke", &receipt_invoke, ctx.clone()).expect("receipt");
+    let t_receipt = buyer.emit(CAPSULE_INVOKE, &receipt_invoke, ctx.clone()).expect("receipt");
     arbiter.ingest(&t_receipt.cbor).expect("ingest receipt");
 
-    let t_dispute = buyer.emit("capsule/invoke", &dispute_invoke, ctx).expect("dispute");
+    let t_dispute = buyer.emit(CAPSULE_INVOKE, &dispute_invoke, ctx).expect("dispute");
     arbiter.ingest(&t_dispute.cbor).expect("ingest dispute");
 
     println!("[feira-sim] offer_id={}", to_hex(&offer_id));

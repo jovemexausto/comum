@@ -15,6 +15,18 @@ export type EncodeOptions = {
   bin?: string;
 };
 
+export const VERB_COMUM_TRANSFER = "comum/transfer";
+export const VERB_COMUM_VOUCH = "comum/vouch";
+export const VERB_COMUM_ENCOUNTER = "comum/encounter";
+export const VERB_COMUM_VOTE = "comum/vote";
+export const VERB_COMUM_PROPOSE = "comum/propose";
+export const VERB_COMUM_REVOKE = "comum/revoke";
+export const VERB_COMUM_KEY_ROTATE = "comum/key_rotate";
+export const VERB_COMUM_RECEIVE = "comum/receive";
+export const VERB_CAPSULE_INVOKE = "capsule/invoke";
+export const VERB_CAPSULE_RESULT = "capsule/result";
+export const VERB_GENESIS = "genesis";
+
 type NativeModule = {
   encode_testimony?: (json: string) => string;
   Commoner?: new (sk: Buffer, suite: number) => NativeCommoner;
