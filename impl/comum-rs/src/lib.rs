@@ -22,6 +22,9 @@ pub use claim::{
     validate_receive_payload,
 };
 
+mod frost;
+pub use frost::{frost_keygen_with_dealer, frost_sign, frost_verify};
+
 mod wasm_runtime;
 pub use wasm_runtime::{run_capsule, run_capsule_with_limits};
 

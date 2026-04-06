@@ -131,6 +131,25 @@ fn abi_constants_present() {
 }
 
 #[test]
+fn frost_threshold_signature_roundtrip() {
+    use comum_rs::{frost_keygen_with_dealer, frost_sign, frost_verify};
+
+    let (key_packages, pubkey_package) =
+        frost_keygen_with_dealer(5, 3).expect("frost keygen");
+
+    let mut signers: Vec<_> = key_packages.keys().cloned().collect();
+    signers.sort();
+    let signing_ids: Vec<_> = signers.into_iter().take(3).collect();
+
+    let message = b"comum-genesis";
+    let signature = frost_sign(message, &signing_ids, &key_packages, &pubkey_package)
+        .expect("frost sign");
+
+    assert!(frost_verify(message, &signature, &pubkey_package));
+    assert!(!frost_verify(b"tampered", &signature, &pubkey_package));
+}
+
+#[test]
 fn proximity_context_payload_roundtrip() {
     use comum_rs::{build_proximity_context_payload, validate_context_payload};
 
