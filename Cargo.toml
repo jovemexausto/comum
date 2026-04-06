@@ -3,8 +3,7 @@ resolver = "2"
 members = [
   "impl/comum-rs",
   "impl/comum-rs/napi",
-  "impl/capsulas/agora",
-  "impl/capsulas/governanca"
+  "impl/capsulas/agora"
 ]
 
 [profile.release]

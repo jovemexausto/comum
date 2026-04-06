@@ -55,7 +55,7 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 ## Epic 5 — Genesis e Governanca
 - [x] Testimony de Genesis (minimo 3)
 - [x] FROST (threshold signature)
-- [x] Capsula de governanca (vote/propose)
+- [x] Capsula Agora (vote/propose)
 
 ## Epic 6 — Interop e Release
 - [ ] Vetores adicionais (author omitido + CTE fragmentado)

@@ -1,3 +1,3 @@
 # capsulas
 
-Contratos locais (WASM) para Agora, Governanca, Feira e Mutirao.
+Contratos locais (WASM) para Agora, Feira e Mutirao.
