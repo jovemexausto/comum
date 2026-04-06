@@ -37,6 +37,9 @@ pub use context::{
     build_vouch_context_payload, validate_context_payload,
 };
 
+mod commoner;
+pub use commoner::{Commoner, CommonerError, CommonerErrorKind, ContextInput, ProofInput, Testimony};
+
 #[derive(Debug, Deserialize)]
 pub struct Proof {
     pub version: u64,
