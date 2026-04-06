@@ -6,6 +6,6 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
 - [x] Commoner facade em comum-rs (API de no)
 - [ ] Wrapper JS/SDKs (mobile/desktop)
-- [~] Perfis de Transporte (NFC/BLE/QR/RNS)
-- [ ] Semantica da Capsula Agora (CIP-0003)
+- [x] Perfis de Transporte (NFC/BLE/QR/RNS)
+- [~] Semantica da Capsula Agora (CIP-0003)
 - [ ] Release notes e tag remota
