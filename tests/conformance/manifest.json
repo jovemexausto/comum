@@ -1,0 +1,5 @@
+{
+  "spec_manifest": "../../spec/test-vectors/manifest.json",
+  "schema_testimony": "../../spec/schemas/testimony.cddl",
+  "schema_cte": "../../spec/schemas/cte.cddl"
+}

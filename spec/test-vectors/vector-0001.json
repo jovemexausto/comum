@@ -1,0 +1,35 @@
+{
+  "name": "vector-0001",
+  "purpose": "encoding-only",
+  "encoding": "hex",
+  "skip_signature_verify": true,
+  "testimony_without_id": {
+    "version": 3,
+    "author": "0000000000000000000000000000000000000000000000000000000000000000",
+    "timestamp": 1730784000000,
+    "suite": 1,
+    "prev_id": null,
+    "refs": [],
+    "claim": {
+      "verb": "comum/transfer",
+      "payload_cbor_hex": "a0"
+    },
+    "context": {
+      "type": "proximity",
+      "payload_cbor_hex": "a0",
+      "proof": {
+        "version": 1,
+        "signatures": ["11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"],
+        "zk_proofs": [],
+        "nullifiers": []
+      }
+    },
+    "proof": {
+      "version": 1,
+      "signatures": ["11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"],
+      "zk_proofs": [],
+      "nullifiers": []
+    }
+  },
+  "expected_id": "compute_sha3_256_over_canonical_cbor"
+}

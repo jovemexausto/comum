@@ -1,0 +1,13 @@
+CTE = {
+  0: uint,
+  1: uint,
+  ?2: bstr,
+  3: bstr
+}
+
+Fragment = {
+  0: bstr .size 8,
+  1: uint,
+  2: uint,
+  3: bstr
+}
