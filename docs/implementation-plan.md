@@ -58,8 +58,8 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Capsula Agora (vote/propose)
 
 ## Epic 6 — Interop e Release
-- [ ] Vetores adicionais (author omitido + CTE fragmentado)
-- [ ] Matriz interop em docs/interop
+- [x] Vetores adicionais (author omitido + CTE fragmentado)
+- [x] Matriz interop em docs/interop
 - [ ] Tag de release v0.1
 
 ## Correcoes Aplicadas (revisao CIP-0001)

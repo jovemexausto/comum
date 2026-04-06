@@ -125,6 +125,38 @@ function encodeContext(ctx) {
   return encodeMap(pairs);
 }
 
+function encodeCte(cte) {
+  const pairs = [];
+  pairs.push(Buffer.concat([encodeUint(0), encodeUint(cte.cte_type)]));
+  pairs.push(Buffer.concat([encodeUint(1), encodeUint(cte.version)]));
+  if (cte.origin_hint_hex) {
+    pairs.push(
+      Buffer.concat([
+        encodeUint(2),
+        encodeBytes(hexToBuf(cte.origin_hint_hex)),
+      ])
+    );
+  }
+  pairs.push(
+    Buffer.concat([encodeUint(3), encodeBytes(hexToBuf(cte.payload_hex))])
+  );
+  return encodeMap(pairs);
+}
+
+function encodeFragment(fragment, fragIdHex) {
+  const pairs = [];
+  pairs.push(Buffer.concat([encodeUint(0), encodeBytes(hexToBuf(fragIdHex))]));
+  pairs.push(Buffer.concat([encodeUint(1), encodeUint(fragment.frag_index)]));
+  pairs.push(Buffer.concat([encodeUint(2), encodeUint(fragment.frag_total)]));
+  pairs.push(
+    Buffer.concat([
+      encodeUint(3),
+      encodeBytes(hexToBuf(fragment.frag_payload_hex)),
+    ])
+  );
+  return encodeMap(pairs);
+}
+
 function encodeTestimonyWithoutId(t) {
   const pairs = [];
   pairs.push(Buffer.concat([encodeUint(0), encodeUint(t.version)]));
@@ -158,6 +190,36 @@ function run() {
   for (const name of manifest.vectors) {
     const vecPath = path.join(__dirname, "..", "..", "spec", "test-vectors", name);
     const vector = JSON.parse(fs.readFileSync(vecPath, "utf8"));
+
+    if (vector.purpose === "cte-fragment") {
+      const cteCbor = encodeCte(vector.cte);
+      const cteHex = cteCbor.toString("hex");
+      if (cteHex !== vector.cte_cbor_hex) {
+        console.error(`[${name}] cte_cbor_hex mismatch`);
+        failures += 1;
+      }
+
+      const fragIdHex = vector.cte.frag_id_hex;
+      const reassembled = [];
+      for (const fragment of vector.fragments) {
+        const fragCbor = encodeFragment(fragment, fragIdHex).toString("hex");
+        if (fragCbor !== fragment.cbor_hex) {
+          console.error(`[${name}] fragment cbor_hex mismatch`);
+          failures += 1;
+        }
+        reassembled.push(fragment);
+      }
+      reassembled.sort((a, b) => a.frag_index - b.frag_index);
+      const payloadHex = reassembled.map((f) => f.frag_payload_hex).join("");
+      if (payloadHex !== vector.cte.payload_hex) {
+        console.error(`[${name}] reassembled payload mismatch`);
+        failures += 1;
+      }
+      if (failures === 0) {
+        console.log(`[${name}] ok`);
+      }
+      continue;
+    }
     const t = vector.testimony_without_id;
     const cbor = encodeTestimonyWithoutId(t);
     const cborHex = cbor.toString("hex");
