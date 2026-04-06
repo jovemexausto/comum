@@ -60,6 +60,7 @@ type CborValue =
   | { type: "uint"; value: number }
   | { type: "bytes"; value: Uint8Array }
   | { type: "text"; value: string }
+  | { type: "array"; value: CborValue[] }
   | { type: "map"; value: CborMap };
 
 function concatBytes(chunks: Uint8Array[]): Uint8Array {
@@ -133,6 +134,11 @@ function encodeMap(pairs: Uint8Array[]): Uint8Array {
   return concatBytes([header, ...pairs]);
 }
 
+function encodeArray(items: Uint8Array[]): Uint8Array {
+  const header = encodeUnsignedHeader(0x80, items.length);
+  return concatBytes([header, ...items]);
+}
+
 export function buildProximityContextPayload(
   method: "nfc" | "ble",
   nonce: Uint8Array,
@@ -191,6 +197,27 @@ export function buildReceivePayload(of: Uint8Array, timestamp: number): Uint8Arr
   return encodeMap(pairs);
 }
 
+export function buildGenesisPayload(
+  name: string,
+  threshold: number,
+  founders: string[],
+  capsules: Uint8Array[],
+  supply: number,
+  mintPolicy: Uint8Array
+): Uint8Array {
+  const capsuleItems = capsules.map((c) => encodeBstr(c));
+  const founderItems = founders.map((d) => encodeTstr(d));
+  const pairs = [
+    concatBytes([encodeTstr("name"), encodeTstr(name)]),
+    concatBytes([encodeTstr("supply"), encodeUint(supply)]),
+    concatBytes([encodeTstr("capsules"), encodeArray(capsuleItems)]),
+    concatBytes([encodeTstr("founders"), encodeArray(founderItems)]),
+    concatBytes([encodeTstr("threshold"), encodeUint(threshold)]),
+    concatBytes([encodeTstr("mint_policy"), encodeBstr(mintPolicy)]),
+  ];
+  return encodeMap(pairs);
+}
+
 function decodeUnsigned(data: Uint8Array, offset: number) {
   const first = data[offset];
   const major = first >> 5;
@@ -236,6 +263,16 @@ function decodeItem(data: Uint8Array, offset: number): { value: CborValue; size:
   const start = offset + size;
   if (major === 0) {
     return { value: { type: "uint", value }, size };
+  }
+  if (major === 4) {
+    let cursor = start;
+    const items: CborValue[] = [];
+    for (let i = 0; i < value; i += 1) {
+      const item = decodeItem(data, cursor);
+      cursor += item.size;
+      items.push(item.value);
+    }
+    return { value: { type: "array", value: items }, size: cursor - offset };
   }
   if (major === 2) {
     const bytes = data.slice(start, start + value);
@@ -311,4 +348,36 @@ export function validateReceivePayload(payload: Uint8Array): void {
   if (map.of.type !== "bytes" || map.of.value.length !== 32)
     throw new Error("invalid of");
   if (map.timestamp.type !== "uint") throw new Error("invalid timestamp");
+}
+
+export function validateGenesisPayload(payload: Uint8Array): void {
+  const { value } = decodeItem(payload, 0);
+  if (value.type !== "map") throw new Error("invalid payload type");
+  const map = value.value;
+  if (!map.name || !map.threshold || !map.founders || !map.capsules || !map.supply || !map.mint_policy)
+    throw new Error("missing field");
+
+  if (map.name.type !== "text" || map.name.value.length === 0)
+    throw new Error("invalid name");
+
+  if (map.founders.type !== "array") throw new Error("invalid founders");
+  if (map.founders.value.length < 3) throw new Error("invalid founders");
+  for (const item of map.founders.value) {
+    if (item.type !== "text" || !item.value.startsWith("did:comum:"))
+      throw new Error("invalid founder");
+  }
+
+  if (map.threshold.type !== "uint") throw new Error("invalid threshold");
+  if (map.threshold.value === 0 || map.threshold.value > map.founders.value.length)
+    throw new Error("invalid threshold");
+
+  if (map.capsules.type !== "array") throw new Error("invalid capsules");
+  for (const item of map.capsules.value) {
+    if (item.type !== "bytes" || item.value.length !== 32)
+      throw new Error("invalid capsule");
+  }
+
+  if (map.supply.type !== "uint") throw new Error("invalid supply");
+  if (map.mint_policy.type !== "bytes" || map.mint_policy.value.length !== 32)
+    throw new Error("invalid mint_policy");
 }

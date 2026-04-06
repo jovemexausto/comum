@@ -113,6 +113,10 @@ function encodeMap(pairs) {
     const header = encodeUnsignedHeader(0xa0, pairs.length);
     return concatBytes([header, ...pairs]);
 }
+function encodeArray(items) {
+    const header = encodeUnsignedHeader(0x80, items.length);
+    return concatBytes([header, ...items]);
+}
 export function buildProximityContextPayload(method, nonce, timestamp) {
     const pairs = [
         concatBytes([encodeTstr("nonce"), encodeBstr(nonce)]),
@@ -148,6 +152,19 @@ export function buildReceivePayload(of, timestamp) {
     const pairs = [
         concatBytes([encodeTstr("of"), encodeBstr(of)]),
         concatBytes([encodeTstr("timestamp"), encodeUint(timestamp)]),
+    ];
+    return encodeMap(pairs);
+}
+export function buildGenesisPayload(name, threshold, founders, capsules, supply, mintPolicy) {
+    const capsuleItems = capsules.map((c) => encodeBstr(c));
+    const founderItems = founders.map((d) => encodeTstr(d));
+    const pairs = [
+        concatBytes([encodeTstr("name"), encodeTstr(name)]),
+        concatBytes([encodeTstr("supply"), encodeUint(supply)]),
+        concatBytes([encodeTstr("capsules"), encodeArray(capsuleItems)]),
+        concatBytes([encodeTstr("founders"), encodeArray(founderItems)]),
+        concatBytes([encodeTstr("threshold"), encodeUint(threshold)]),
+        concatBytes([encodeTstr("mint_policy"), encodeBstr(mintPolicy)]),
     ];
     return encodeMap(pairs);
 }
@@ -200,6 +217,16 @@ function decodeItem(data, offset) {
     const start = offset + size;
     if (major === 0) {
         return { value: { type: "uint", value }, size };
+    }
+    if (major === 4) {
+        let cursor = start;
+        const items = [];
+        for (let i = 0; i < value; i += 1) {
+            const item = decodeItem(data, cursor);
+            cursor += item.size;
+            items.push(item.value);
+        }
+        return { value: { type: "array", value: items }, size: cursor - offset };
     }
     if (major === 2) {
         const bytes = data.slice(start, start + value);
@@ -286,4 +313,36 @@ export function validateReceivePayload(payload) {
         throw new Error("invalid of");
     if (map.timestamp.type !== "uint")
         throw new Error("invalid timestamp");
+}
+export function validateGenesisPayload(payload) {
+    const { value } = decodeItem(payload, 0);
+    if (value.type !== "map")
+        throw new Error("invalid payload type");
+    const map = value.value;
+    if (!map.name || !map.threshold || !map.founders || !map.capsules || !map.supply || !map.mint_policy)
+        throw new Error("missing field");
+    if (map.name.type !== "text" || map.name.value.length === 0)
+        throw new Error("invalid name");
+    if (map.founders.type !== "array")
+        throw new Error("invalid founders");
+    if (map.founders.value.length < 3)
+        throw new Error("invalid founders");
+    for (const item of map.founders.value) {
+        if (item.type !== "text" || !item.value.startsWith("did:comum:"))
+            throw new Error("invalid founder");
+    }
+    if (map.threshold.type !== "uint")
+        throw new Error("invalid threshold");
+    if (map.threshold.value === 0 || map.threshold.value > map.founders.value.length)
+        throw new Error("invalid threshold");
+    if (map.capsules.type !== "array")
+        throw new Error("invalid capsules");
+    for (const item of map.capsules.value) {
+        if (item.type !== "bytes" || item.value.length !== 32)
+            throw new Error("invalid capsule");
+    }
+    if (map.supply.type !== "uint")
+        throw new Error("invalid supply");
+    if (map.mint_policy.type !== "bytes" || map.mint_policy.value.length !== 32)
+        throw new Error("invalid mint_policy");
 }

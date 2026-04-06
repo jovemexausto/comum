@@ -7,7 +7,7 @@
   "license": "CC0-1.0",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node dist/tests/vectors.test.js && node dist/tests/context.test.js && node dist/tests/receive.test.js"
+    "test": "node dist/tests/vectors.test.js && node dist/tests/context.test.js && node dist/tests/receive.test.js && node dist/tests/genesis.test.js"
   },
   "dependencies": {
     "@noble/hashes": "^1.8.0",

@@ -14,5 +14,7 @@ export declare function buildBeaconContextPayload(beaconId: Uint8Array, token: U
 export declare function buildPlaceContextPayload(placeHash: Uint8Array, timestamp: number): Uint8Array;
 export declare function buildVouchContextPayload(subject: string, community: Uint8Array, timestamp: number): Uint8Array;
 export declare function buildReceivePayload(of: Uint8Array, timestamp: number): Uint8Array;
+export declare function buildGenesisPayload(name: string, threshold: number, founders: string[], capsules: Uint8Array[], supply: number, mintPolicy: Uint8Array): Uint8Array;
 export declare function validateContextPayload(ctxType: string, payload: Uint8Array): void;
 export declare function validateReceivePayload(payload: Uint8Array): void;
+export declare function validateGenesisPayload(payload: Uint8Array): void;
