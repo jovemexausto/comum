@@ -5,10 +5,16 @@ mod decoder;
 pub use decoder::validate_testimony_cbor;
 
 mod cte;
-pub use cte::{decode_cte, encode_cte, fragment_cte, reassemble_fragments, Cte, CteFragment};
+pub use cte::{decode_cte, encode_cte, encode_fragment, fragment_cte, reassemble_fragments, Cte, CteFragment};
 
 mod sync;
 pub use sync::{build_hello, build_hello_ack, build_request, build_response, decode_payload_kv};
+
+mod crypto;
+pub use crypto::{sign_ed25519, verify_ed25519};
+
+mod did;
+pub use did::{build_key_rotate_payload, derive_did, validate_key_rotate_payload};
 
 #[derive(Debug, Deserialize)]
 pub struct Proof {

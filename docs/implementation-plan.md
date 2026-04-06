@@ -19,14 +19,11 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [x] Validacao completa do Testimony (refs, prev_id, suites, context, proof)
 - [x] CTE encode/decode + fragmentacao
 - [x] Sync state machine (HELLO/REQUEST/RESPONSE)
-- [~] Suite CLASSIC_1 (assinatura real)
-- [ ] CTE encode/decode + fragmentacao
-- [ ] Sync state machine (HELLO/REQUEST/RESPONSE)
-- [ ] Suite CLASSIC_1 (assinatura real)
-- [ ] API did:comum (resolucao local + key_rotate)
+- [x] Suite CLASSIC_1 (assinatura real)
+- [x] API did:comum (resolucao local + key_rotate)
 
 ## Epic 2 — comum-js (Wrapper)
-- [ ] API encode/verify (JS)
+- [~] API encode/verify (JS)
 - [ ] Tests com vetores
 - [ ] Pipeline de build (node + binario comum-cbor)
 

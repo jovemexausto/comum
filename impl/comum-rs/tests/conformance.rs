@@ -31,7 +31,7 @@ fn vectors_match() {
 
 #[test]
 fn cte_roundtrip_and_fragmentation() {
-    use comum_rs::{decode_cte, encode_cte, fragment_cte, reassemble_fragments, Cte};
+    use comum_rs::{decode_cte, encode_cte, encode_fragment, fragment_cte, reassemble_fragments, Cte};
 
     let cte = Cte {
         cte_type: 2,
@@ -50,6 +50,8 @@ fn cte_roundtrip_and_fragmentation() {
     let frag_id = [0x01; 8];
     let frags = fragment_cte(&encoded, 500, frag_id);
     assert_eq!(frags.len(), 3);
+    let frag_bytes = encode_fragment(&frags[0]);
+    assert!(!frag_bytes.is_empty());
     let rebuilt = reassemble_fragments(frags).expect("reassembly failed");
     assert_eq!(rebuilt, encoded);
 }
@@ -87,4 +89,34 @@ fn sync_payloads_build() {
     let _ = decode_payload_kv(&ack).expect("decode ack");
     let _ = decode_payload_kv(&req).expect("decode req");
     let _ = decode_payload_kv(&resp).expect("decode resp");
+}
+
+#[test]
+fn ed25519_sign_and_verify() {
+    use comum_rs::{sign_ed25519, verify_ed25519};
+
+    let sk: [u8; 32] = [0x42; 32];
+    let message = b"comum-protocol";
+    let sig = sign_ed25519(message, &sk);
+
+    // Derive public key from signing key using dalek
+    let pk = ed25519_dalek::SigningKey::from_bytes(&sk).verifying_key().to_bytes();
+
+    assert!(verify_ed25519(message, &sig, &pk));
+    assert!(!verify_ed25519(b"tampered", &sig, &pk));
+}
+
+#[test]
+fn did_derivation_and_key_rotate_payload() {
+    use comum_rs::{build_key_rotate_payload, derive_did, validate_key_rotate_payload};
+
+    let pk: [u8; 32] = [0x01; 32];
+    let did = derive_did(&pk);
+    assert!(did.starts_with("did:comum:"));
+
+    let community: [u8; 32] = [0xAA; 32];
+    let old_pk = [0x11u8; 32];
+    let new_pk = [0x22u8; 32];
+    let payload = build_key_rotate_payload(&community, &old_pk, &new_pk, 123456);
+    validate_key_rotate_payload(&payload).expect("valid key_rotate payload");
 }
