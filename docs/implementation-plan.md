@@ -61,3 +61,15 @@ Regra: toda implementacao nova MUST incluir testes (unitarios e/ou vetores).
 - [ ] Vetores adicionais (author omitido + CTE fragmentado)
 - [ ] Matriz interop em docs/interop
 - [ ] Tag de release v0.1
+
+## Correcoes Aplicadas (revisao CIP-0001)
+
+- [x] Ordenacao canonical de chaves tstr em sync.rs (clock/suites/node_id/profile)
+- [x] Separacao de dominio criptografico em nullifiers: HKDF + HMAC (crypto.rs)
+- [x] Dependencias hmac e hkdf adicionadas ao Cargo.toml
+- [x] Correcao de namespace: common/key_rotate -> comum/key_rotate (did.rs)
+- [x] sync.cddl formal criado em spec/schemas/
+- [x] wasm-abi.md atualizado com formato completo do query de read_graph
+- [x] CIP-0001 revisado: version como inteiro (nao hex), context proof
+      com signatures opcionalmente vazia para "proximity", Ap. C com
+      fluxo end-to-end completo NFC transfer

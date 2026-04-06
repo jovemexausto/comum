@@ -1,0 +1,82 @@
+; CDDL formal para payloads de sincronizacao do Comum Protocol
+; CIP-0001 — spec/schemas/sync.cddl
+;
+; Todos os mapas com chaves tstr seguem ordenacao canonical CBOR:
+;   1. Por comprimento de bytes UTF-8 (menor primeiro)
+;   2. Empate: lexicograficamente pelos bytes UTF-8
+;
+; Referencia de ordenacao para cada mensagem:
+;   HELLO:     clock(5) < suites(6) < node_id(7) < profile(7)*
+;   HELLO_ACK: suite(5) < session_id(10)
+;   REQUEST:   want(4) < limit(5) < since(5)*
+;   RESPONSE:  items(5)
+;
+;   * desempate lexicografico: node_id < profile ('n'<'p')
+;                              limit < since ('l'<'s')
+
+; Tipos de CTE (campo 0 do envelope)
+CTEType = 0     ; HELLO
+        / 1     ; HELLO_ACK
+        / 2     ; TESTIMONY
+        / 3     ; SNAPSHOT
+        / 4     ; REQUEST
+        / 5     ; RESPONSE
+        / 6     ; GOSSIP
+
+; Envelope Comum de Transporte
+CTE = {
+  0: CTEType,
+  1: uint,              ; version — MUST ser 1
+  ?2: bstr,             ; origin_hint — obrigatorio se author omitido
+  3: bstr               ; payload CBOR serializado
+}
+
+; Fragmento de CTE (quando CTE excede MTU do transporte)
+CTEFragment = {
+  0: bstr .size 8,      ; frag_id — identificador unico do CTE fragmentado
+  1: uint,              ; frag_index — indice 0-based
+  2: uint,              ; frag_total — total de fragmentos
+  3: bstr               ; frag_payload — slice do CTE
+}
+
+; HELLO — anuncia capacidades do no
+; Chaves em ordem canonical: clock(5) suites(6) node_id(7) profile(7)
+; Nota: mapas CBOR com chaves tstr nao sao expressaveis em CDDL canonical,
+; a ordenacao e normativa conforme CIP-0001 Sec. 5.1.
+HelloPayload = {
+  "clock":   bstr,              ; vetor de versao local serializado em CBOR
+  "suites":  [+ uint],          ; lista de suite IDs suportados (ao menos 1)
+  "node_id": bstr .size 32,     ; identificador do no (bytes32)
+  "profile": NodeProfile        ; perfil de armazenamento
+}
+
+NodeProfile = "LIGHT" / "FULL" / "ARCHIVE"
+
+; HELLO_ACK — confirma suite e inicia sessao
+; Chaves em ordem canonical: suite(5) session_id(10)
+HelloAckPayload = {
+  "suite":      uint,           ; suite negociada (maior ID comum)
+  "session_id": bstr .size 8    ; identificador de sessao aleatorio
+}
+
+; REQUEST — solicita testemunhos ou snapshots
+; Chaves em ordem canonical: want(4) limit(5) since(5)
+RequestPayload = {
+  "want":  RequestType,
+  "limit": uint,                ; maximo de itens na resposta
+  "since": bstr                 ; vetor de versao do solicitante (CBOR bstr)
+}
+
+RequestType = "testimonies" / "snapshots"
+
+; RESPONSE — entrega itens solicitados
+ResponsePayload = {
+  "items": [* bstr]             ; lista de Testemunhos ou Snapshots CBOR
+}
+
+; GOSSIP — retransmissao de Testemunho em mesh
+; payload do CTE e diretamente o Testemunho CBOR serializado (bstr)
+
+; Limites normativos (informativo neste arquivo; normativo em CIP-0001 Sec. 8.3)
+; CTE_MAX_FRAGMENTS      = 64
+; CTE_REASSEMBLY_TIMEOUT = 5000 ms (uint, milissegundos)

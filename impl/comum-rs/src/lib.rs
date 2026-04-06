@@ -11,7 +11,7 @@ mod sync;
 pub use sync::{build_hello, build_hello_ack, build_request, build_response, decode_payload_kv};
 
 mod crypto;
-pub use crypto::{sign_ed25519, verify_ed25519};
+pub use crypto::{compute_nullifier, sign_ed25519, verify_ed25519};
 
 mod did;
 pub use did::{build_key_rotate_payload, derive_did, validate_key_rotate_payload};

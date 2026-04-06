@@ -9,7 +9,7 @@ pub fn derive_did(pk_bytes: &[u8; 32]) -> String {
     hasher.update(pk_bytes);
     let digest = hasher.finalize();
     let short = &digest[..20];
-    let b58 = bs58::encode(short).into_string();
+    let b58 = bs58::encode(short).with_check().into_string();
     format!("did:comum:{}", b58)
 }
 

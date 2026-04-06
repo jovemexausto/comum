@@ -9,6 +9,7 @@
 | comum/propose | Submissao de proposta | Active | CIP-0001 |
 | comum/revoke | Revogacao social | Active | CIP-0001 |
 | comum/key_rotate | Rotacao de chave | Active | CIP-0001 |
+| comum/receive | Confirmacao de recebimento | Active | CIP-0001 |
 | capsule/invoke | Invocacao de Capsula | Active | CIP-0001 |
 | capsule/result | Resultado de Capsula | Active | CIP-0001 |
 | genesis | Fundacao comunitaria | Active | CIP-0001 |
