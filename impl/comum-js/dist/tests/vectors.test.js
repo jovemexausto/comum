@@ -14,6 +14,8 @@ let failures = 0;
 for (const name of manifest.vectors) {
     const vecPath = path.join(repoRoot, "spec", "test-vectors", name);
     const vector = loadJson(vecPath);
+    if (!("testimony_without_id" in vector))
+        continue;
     const out = encodeTestimony(vector.testimony_without_id, { bin: binPath });
     if (out.id !== vector.expected_id) {
         console.error(`[${name}] expected_id mismatch`);

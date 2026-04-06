@@ -1,5 +1,13 @@
 # Roadmap
 
+## v0.1 (entregue)
+
+- CIP-0001 + registries + CDDL
+- comum-rs / comum-js alinhados
+- runtime WASM + capsula Agora
+- vetores de teste + conformance
+- interop matrix + release
+
 ## v0.2
 
 - Commoner facade (API de no)

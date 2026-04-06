@@ -15,17 +15,73 @@ fn vectors_match() {
         let name = v.as_str().unwrap();
         let path = root.join("spec/test-vectors").join(name);
         let data = fs::read_to_string(path).unwrap();
-        let vector: Vector = serde_json::from_str(&data).unwrap();
+        let value: serde_json::Value = serde_json::from_str(&data).unwrap();
 
-        let cbor = encode_testimony_without_id(&vector.testimony_without_id);
-        let id = compute_id_hex(&cbor);
-        assert_eq!(id, vector.expected_id, "id mismatch for {}", vector.name);
+        if value.get("testimony_without_id").is_some() {
+            let vector: Vector = serde_json::from_value(value).unwrap();
 
-        if let Some(hex) = vector.testimony_without_id_cbor_hex {
-            assert_eq!(hex, hex::encode(&cbor), "cbor mismatch for {}", vector.name);
+            let cbor = encode_testimony_without_id(&vector.testimony_without_id);
+            let id = compute_id_hex(&cbor);
+            assert_eq!(id, vector.expected_id, "id mismatch for {}", vector.name);
+
+            if let Some(hex) = vector.testimony_without_id_cbor_hex {
+                assert_eq!(hex, hex::encode(&cbor), "cbor mismatch for {}", vector.name);
+            }
+
+            validate_testimony_cbor(&cbor).expect("invalid testimony cbor");
+        } else if value.get("cte").is_some() {
+            validate_cte_vector(name, &value);
+        } else {
+            panic!("unknown vector format: {}", name);
         }
+    }
+}
 
-        validate_testimony_cbor(&cbor).expect("invalid testimony cbor");
+fn validate_cte_vector(name: &str, value: &serde_json::Value) {
+    use comum_rs::{encode_cte, encode_fragment, fragment_cte, Cte};
+
+    let cte_value = value.get("cte").expect("missing cte");
+    let cte_type = cte_value["cte_type"].as_u64().expect("cte_type");
+    let version = cte_value["version"].as_u64().expect("version");
+    let payload_hex = cte_value["payload_hex"].as_str().expect("payload_hex");
+    let payload = hex::decode(payload_hex).expect("payload_hex decode");
+    let origin_hint = match cte_value.get("origin_hint_hex") {
+        Some(v) => Some(hex::decode(v.as_str().expect("origin_hint_hex")).unwrap()),
+        None => None,
+    };
+    let mtu = cte_value["mtu"].as_u64().expect("mtu") as usize;
+    let frag_id_hex = cte_value["frag_id_hex"].as_str().expect("frag_id_hex");
+    let frag_id_vec = hex::decode(frag_id_hex).expect("frag_id_hex decode");
+    let frag_id: [u8; 8] = frag_id_vec.as_slice().try_into().expect("frag_id len");
+
+    let cte = Cte {
+        cte_type,
+        version,
+        origin_hint,
+        payload,
+    };
+    let cbor = encode_cte(&cte);
+    let expected_cbor_hex = value["cte_cbor_hex"].as_str().expect("cte_cbor_hex");
+    assert_eq!(hex::encode(&cbor), expected_cbor_hex, "cte_cbor_hex mismatch for {}", name);
+
+    let frags = fragment_cte(&cbor, mtu, frag_id);
+    let fragments = value["fragments"].as_array().expect("fragments");
+    assert_eq!(frags.len(), fragments.len(), "fragment count mismatch for {}", name);
+
+    for (i, frag_value) in fragments.iter().enumerate() {
+        let frag = &frags[i];
+        let expected_index = frag_value["frag_index"].as_u64().expect("frag_index");
+        let expected_total = frag_value["frag_total"].as_u64().expect("frag_total");
+        let expected_payload_hex = frag_value["frag_payload_hex"].as_str().expect("frag_payload_hex");
+        let expected_payload = hex::decode(expected_payload_hex).expect("frag_payload_hex decode");
+        let expected_cbor_hex = frag_value["cbor_hex"].as_str().expect("cbor_hex");
+
+        assert_eq!(frag.frag_index, expected_index, "frag_index mismatch for {}", name);
+        assert_eq!(frag.frag_total, expected_total, "frag_total mismatch for {}", name);
+        assert_eq!(frag.frag_payload, expected_payload, "frag_payload mismatch for {}", name);
+
+        let frag_cbor = encode_fragment(frag);
+        assert_eq!(hex::encode(&frag_cbor), expected_cbor_hex, "frag_cbor mismatch for {}", name);
     }
 }
 
