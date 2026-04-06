@@ -251,3 +251,34 @@ fn context_payloads_invalid() {
     ]);
     assert!(validate_context_payload("vouch", &vouch_payload).is_err());
 }
+
+#[test]
+fn receive_payload_roundtrip() {
+    use comum_rs::{build_receive_payload, validate_receive_payload};
+
+    let of = [0x11; 32];
+    let payload = build_receive_payload(&of, 1234);
+    validate_receive_payload(&payload).expect("valid receive payload");
+}
+
+#[test]
+fn receive_payload_invalid() {
+    use comum_rs::validate_receive_payload;
+
+    let of_short = [0x11u8; 31];
+    let bad_of = encode_map(vec![
+        [encode_tstr("of"), encode_bstr(&of_short)].concat(),
+        [encode_tstr("timestamp"), encode_uint(1234)].concat(),
+    ]);
+    assert!(validate_receive_payload(&bad_of).is_err());
+
+    let of = [0x11u8; 32];
+    let bad_timestamp = encode_map(vec![
+        [encode_tstr("of"), encode_bstr(&of)].concat(),
+        [encode_tstr("timestamp"), encode_bstr(&[0x01, 0x02])].concat(),
+    ]);
+    assert!(validate_receive_payload(&bad_timestamp).is_err());
+
+    let missing_of = encode_map(vec![[encode_tstr("timestamp"), encode_uint(1234)].concat()]);
+    assert!(validate_receive_payload(&missing_of).is_err());
+}

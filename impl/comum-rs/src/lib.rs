@@ -16,6 +16,9 @@ pub use crypto::{compute_nullifier, sign_ed25519, verify_ed25519};
 mod did;
 pub use did::{build_key_rotate_payload, derive_did, validate_key_rotate_payload};
 
+mod claim;
+pub use claim::{build_receive_payload, validate_receive_payload};
+
 mod wasm_runtime;
 pub use wasm_runtime::{run_capsule, run_capsule_with_limits};
 
