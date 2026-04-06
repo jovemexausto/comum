@@ -1,4 +1,9 @@
 import { spawnSync } from "node:child_process";
+import bs58 from "bs58";
+import { sha3_256 } from "@noble/hashes/sha3";
+import { sha256 } from "@noble/hashes/sha2";
+import { hkdf } from "@noble/hashes/hkdf";
+import { hmac } from "@noble/hashes/hmac";
 export function encodeTestimony(testimonyWithoutId, options = {}) {
     const bin = options.bin || process.env.COMUM_RS_BIN || "comum-cbor";
     const input = JSON.stringify(testimonyWithoutId);
@@ -12,6 +17,27 @@ export function encodeTestimony(testimonyWithoutId, options = {}) {
 export function verifyTestimony(testimonyWithoutId, expectedId, options = {}) {
     const out = encodeTestimony(testimonyWithoutId, options);
     return out.id === expectedId;
+}
+export function deriveDid(pk) {
+    if (pk.length !== 32)
+        throw new Error("invalid pk length");
+    const digest = sha3_256(pk);
+    const short = digest.slice(0, 20);
+    const checksum = sha256(sha256(short)).slice(0, 4);
+    const data = new Uint8Array(short.length + checksum.length);
+    data.set(short, 0);
+    data.set(checksum, short.length);
+    const b58 = bs58.encode(data);
+    return `did:comum:${b58}`;
+}
+export function computeNullifier(sk, testimonyId) {
+    if (sk.length !== 32)
+        throw new Error("invalid sk length");
+    if (testimonyId.length !== 32)
+        throw new Error("invalid id length");
+    const info = new TextEncoder().encode("comum-nullifier-v1");
+    const key = hkdf(sha3_256, sk, new Uint8Array(), info, 32);
+    return hmac(sha3_256, key, testimonyId);
 }
 function concatBytes(chunks) {
     let total = 0;
@@ -101,6 +127,13 @@ export function buildVouchContextPayload(subject, community, timestamp) {
     const pairs = [
         concatBytes([encodeTstr("subject"), encodeTstr(subject)]),
         concatBytes([encodeTstr("community"), encodeBstr(community)]),
+        concatBytes([encodeTstr("timestamp"), encodeUint(timestamp)]),
+    ];
+    return encodeMap(pairs);
+}
+export function buildReceivePayload(of, timestamp) {
+    const pairs = [
+        concatBytes([encodeTstr("of"), encodeBstr(of)]),
         concatBytes([encodeTstr("timestamp"), encodeUint(timestamp)]),
     ];
     return encodeMap(pairs);
@@ -214,4 +247,16 @@ export function validateContextPayload(ctxType, payload) {
         return;
     }
     throw new Error("invalid context type");
+}
+export function validateReceivePayload(payload) {
+    const { value } = decodeItem(payload, 0);
+    if (value.type !== "map")
+        throw new Error("invalid payload type");
+    const map = value.value;
+    if (!map.of || !map.timestamp)
+        throw new Error("missing field");
+    if (map.of.type !== "bytes" || map.of.value.length !== 32)
+        throw new Error("invalid of");
+    if (map.timestamp.type !== "uint")
+        throw new Error("invalid timestamp");
 }

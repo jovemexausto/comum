@@ -1,4 +1,9 @@
 import { spawnSync } from "node:child_process";
+import bs58 from "bs58";
+import { sha3_256 } from "@noble/hashes/sha3";
+import { sha256 } from "@noble/hashes/sha2";
+import { hkdf } from "@noble/hashes/hkdf";
+import { hmac } from "@noble/hashes/hmac";
 
 export type EncodeResult = {
   cbor_hex: string;
@@ -28,6 +33,26 @@ export function verifyTestimony(
 ): boolean {
   const out = encodeTestimony(testimonyWithoutId, options);
   return out.id === expectedId;
+}
+
+export function deriveDid(pk: Uint8Array): string {
+  if (pk.length !== 32) throw new Error("invalid pk length");
+  const digest = sha3_256(pk);
+  const short = digest.slice(0, 20);
+  const checksum = sha256(sha256(short)).slice(0, 4);
+  const data = new Uint8Array(short.length + checksum.length);
+  data.set(short, 0);
+  data.set(checksum, short.length);
+  const b58 = bs58.encode(data);
+  return `did:comum:${b58}`;
+}
+
+export function computeNullifier(sk: Uint8Array, testimonyId: Uint8Array): Uint8Array {
+  if (sk.length !== 32) throw new Error("invalid sk length");
+  if (testimonyId.length !== 32) throw new Error("invalid id length");
+  const info = new TextEncoder().encode("comum-nullifier-v1");
+  const key = hkdf(sha3_256, sk, new Uint8Array(), info, 32);
+  return hmac(sha3_256, key, testimonyId);
 }
 
 type CborMap = Record<string, CborValue>;
@@ -146,6 +171,14 @@ export function buildVouchContextPayload(
   return encodeMap(pairs);
 }
 
+export function buildReceivePayload(of: Uint8Array, timestamp: number): Uint8Array {
+  const pairs = [
+    concatBytes([encodeTstr("of"), encodeBstr(of)]),
+    concatBytes([encodeTstr("timestamp"), encodeUint(timestamp)]),
+  ];
+  return encodeMap(pairs);
+}
+
 function decodeUnsigned(data: Uint8Array, offset: number) {
   const first = data[offset];
   const major = first >> 5;
@@ -243,4 +276,14 @@ export function validateContextPayload(ctxType: string, payload: Uint8Array): vo
     return;
   }
   throw new Error("invalid context type");
+}
+
+export function validateReceivePayload(payload: Uint8Array): void {
+  const { value } = decodeItem(payload, 0);
+  if (value.type !== "map") throw new Error("invalid payload type");
+  const map = value.value;
+  if (!map.of || !map.timestamp) throw new Error("missing field");
+  if (map.of.type !== "bytes" || map.of.value.length !== 32)
+    throw new Error("invalid of");
+  if (map.timestamp.type !== "uint") throw new Error("invalid timestamp");
 }

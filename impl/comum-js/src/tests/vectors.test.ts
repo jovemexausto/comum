@@ -9,15 +9,16 @@ function loadJson(p: string) {
 const repoRoot = path.resolve(import.meta.dirname, "..", "..", "..", "..");
 const manifestPath = path.join(repoRoot, "spec", "test-vectors", "manifest.json");
 const manifest = loadJson(manifestPath);
+const rootBin = path.join(repoRoot, "target", "debug", "comum-cbor");
+const localBin = path.join(repoRoot, "impl", "comum-rs", "target", "debug", "comum-cbor");
+const binPath = fs.existsSync(rootBin) ? rootBin : localBin;
 
 let failures = 0;
 
 for (const name of manifest.vectors) {
   const vecPath = path.join(repoRoot, "spec", "test-vectors", name);
   const vector = loadJson(vecPath);
-  const out = encodeTestimony(vector.testimony_without_id, {
-    bin: path.join(repoRoot, "impl", "comum-rs", "target", "debug", "comum-cbor"),
-  });
+  const out = encodeTestimony(vector.testimony_without_id, { bin: binPath });
 
   if (out.id !== vector.expected_id) {
     console.error(`[${name}] expected_id mismatch`);
