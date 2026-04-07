@@ -14,7 +14,9 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
 - [x] Capsulas Feira e Mutirao (CIP-0003)
 - [x] Snapshot/Pruning
-- [x] SDKs mobile estaveis
+- [~] SDKs mobile estaveis
+- [x] SDK JS: invokeCapsule + wrapper Feira + E2E real
+- [ ] App mobile (fluxo minimo end-to-end)
 
 ## Pesquisa aplicada — Coerencia (nao normativo)
 

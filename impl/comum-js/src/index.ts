@@ -230,6 +230,54 @@ export class Commoner {
   }
 }
 
+// --- Minimal ergonomics layer (non-normative) ---
+
+export function invokeCapsule(
+  commoner: Commoner,
+  capsuleId: Uint8Array,
+  action: string,
+  paramsCbor: Uint8Array,
+  context: CommonerContextInput
+): CommonerEmitResult {
+  const payload = buildInvokePayload(capsuleId, action, paramsCbor);
+  return commoner.emit(VERB_CAPSULE_INVOKE, payload, context);
+}
+
+function buildInvokePayload(
+  capsuleId: Uint8Array,
+  action: string,
+  params: Uint8Array
+): Uint8Array {
+  // minimal CBOR map encoding (same pattern as sims)
+  const pairs: number[][] = [];
+  pairs.push([...encodeTstr("action"), ...encodeTstr(action)]);
+  pairs.push([...encodeTstr("params"), ...encodeBstr(params)]);
+  pairs.push([...encodeTstr("capsule_id"), ...encodeBstr(capsuleId)]);
+  return new Uint8Array(encodeMap(pairs));
+}
+
+function encodeBstr(data: Uint8Array): number[] {
+  const len = data.length;
+  if (len < 24) return [0x40 + len, ...data];
+  if (len < 256) return [0x58, len, ...data];
+  throw new Error("bstr too long");
+}
+
+function encodeTstr(s: string): number[] {
+  const data = new TextEncoder().encode(s);
+  const len = data.length;
+  if (len < 24) return [0x60 + len, ...data];
+  if (len < 256) return [0x78, len, ...data];
+  throw new Error("tstr too long");
+}
+
+function encodeMap(pairs: number[][]): number[] {
+  const len = pairs.length;
+  const out = len < 24 ? [0xa0 + len] : [0xb8, len];
+  for (const p of pairs) out.push(...p);
+  return out;
+}
+
 export function deriveDid(pk: Uint8Array): string {
   if (pk.length !== 32) throw new Error("invalid pk length");
   const digest = sha3_256(pk);

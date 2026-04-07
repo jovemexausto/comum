@@ -81,3 +81,13 @@ podem ser tratadas por capsulas ou heuristicas locais.
 ```sh
 just coherence-sim
 ```
+
+## Cenario 6 — Feira E2E (JS)
+
+O que simula: fluxo completo em JS usando Commoner + capsula Feira.
+Por que importa: valida a camada de SDK e o caminho ponta-a-ponta.
+O que significa: os mesmos Testimonies sao gerados e ingeridos em JS.
+
+```sh
+(cd impl/comum-js && npm run e2e:feira)
+```
