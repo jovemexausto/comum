@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
+  "react-native": "dist/mobile.js",
   "types": "dist/index.d.ts",
   "license": "CC0-1.0",
   "scripts": {

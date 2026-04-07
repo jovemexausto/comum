@@ -16,7 +16,7 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 - [x] Snapshot/Pruning
 - [~] SDKs mobile estaveis
 - [x] SDK JS: invokeCapsule + wrapper Feira + E2E real
-- [ ] App mobile (fluxo minimo end-to-end)
+- [x] App mobile (node por instancia + E2E multi-node via WebSocket)
 
 ## Pesquisa aplicada — Coerencia (nao normativo)
 

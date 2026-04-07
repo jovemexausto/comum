@@ -1,0 +1,17 @@
+{
+  "name": "comum-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "e2e:multi-node": "node e2e/multi-node.e2e.mjs"
+  },
+  "dependencies": {
+    "comum-js": "file:../../impl/comum-js",
+    "expo": "^51.0.0",
+    "react": "18.2.0",
+    "react-native": "0.74.0",
+    "ws": "^8.18.3"
+  }
+}
