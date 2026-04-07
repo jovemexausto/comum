@@ -2,21 +2,30 @@
 
 Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
-## Roadmap Atual (v0.2)
+## Estado atual
 
-- [x] Commoner facade em comum-rs (API de no)
-- [x] Wrapper JS/SDKs (mobile/desktop)
-- [x] Perfis de Transporte (NFC/BLE/QR/RNS)
-- [x] Semantica da Capsula Agora (CIP-0003)
-- [x] Release notes e tag remota
+- v0.3 entregue como sistema distribuido minimo funcional
+- App = node (Commoner encapsulado)
+- Sync via transporte (WebSocket no ambiente de teste)
+- E2E multi-node com convergencia validada
 
-## Proximo Roadmap (v0.3)
+## Roadmap ativo (v0.4)
 
-- [x] Capsulas Feira e Mutirao (CIP-0003)
-- [x] Snapshot/Pruning
-- [~] SDKs mobile estaveis
-- [x] SDK JS: invokeCapsule + wrapper Feira + E2E real
-- [x] App mobile (node por instancia + E2E multi-node via WebSocket)
+Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
+
+- [~] Paridade de runtime (JS mobile vs Rust)
+- [ ] Suite de conformance cross-runtime
+- [ ] Fault injection em transporte (delay/drop/reorder)
+- [ ] Extracao de ComumClient para o SDK
+- [ ] Padronizacao de naming (boundary TS)
+- [ ] Unificacao de API de transporte (WS/BLE/NFC)
+- [ ] Remocao de vazamento de CBOR no nivel de app
+
+## Direcao
+
+- Foco em estabilidade, previsibilidade e interop
+- Evitar expansao de features antes de garantir paridade
+- Consolidar API de alto nivel antes de novos casos de uso
 
 ## Pesquisa aplicada — Coerencia (nao normativo)
 

@@ -9,6 +9,12 @@ Aplicativo de referencia (React Native) em que cada instancia do app e um node/C
 - Node aceita transporte plugavel (`attachTransport`)
 - E2E usa relay WebSocket real + workers isolados
 
+## v0.3 semantics
+
+- Cada instancia do app e um node soberano
+- Sync ocorre via transporte (WS no ambiente de teste)
+- Fluxos de capsula sao executados localmente e propagados via rede
+
 ## E2E multi-node automatizado
 
 O teste sobe um relay WebSocket, cria 3 instancias isoladas de node (processos separados), executa um fluxo Feira completo e valida convergencia de estado via rede.

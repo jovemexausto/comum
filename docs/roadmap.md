@@ -15,13 +15,20 @@
 - Semantica formal da Capsula Agora (CIP-0003)
 - SDKs iniciais (JS/mobile)
 
-## v0.3
+## v0.3 (entregue)
 
-- Capsulas Feira e Mutirao (CIP-0003) — feito
-- Snapshot/Pruning — feito
-- SDKs mobile estaveis
+- Sistema distribuido minimo funcional (nodes + rede + convergencia)
+- App = node (Commoner no mobile)
+- Fluxo Feira E2E (offer -> accept -> receipt)
+- E2E multi-node via WebSocket (convergencia verificada)
+- SDK JS com entrada React Native (sem N-API obrigatoria para E2E de app)
 
 ## v0.4
 
-- Interop externo (outras linguagens)
-- Hardening do runtime (seguranca, limites e auditoria)
+- Paridade de runtime (JS mobile vs Rust canônico)
+- Suite de conformance cross-runtime
+- Robustez de transporte (fault injection: drop/delay/reorder)
+- Unificacao de API de transporte (WS/BLE/NFC)
+- Extracao de ComumClient (API de alto nivel no SDK)
+- Padronizacao de naming (boundary TS: camelCase)
+- Reducao de vazamento de CBOR no nivel de app
