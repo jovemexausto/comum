@@ -8,6 +8,7 @@
 | Vetores oficiais (0001-0006)                    | spec/test-vectors | OK       | OK       |
 | CTE encode/decode + fragmentacao                | CIP-0001          | OK       | N/A      |
 | Sync payloads (HELLO/REQUEST/RESPONSE)          | CIP-0001          | OK       | N/A      |
+| Snapshot encode/validate                         | CIP-0001          | OK       | N/A      |
 | Context payloads (proximity/beacon/place/vouch) | CIP-0001          | OK       | OK       |
 | Genesis payload                                 | CIP-0001          | OK       | OK       |
 | FROST threshold signatures                      | CIP-0001          | OK       | N/A      |
@@ -18,3 +19,5 @@
 | -------------------------- | ------------- | ----------------------- | -------- |
 | Runtime WASM + limites     | CIP-0001      | OK                      | N/A      |
 | Capsula Agora (governanca) | CIP-0001      | OK                      | OK       |
+| Capsula Feira (mercado)    | CIP-0003      | OK                      | OK       |
+| Capsula Mutirao (trabalho) | CIP-0003      | OK                      | OK       |

@@ -132,6 +132,18 @@ Se `COMUM_NAPI_PATH` nao estiver definido, o `comum-js` tenta resolver
 just agora-sim
 ```
 
+- Feira (mercado local):
+
+```sh
+just feira-sim
+```
+
+- Mutirao (trabalho coletivo):
+
+```sh
+just mutirao-sim
+```
+
 ## Qualidade e verificacao
 
 - Vetores oficiais garantem paridade entre linguagens
