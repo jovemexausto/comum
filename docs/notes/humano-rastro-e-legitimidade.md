@@ -5,6 +5,12 @@ totalizante sobre a relacao entre humano, arquivo e sistema.
 
 Tudo abaixo e nao normativo.
 
+## Ver tambem
+
+- [Dump lossless: verticalidade, mal, cancer e campos vivos](./dump-lossless-verticalidade-mal-cancer-e-campos-vivos.md)
+- [Inteligibilidade, forma e resto](./inteligibilidade-forma-e-resto.md)
+- [Santidade, incerteza e limite](./santidade-incerteza-e-limite.md)
+
 ## 1. Ponto de partida
 
 Quando um sistema passa a tratar o registro como instancia final, ele troca um
