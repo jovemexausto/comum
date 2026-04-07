@@ -29,10 +29,10 @@ local de sequencias de Testimonies (via `refs` e `prev_id`).
 
 ## Commoner como unidade
 
-O Comum usa **Commoner** como unidade central. Commoner e a entidade
-que armazena, valida e sincroniza o grafo, e tambem a que emite
-Testimonies com suas provas. Nao ha papeis separados: tudo isso e uma
-mesma funcao operacional.
+`Commoner` e tanto o sujeito social que emite Testimonies quanto a
+unidade tecnica que os valida e sincroniza. Essa unidade intencionalmente
+nao distingue papeis internos: armazenar, validar, sincronizar e emitir
+sao funcoes de um mesmo objeto. A CIP-0002 formaliza essa interface.
 
 ## Tempo e causalidade
 

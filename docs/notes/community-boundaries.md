@@ -38,10 +38,27 @@ a comunidade X"?
    - Genesis-first + campos explicitos quando existirem.
    - Pro: equilibrio entre rigor e praticidade.
 
+5) **Membership explicito via Testimony**
+   - Pertence se existe `comum/member` valido para o author,
+     co-assinado por fundadores ou aprovado por Capsula de entrada.
+   - Pro: auditavel, revogavel, explicito.
+   - Contra: adiciona verb e carga de membership.
+
 ## Questao aberta
 
 Como evitar que um adversario injete Testimonies "estranhos" e force
 interpretacoes indevidas sem quebrar o principio de grafo global?
+
+## Criterio minimo recomendado (nao normativo para v0.1)
+
+Filtro composto:
+
+- Genesis-first para identidade da comunidade.
+- `comum/member` para verificar pertencimento do author.
+- Campos explicitos de `community_id` quando presentes.
+- Capsula aplica regras adicionais.
+
+Formalizar como CIP quando houver implementacao validada.
 
 ## Proximos passos
 
