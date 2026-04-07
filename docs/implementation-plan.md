@@ -14,4 +14,11 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
 - [x] Capsulas Feira e Mutirao (CIP-0003)
 - [x] Snapshot/Pruning
-- [~] SDKs mobile estaveis
+- [x] SDKs mobile estaveis
+
+## Pesquisa aplicada — Coerencia (nao normativo)
+
+- [x] coherence-sim com metricas (contagem, lacunas, repeticao, diversidade PHI)
+- [x] coherence-sim com coherence_score (heuristica local)
+- [~] Tabela de PHI esperado por verbo (nota tecnica)
+- [ ] Loop simulacao -> achado -> implicacao -> decisao (findings-001)

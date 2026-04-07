@@ -7,6 +7,19 @@ use ed25519_dalek::SigningKey;
 use sha3::{Digest, Sha3_256};
 
 fn main() {
+    run_scenario("A_coherent", Scenario { gaps: 0, repeats: 0, alt_ratio: 0.0 });
+    run_scenario("B_gaps", Scenario { gaps: 1, repeats: 0, alt_ratio: 0.0 });
+    run_scenario("C_repeats_low_div", Scenario { gaps: 0, repeats: 3, alt_ratio: 0.0 });
+    run_scenario("D_repeats_high_div", Scenario { gaps: 0, repeats: 3, alt_ratio: 0.5 });
+}
+
+struct Scenario {
+    gaps: i32,
+    repeats: i32,
+    alt_ratio: f32, // fraction of events using alt context
+}
+
+fn run_scenario(name: &str, sc: Scenario) {
     let capsule_id = read_capsule_id("feira");
 
     let mut seller = Commoner::new([0x11u8; 32], 1);
@@ -19,6 +32,7 @@ fn main() {
     observer.register_pk(pk_b);
 
     let ctx = default_context();
+    let ctx_alt = alt_context();
 
     let offer_id = compute_offer_id("cafe", 5, "comum", 1_700_000_200_000, "did:comum:s");
     let offer_params = build_offer_payload("cafe", 5, "comum", 1_700_000_200_000, "did:comum:s");
@@ -29,42 +43,67 @@ fn main() {
     let accept_invoke = build_invoke_payload(&capsule_id, "accept", &accept_params);
     let receipt_invoke = build_invoke_payload(&capsule_id, "receipt", &receipt_params);
 
-    let t_offer = seller.emit(CAPSULE_INVOKE, &offer_invoke, ctx.clone()).expect("offer");
-    observer.ingest(&t_offer.cbor).expect("ingest offer");
+    // coherent base
+    let t_offer = seller.emit(CAPSULE_INVOKE, &offer_invoke, ctx.clone()).unwrap();
+    observer.ingest(&t_offer.cbor).unwrap();
 
-    let t_accept = buyer.emit(CAPSULE_INVOKE, &accept_invoke, ctx.clone()).expect("accept");
-    observer.ingest(&t_accept.cbor).expect("ingest accept");
+    let use_alt_for_accept = sc.alt_ratio > 0.0;
+    let t_accept = buyer
+        .emit(
+            CAPSULE_INVOKE,
+            &accept_invoke,
+            if use_alt_for_accept { ctx_alt.clone() } else { ctx.clone() },
+        )
+        .unwrap();
+    observer.ingest(&t_accept.cbor).unwrap();
 
-    let t_receipt = buyer.emit(CAPSULE_INVOKE, &receipt_invoke, ctx.clone()).expect("receipt");
-    observer.ingest(&t_receipt.cbor).expect("ingest receipt");
+    let t_receipt = buyer.emit(CAPSULE_INVOKE, &receipt_invoke, ctx.clone()).unwrap();
+    observer.ingest(&t_receipt.cbor).unwrap();
 
-    let missing_offer_id = compute_offer_id("cafe", 5, "comum", 1_700_000_300_000, "did:comum:s");
-    let missing_accept_params = build_accept_payload(&missing_offer_id, "did:comum:b");
-    let missing_accept_invoke = build_invoke_payload(&capsule_id, "accept", &missing_accept_params);
-    let t_missing_accept = buyer
-        .emit(CAPSULE_INVOKE, &missing_accept_invoke, ctx.clone())
-        .expect("accept missing");
-    observer.ingest(&t_missing_accept.cbor).expect("ingest accept missing");
-
-    let mut repeated_ids = Vec::new();
-    for _ in 0..3 {
-        let t_repeat = buyer.emit(CAPSULE_INVOKE, &accept_invoke, ctx.clone()).expect("accept repeat");
-        observer.ingest(&t_repeat.cbor).expect("ingest accept repeat");
-        repeated_ids.push(t_repeat.id_hex);
+    // gaps: accept without offer
+    for _ in 0..sc.gaps {
+        let missing_offer_id = compute_offer_id("cafe", 5, "comum", 1_700_000_300_000, "did:comum:s");
+        let missing_accept_params = build_accept_payload(&missing_offer_id, "did:comum:b");
+        let missing_accept_invoke = build_invoke_payload(&capsule_id, "accept", &missing_accept_params);
+        let t = buyer.emit(CAPSULE_INVOKE, &missing_accept_invoke, ctx.clone()).unwrap();
+        observer.ingest(&t.cbor).unwrap();
     }
 
-    println!("[coherence-sim] coherent_offer_id={}", to_hex(&offer_id));
-    println!("[coherence-sim] coherent_offer={}", t_offer.id_hex);
-    println!("[coherence-sim] coherent_accept={}", t_accept.id_hex);
-    println!("[coherence-sim] coherent_receipt={}", t_receipt.id_hex);
-    println!("[coherence-sim] incoherent_accept={}", t_missing_accept.id_hex);
-    println!("[coherence-sim] repeated_accepts={}", repeated_ids.len());
+    // repeats with optional diversity
+    for i in 0..sc.repeats {
+        let use_alt = sc.alt_ratio > 0.0 && (i as f32 / sc.repeats.max(1) as f32) < sc.alt_ratio;
+        let c = if use_alt { ctx_alt.clone() } else { ctx.clone() };
+        let t = buyer.emit(CAPSULE_INVOKE, &accept_invoke, c).unwrap();
+        observer.ingest(&t.cbor).unwrap();
+    }
+
+    let total = 3 + sc.gaps + sc.repeats; // base 3 + extras
+    let gaps = sc.gaps;
+    let repeats = sc.repeats;
+    let phi_diversity = if sc.alt_ratio > 0.0 { 2 } else { 1 };
+    let valid_sequences = 1i32;
+    let coherence_score = (2 * valid_sequences) - (3 * gaps) - (1 * repeats) + (1 * phi_diversity);
+
+    println!("[coherence-sim:{}] total_events={}", name, total);
+    println!("[coherence-sim:{}] gaps_without_antecedent={}", name, gaps);
+    println!("[coherence-sim:{}] repeated_actions_by_author={}", name, repeats);
+    println!("[coherence-sim:{}] phi_diversity_score={}", name, phi_diversity);
+    println!("[coherence-sim:{}] coherence_score={}", name, coherence_score);
 }
 
 fn default_context() -> ContextInput {
     ContextInput {
         r#type: "none".to_string(),
         payload_cbor: vec![0xa0],
+        proof: ProofInput::default(),
+    }
+}
+
+fn alt_context() -> ContextInput {
+    ContextInput {
+        // keep type consistent; vary payload only
+        r#type: "none".to_string(),
+        payload_cbor: vec![0xa1, 0x01, 0x02], // small distinct CBOR map
         proof: ProofInput::default(),
     }
 }
