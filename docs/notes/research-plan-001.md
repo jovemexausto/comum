@@ -121,6 +121,8 @@ Estes pontos ja sao especificacao e nao devem ser alterados por pesquisa:
 ## 6) Entregaveis esperados da pesquisa
 
 - Notas tecnicas em `docs/notes/` para hipoteses.
+- Nota: `docs/notes/triadic-coherence-comum.md` (triade P/A/PHI).
+- Nota: `docs/notes/coercive-masking.md` (coercao mascarada).
 - RFC/CIP draft para `comum/member`.
 - Matriz achado → implicacao → teste.
 

@@ -81,6 +81,9 @@ nao o passado.
 - Tempo social e regras de expiracao.
 - Fronteiras e filtros de comunidade.
 
+Notas tecnicas (nao normativas) podem registrar hipoteses de pesquisa
+sobre leitura do grafo, como coerencia triadica e coercao mascarada.
+
 ## O que o protocolo recusa deliberadamente
 
 - Ordenacao global forçada.

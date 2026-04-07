@@ -43,3 +43,12 @@ Fluxo minimo: task -> commit -> checkin -> complete -> reward.
 ```sh
 just mutirao-sim
 ```
+
+## Cenario 5 — Coerencia triadica (hipotese)
+
+Fluxos: sequencia coerente (offer -> accept -> receipt) e sequencias
+incoerentes (accept sem offer, repeticao de accept).
+
+```sh
+just coherence-sim
+```
