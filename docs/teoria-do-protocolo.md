@@ -54,6 +54,11 @@ O grafo e global por natureza, mas a comunidade e um filtro de leitura.
 Pertencer a uma comunidade e uma interpretacao sobre Testimonies (por
 exemplo, Genesis e regras locais), nao um container separado de dados.
 
+Comunidades nominais (Genesis) nao limitam interacoes. Qualquer Commoner
+pode se relacionar com qualquer outro; essas relacoes geram comunidades
+funcionais que emergem do grafo. As Capsulas atribuem significado local
+a esses padroes sem bloquear a liberdade de relacao.
+
 ## Revogacao
 
 Revogacao no Comum e local e relacional. Nao existe banimento universal,

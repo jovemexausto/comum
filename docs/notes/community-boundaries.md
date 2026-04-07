@@ -11,11 +11,15 @@ comunidade sem transformar comunidade em container fisico.
 - Comunidade = filtro de leitura, nao particao de armazenamento.
 - Community ID ancora no Genesis (id do Testemunho de Genesis).
 - Um Testimony pode ser relevante para multiplas comunidades.
+- Comunidades funcionais emergem de relacoes; nao dependem de Genesis.
 
 ## Questao central
 
 Qual criterio minimo um Commoner usa para dizer: "este Testimony pertence
 a comunidade X"?
+
+Observacao: comunidades nominais (Genesis) nao devem bloquear
+interacoes entre Commoners; a comunidade funcional emerge do grafo.
 
 ## Caminhos possiveis
 
