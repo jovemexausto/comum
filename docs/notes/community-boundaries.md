@@ -65,3 +65,9 @@ Formalizar como CIP quando houver implementacao validada.
 - Decidir o criterio minimo (provavelmente o filtro composto).
 - Formalizar no CIP (se virar regra normativa).
 - Adicionar exemplos no manual e na teoria.
+
+## Nota sobre revogacao
+
+Revogacao e sempre local a uma comunidade. Uma revogacao nao remove
+o Commoner do grafo, apenas altera a leitura e os fluxos futuros
+naquela comunidade. O efeito global e emergente.

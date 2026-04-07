@@ -54,6 +54,14 @@ O grafo e global por natureza, mas a comunidade e um filtro de leitura.
 Pertencer a uma comunidade e uma interpretacao sobre Testimonies (por
 exemplo, Genesis e regras locais), nao um container separado de dados.
 
+## Revogacao
+
+Revogacao no Comum e local e relacional. Nao existe banimento universal,
+porque isso exigiria autoridade global. Um Commoner pode ser revogado por
+uma comunidade especifica, e o efeito global emerge da soma de revogacoes
+locais. O grafo mantém todos os Testemunhos; revogacao altera a leitura,
+nao o passado.
+
 ## O que o protocolo garante
 
 - Determinismo de serializacao (CBOR canonical).
