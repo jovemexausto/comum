@@ -19,3 +19,27 @@ Saida esperada:
 
 - C recebe 2 testemunhos (encounter + transfer)
 - Estado final mostra contagem e saldos derivados
+
+## Cenario 2 — Agora (governanca)
+
+Fluxo minimo: propose -> vote -> close.
+
+```sh
+just agora-sim
+```
+
+## Cenario 3 — Feira (mercado local)
+
+Fluxo minimo: offer -> accept -> receipt.
+
+```sh
+just feira-sim
+```
+
+## Cenario 4 — Mutirao (trabalho coletivo)
+
+Fluxo minimo: task -> commit -> checkin -> complete -> reward.
+
+```sh
+just mutirao-sim
+```

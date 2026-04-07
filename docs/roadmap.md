@@ -8,7 +8,7 @@
 - vetores de teste + conformance
 - interop matrix + release
 
-## v0.2
+## v0.2 (entregue)
 
 - Commoner facade (API de no)
 - Perfis de transporte NFC/BLE/QR/RNS
@@ -17,8 +17,8 @@
 
 ## v0.3
 
-- Capsulas Feira e Mutirao (CIP-0003)
-- Snapshot/Pruning
+- Capsulas Feira e Mutirao (CIP-0003) — feito
+- Snapshot/Pruning — feito
 - SDKs mobile estaveis
 
 ## v0.4

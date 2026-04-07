@@ -20,6 +20,14 @@
 - Simulacao de Agora como pacote separado
 - Release notes v0.2 e tag local
 
+## 2026-04-07 — v0.3 em andamento
+
+- Capsulas Feira e Mutirao (semantica + WASM)
+- Simulacoes de Feira e Mutirao
+- Snapshots (encode/validate) e pruning basico
+- Verbos como SSOT (Rust/JS)
+- Revogacao local explicitada na CIP-0001
+
 ## Epics entregues
 
 - Epic 0: fundacao e conformidade
