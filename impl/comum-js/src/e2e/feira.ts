@@ -2,8 +2,9 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { sha3_256 } from "@noble/hashes/sha3";
+import * as ed25519 from "@noble/ed25519";
 
-import { Commoner } from "../index";
+import { Commoner, loadNative } from "../index.js";
 import {
   accept,
   buildAcceptPayload,
@@ -12,7 +13,7 @@ import {
   computeOfferId,
   offer,
   receipt,
-} from "../feira";
+} from "../feira.js";
 
 function readCapsuleId(): Uint8Array {
   const root = resolve(dirname(fileURLToPath(import.meta.url)), "../../../..");
@@ -29,12 +30,24 @@ function emptyContext() {
   };
 }
 
-function main() {
+async function main() {
+  const native = loadNative();
+  if (!native?.Commoner) {
+    console.error("comum-napi not available; set COMUM_NAPI_PATH or install comum-napi");
+    process.exit(1);
+  }
   const capsuleId = readCapsuleId();
   const ctx = emptyContext();
 
-  const seller = new Commoner(new Uint8Array(32).fill(1), 1);
-  const buyer = new Commoner(new Uint8Array(32).fill(2), 1);
+  const sellerSk = new Uint8Array(32).fill(1);
+  const buyerSk = new Uint8Array(32).fill(2);
+  const seller = new Commoner(sellerSk, 1);
+  const buyer = new Commoner(buyerSk, 1);
+
+  const sellerPk = await ed25519.getPublicKeyAsync(sellerSk);
+  const buyerPk = await ed25519.getPublicKeyAsync(buyerSk);
+  seller.registerPk(buyerPk);
+  buyer.registerPk(sellerPk);
 
   const item = "cafe";
   const price = 5;
@@ -59,4 +72,7 @@ function main() {
   console.log({ offer: tOffer.id_hex, accept: tAccept.id_hex, receipt: tReceipt.id_hex });
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

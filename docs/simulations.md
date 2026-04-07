@@ -91,3 +91,5 @@ O que significa: os mesmos Testimonies sao gerados e ingeridos em JS.
 ```sh
 (cd impl/comum-js && npm run e2e:feira)
 ```
+
+Requer `comum-napi` disponivel (instalado ou via `COMUM_NAPI_PATH`).

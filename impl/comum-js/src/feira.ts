@@ -1,5 +1,5 @@
 import { sha3_256 } from "@noble/hashes/sha3";
-import { Commoner, invokeCapsule, CommonerContextInput } from "./index";
+import { Commoner, invokeCapsule, CommonerContextInput } from "./index.js";
 
 // Thin wrapper for feira capsule (non-normative ergonomics)
 

@@ -35,34 +35,35 @@ type NativeModule = {
 type NativeCommoner = {
   did(): string;
   clock(): number;
-  register_pk(pk: Buffer): Buffer;
-  add_supported_suite(suite: number): void;
+  registerPk(pk: Buffer): Buffer;
+  addSupportedSuite(suite: number): void;
   validate(testimony_cbor: Buffer): void;
   ingest(testimony_cbor: Buffer): void;
   emit(verb: string, payload_cbor: Buffer, context: NativeContextInput): NativeEmitResult;
-  build_hello(profile: string): Buffer;
-  build_request(clock: number, limit: number): Buffer;
-  apply_response(payload: Buffer): void;
-  encode_cte(payload: Buffer): Buffer;
-  fragment_cte(cte: Buffer, mtu: number, frag_id: Buffer): NativeCteFragment[];
+  buildHello(profile: string): Buffer;
+  buildRequest(clock: number, limit: number): Buffer;
+  applyResponse(payload: Buffer): void;
+  encodeCte(payload: Buffer): Buffer;
+  fragmentCte(cte: Buffer, mtu: number, frag_id: Buffer): NativeCteFragment[];
   reassemble(fragments: NativeCteFragment[]): Buffer;
 };
 
 type NativeContextInput = {
   type: string;
-  payload_cbor: Buffer;
+  payloadCbor: Buffer;
   proof: NativeProofInput;
 };
 
 type NativeProofInput = {
   version: number;
   signatures: Buffer[];
-  zk_proofs: Buffer[];
+  zkProofs: Buffer[];
   nullifiers: Buffer[];
 };
 
 type NativeEmitResult = {
-  id_hex: string;
+  idHex?: string;
+  id_hex?: string;
   cbor: Buffer;
 };
 
@@ -162,11 +163,11 @@ export class Commoner {
   }
 
   registerPk(pk: Uint8Array): Uint8Array {
-    return this.native.register_pk(Buffer.from(pk));
+    return this.native.registerPk(Buffer.from(pk));
   }
 
   addSupportedSuite(suite: number): void {
-    this.native.add_supported_suite(suite);
+    this.native.addSupportedSuite(suite);
   }
 
   validate(testimonyCbor: Uint8Array): void {
@@ -180,35 +181,37 @@ export class Commoner {
   emit(verb: string, payloadCbor: Uint8Array, context: CommonerContextInput): CommonerEmitResult {
     const out = this.native.emit(verb, Buffer.from(payloadCbor), {
       type: context.type,
-      payload_cbor: Buffer.from(context.payload_cbor),
+      payloadCbor: Buffer.from(context.payload_cbor),
       proof: {
         version: context.proof.version,
         signatures: context.proof.signatures.map((s) => Buffer.from(s)),
-        zk_proofs: context.proof.zk_proofs.map((s) => Buffer.from(s)),
+        zkProofs: context.proof.zk_proofs.map((s) => Buffer.from(s)),
         nullifiers: context.proof.nullifiers.map((s) => Buffer.from(s)),
       },
     });
-    return { id_hex: out.id_hex, cbor: new Uint8Array(out.cbor) };
+    const idHex = out.idHex ?? out.id_hex;
+    if (!idHex) throw new Error("missing emit id");
+    return { id_hex: idHex, cbor: new Uint8Array(out.cbor) };
   }
 
   buildHello(profile: string): Uint8Array {
-    return new Uint8Array(this.native.build_hello(profile));
+    return new Uint8Array(this.native.buildHello(profile));
   }
 
   buildRequest(clock: number, limit: number): Uint8Array {
-    return new Uint8Array(this.native.build_request(clock, limit));
+    return new Uint8Array(this.native.buildRequest(clock, limit));
   }
 
   applyResponse(payload: Uint8Array): void {
-    this.native.apply_response(Buffer.from(payload));
+    this.native.applyResponse(Buffer.from(payload));
   }
 
   encodeCte(payload: Uint8Array): Uint8Array {
-    return new Uint8Array(this.native.encode_cte(Buffer.from(payload)));
+    return new Uint8Array(this.native.encodeCte(Buffer.from(payload)));
   }
 
   fragmentCte(cte: Uint8Array, mtu: number, fragId: Uint8Array): CteFragment[] {
-    return this.native.fragment_cte(Buffer.from(cte), mtu, Buffer.from(fragId)).map((f) => ({
+    return this.native.fragmentCte(Buffer.from(cte), mtu, Buffer.from(fragId)).map((f) => ({
       frag_id: new Uint8Array(f.frag_id),
       frag_index: f.frag_index,
       frag_total: f.frag_total,
@@ -248,34 +251,12 @@ function buildInvokePayload(
   action: string,
   params: Uint8Array
 ): Uint8Array {
-  // minimal CBOR map encoding (same pattern as sims)
-  const pairs: number[][] = [];
-  pairs.push([...encodeTstr("action"), ...encodeTstr(action)]);
-  pairs.push([...encodeTstr("params"), ...encodeBstr(params)]);
-  pairs.push([...encodeTstr("capsule_id"), ...encodeBstr(capsuleId)]);
-  return new Uint8Array(encodeMap(pairs));
-}
-
-function encodeBstr(data: Uint8Array): number[] {
-  const len = data.length;
-  if (len < 24) return [0x40 + len, ...data];
-  if (len < 256) return [0x58, len, ...data];
-  throw new Error("bstr too long");
-}
-
-function encodeTstr(s: string): number[] {
-  const data = new TextEncoder().encode(s);
-  const len = data.length;
-  if (len < 24) return [0x60 + len, ...data];
-  if (len < 256) return [0x78, len, ...data];
-  throw new Error("tstr too long");
-}
-
-function encodeMap(pairs: number[][]): number[] {
-  const len = pairs.length;
-  const out = len < 24 ? [0xa0 + len] : [0xb8, len];
-  for (const p of pairs) out.push(...p);
-  return out;
+  const pairs = [
+    concatBytes([encodeTstr("action"), encodeTstr(action)]),
+    concatBytes([encodeTstr("params"), encodeBstr(params)]),
+    concatBytes([encodeTstr("capsule_id"), encodeBstr(capsuleId)]),
+  ];
+  return encodeMap(pairs);
 }
 
 export function deriveDid(pk: Uint8Array): string {
