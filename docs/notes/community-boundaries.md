@@ -75,3 +75,13 @@ Formalizar como CIP quando houver implementacao validada.
 Revogacao e sempre local a uma comunidade. Uma revogacao nao remove
 o Commoner do grafo, apenas altera a leitura e os fluxos futuros
 naquela comunidade. O efeito global e emergente.
+
+## Exemplo minimo (comunidade funcional)
+
+- A e B nunca compartilharam Genesis.
+- A e B trocam `comum/encounter` e `comum/vouch` locais.
+- B faz `capsule/offer` e A responde com `capsule/accept`.
+
+Resultado: existe uma comunidade funcional entre A e B,
+derivada do grafo e das relacoes, sem depender de uma
+comunidade nominal comum.
