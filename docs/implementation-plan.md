@@ -20,5 +20,6 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
 - [x] coherence-sim com metricas (contagem, lacunas, repeticao, diversidade PHI)
 - [x] coherence-sim com coherence_score (heuristica local)
-- [~] Tabela de PHI esperado por verbo (nota tecnica)
-- [ ] Loop simulacao -> achado -> implicacao -> decisao (findings-001)
+- [x] Tabela de PHI esperado por verbo (nota tecnica)
+- [x] Loop simulacao -> achado -> implicacao -> decisao (findings-001)
+- [x] Nota de identidade e Sybil (posicionamento nao normativo)
