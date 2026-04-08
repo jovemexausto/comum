@@ -83,7 +83,7 @@ Em formulacao resumida:
 
 ## 4. Agent
 
-`Agent` e a instancia local de agencia da `Person`.
+`Agent` e a instancia local atraves da qual a `Person` atua.
 
 Aqui, `Agent` nomeia o `Commoner` como forma operacional de continuidade,
 contexto e capacidade de agir.
@@ -91,23 +91,24 @@ contexto e capacidade de agir.
 O `Agent`:
 
 - roda em um `Host`
-- age em nome da `Person`
+- media a acao da `Person` no sistema tecnico
 - guarda continuidade local
 - aplica politicas e consentimentos
 - negocia capacidades com apps
 - preserva portabilidade entre interfaces
 
 Ele nao e a `Person`, mas tambem nao e mero app.
-E a camada que traduz legitimidade pessoal em acao situada.
+E a camada que torna a acao da `Person` operavel em contexto tecnico.
 
 Formula mais precisa:
 
-> O Agent nao substitui a Person; ele opera como sua instancia local de agencia.
+> O Agent nao substitui a Person; ele e a instancia local atraves da qual a
+> Person atua, persiste e interage.
 
 Ou, de forma mais descritiva:
 
-> `Agent` representa a `Person`, guarda continuidade local e medeia acesso a
-> capacidades.
+> `Agent` guarda continuidade local e medeia a acao da `Person`, incluindo o
+> acesso a capacidades em contextos concretos.
 
 ## 5. App
 
@@ -158,7 +159,7 @@ Ou, em formulacao politica mais explicita:
 A ordem semantica recomendada e esta:
 
 1. `Person` e a fonte de legitimidade, consentimento e responsabilidade
-2. `Agent` representa a `Person`, guarda continuidade e medeia acesso a capacidades
+2. `Agent` guarda continuidade e medeia a acao da `Person`, inclusive o acesso a capacidades
 3. `Host` abriga e roda o `Agent`
 4. `App` oferece uma interface situada de interacao e participacao
 5. `Platform` fornece a infraestrutura contingente sobre a qual isso existe hoje
@@ -167,7 +168,8 @@ Em formula condensada:
 
 > The Person is the source of legitimacy.
 >
-> The Agent represents the Person and mediates access to capabilities.
+> The Agent is the local instance through which the Person acts and mediates
+> access to capabilities.
 >
 > The Host runs the Agent locally.
 >
@@ -179,7 +181,8 @@ Ou em portugues:
 
 > A Pessoa e a fonte de legitimidade.
 >
-> O Agente representa a Pessoa e medeia acesso a capacidades.
+> O Agente e a instancia local atraves da qual a Pessoa atua e medeia acesso a
+> capacidades.
 >
 > O Host abriga e roda o Agente localmente.
 >
@@ -291,8 +294,8 @@ Uma sintese possivel:
 
 > A Person e a fonte de legitimidade.
 >
-> O Agent e a instancia local que representa a Person, guarda continuidade e
-> medeia acesso a capacidades.
+> O Agent e a instancia local atraves da qual a Person atua, guarda
+> continuidade e medeia acesso a capacidades.
 >
 > O Host e o ambiente local que abriga e roda o Agent.
 >
