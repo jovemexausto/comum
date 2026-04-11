@@ -35,10 +35,9 @@ Notas curtas e vivas do laboratorio atual.
 - `coercive-masking.md`
 - `coherence-findings-001.md`
 
-## Arquivadas
+## Retiradas do corpus vivo
 
-Materiais longos, dossies ou consolidacoes foram movidos para o arquivo do
-projeto.
+Materiais longos, dossies ou consolidacoes nao permanecem em `docs/notes/`.
 
 ## Regra de uso do indice
 

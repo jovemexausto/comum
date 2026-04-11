@@ -26,7 +26,7 @@ Modo de ver:
 
 Regras:
 - nao deixar material superseded competindo no corpus vivo
-- preferir mover para `.archive/` a manter ambiguidade
+- preferir retirar do corpus vivo a manter ambiguidade
 - nao transformar docs tecnicos em ensaio nem corpus em manual
 - se um texto perdeu papel claro, reclassificar antes de reescrever
 
@@ -34,7 +34,7 @@ Formato da resposta:
 - resumo curto
 - area impactada
 - decisao editorial sugerida
-- arquivos a mover, fundir ou arquivar
+- arquivos a mover, fundir ou retirar do corpus vivo
 
 Perguntas de controle:
 - este texto explica, legisla, opera ou explora?

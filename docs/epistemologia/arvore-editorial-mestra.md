@@ -16,10 +16,6 @@ spec/
   registries/
   schemas/
   test-vectors/
-
-.archive/
-  docs/
-  spec/
 ```
 
 ## Leitura da arvore
@@ -30,7 +26,6 @@ spec/
 - `docs/notes/`: laboratorio vivo
 - `docs/epistemologia/`: disciplina editorial e agentica
 - `spec/`: norma viva
-- `.archive/`: material preservado fora do corpus vivo
 
 ## Criterio de sucesso
 

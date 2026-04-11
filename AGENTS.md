@@ -19,7 +19,6 @@ Regra central:
 - `docs/implementation/`: documentacao tecnica informativa
 - `docs/project/`: contexto operacional vivo
 - `docs/notes/`: laboratorio curto e ativo
-- `.archive/`: material preservado fora do corpus vivo
 
 Regras:
 
@@ -86,12 +85,12 @@ Quando uma tarefa chega, o agente ativo deve responder internamente:
 1. Isto e `spec`, `corpus`, `implementation`, `project`, `notes` ou `archive`?
 2. Qual arquetipo principal deve liderar?
 3. Quais outras lentes precisam ser consultadas?
-4. O resultado final deve criar, mover, fundir, arquivar ou nao fazer nada?
+4. O resultado final deve criar, mover, fundir, remover do corpus vivo ou nao fazer nada?
 
 ## Regras anti-entropia
 
 - preferir consolidar a duplicar
-- preferir arquivar a manter ambiguidade
+- preferir retirar do corpus vivo a manter ambiguidade
 - preferir reduzir antes de expandir
 - preferir nomear corretamente antes de multiplicar documentos
 - nenhum agente deve aumentar a superficie viva do repo sem papel claro

@@ -35,7 +35,7 @@ Agentes nao devem aumentar a superficie viva do repo sem clareza de papel.
 Quando houver ambiguidade:
 
 - preferir consolidar
-- preferir arquivar a duplicar
+- preferir retirar do corpus vivo a duplicar
 - preferir corpus para teoria longa
 - preferir spec para contrato normativo
 - preferir notes para exploracao curta

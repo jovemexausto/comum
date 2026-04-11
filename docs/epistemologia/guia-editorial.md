@@ -25,7 +25,7 @@ Cada documento do repo deve ter um unico papel dominante.
 ### 2. Preferir consolidacao a proliferacao
 
 - se um texto novo repete uma funcao existente, fundir em vez de criar outro
-- se um texto perdeu funcao clara, mover para `.archive/`
+- se um texto perdeu funcao clara, retirar do corpus vivo
 
 ### 3. Respeitar fronteiras
 
@@ -51,7 +51,7 @@ Uma nota sobe de nivel quando:
 ## Regra de arquivo
 
 Material superseded, dissolvido, excessivo ou processual nao permanece no corpus
-vivo. Deve ir para `.archive/`.
+vivo.
 
 ## Status
 
