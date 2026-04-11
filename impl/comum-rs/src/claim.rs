@@ -265,7 +265,7 @@ pub fn validate_genesis_payload(payload: &[u8]) -> Result<(), DecodeError> {
 
     let founders_len = match map.get("founders") {
         Some(CborValue::Array(items)) => {
-            if items.len() < 3 {
+            if items.len() < 2 {
                 return Err(DecodeError::InvalidValue);
             }
             for item in items {
@@ -286,6 +286,9 @@ pub fn validate_genesis_payload(payload: &[u8]) -> Result<(), DecodeError> {
     match map.get("threshold") {
         Some(CborValue::Unsigned(v)) => {
             if *v == 0 || *v > founders_len {
+                return Err(DecodeError::InvalidValue);
+            }
+            if founders_len == 2 && *v != 2 {
                 return Err(DecodeError::InvalidValue);
             }
         }

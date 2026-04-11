@@ -67,6 +67,19 @@ uma comunidade especifica, e o efeito global emerge da soma de revogacoes
 locais. O grafo mantém todos os Testemunhos; revogacao altera a leitura,
 nao o passado.
 
+## Autoridade emergente auditavel
+
+O Comum nao parte da ideia de nao-autoridade. Autoridade social e inevitavel.
+O objetivo do protocolo e reduzir opacidade: tornar delegacao, escopo,
+contestado e revogacao legiveis no grafo. Autoridade valida no Comum e sempre
+contextual, limitada e revisavel por procedimentos locais.
+
+A fundacao comunitaria minima pode nascer em um par (2). A triade (3) nao e o
+inicio ontologico do comum, mas costuma ser o primeiro ganho forte de
+triangulacao institucional: reduz impasse, amplia mediacao e melhora
+accountability. Coletivos maiores podem elevar robustez conforme risco e
+complexidade do contexto.
+
 ## O que o protocolo garante
 
 - Determinismo de serializacao (CBOR canonical).
@@ -90,13 +103,15 @@ sobre leitura do grafo, como coerencia triadica e coercao mascarada.
 - Consenso universal como requisito.
 - Identidade emitida por autoridade externa.
 - Localizacao fisica obrigatoria.
-- Autoridade central de validacao.
+- Autoridade central irrevisavel de validacao.
 
 ## Criterios de legitimidade
 
 Determinismo e propriedade do protocolo (reprodutibilidade tecnica).
 Legitimidade e propriedade das Capsulas (decisao social). Uma comunidade
 pode aceitar excecoes ou julgamento coletivo sem violar o protocolo.
+O protocolo nao substitui instituicoes locais; ele oferece rastro auditavel
+para que instituicoes locais possam ser contestadas e transformadas.
 
 ## Anti-padroes
 

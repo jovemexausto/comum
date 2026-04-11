@@ -4,7 +4,8 @@ Comum Protocol is a local-first, offline-first infrastructure for sovereign
 community coordination. The repository combines a normative protocol core, a
 reference Rust implementation, a hybrid TypeScript SDK, reference capsules, a
 mobile app-as-node experiment, and an expanding theoretical corpus about how to
-coordinate without central authority, global consensus, or platform lock-in.
+coordinate without mandatory global consensus or platform lock-in, while
+keeping local authority auditable, limited, and revocable.
 
 At the protocol layer, Comum is intentionally narrow. Its atomic primitive is
 the signed, immutable, verifiable `Testimony`. Higher-level social state such as
@@ -14,7 +15,7 @@ core stack is: canonical CBOR serialization, SHA3-256 content addressing,
 cryptographic suites, Common Transport Envelope (CTE), eventual sync, modular
 proof of context without mandatory GPS, and deterministic WASM capsules for
 local semantics. The protocol explicitly rejects global ordering, strong global
-consensus, mandatory platform identity, and central validation authority.
+consensus, mandatory platform identity, and non-revisable central validation.
 
 At the normative layer, the repository is organized around public,
 interoperability-focused artifacts. `spec/cips/CIP-0001.md` is the base
@@ -65,8 +66,9 @@ This tension appears throughout the corpus as subsidiariedade tecnica,
 interoperability without single equivalence, local legitimacy over central
 authority, and anti-colonial limits on the protocol itself. The project treats
 determinism as a property of the protocol, but legitimacy as a property of local
-institutions and capsule-level interpretation. That distinction is central to
-understanding both the codebase and the surrounding theory.
+institutions and capsule-level interpretation. The protocol does not attempt to
+eliminate authority; it attempts to make authority emergence, scope,
+contestation, and revocation legible through auditable testimony chains.
 
 In its current state, the repository should be read as a serious protocol and
 runtime effort with real normative discipline, real reference implementations,

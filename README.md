@@ -24,10 +24,11 @@ de limites, e os limites precisam ser claros.
 - A infraestrutura deve servir a vida, nao o contrario.
 - A soberania e pratica, nao slogan.
 
-Nao buscamos consenso global. Buscamos convergencia local, auditavel e
-reprodutivel, com garantias claras, limites explicitos e responsabilidade
-comunitaria. A recusa do centro nao e uma metafora: e um requisito tecnico
-e uma escolha etica.
+Nao buscamos consenso global obrigatorio. Buscamos convergencia local,
+auditavel e reprodutivel, com garantias claras, limites explicitos e
+responsabilidade comunitaria. O Comum nao elimina autoridade; ele permite
+autoridade local limitada, contestavel e revogavel sem dependencia de um
+centro irrevisavel.
 
 ## Recusas
 
@@ -43,6 +44,7 @@ e uma escolha etica.
 - Garantir interoperabilidade por meio de especificacao publica.
 - Priorizar presenca local, cuidado comunitario e autonomia material.
 - Manter o protocolo aberto, sem pedagios, sem cadastro, sem vigilancia.
+- Tornar delegacao, contestacao e revogacao de autoridade legiveis no grafo.
 
 ## Principios
 
@@ -74,6 +76,8 @@ condicoes de baixa conectividade e alta autonomia local.
 - Prova de contexto modular (sem GPS obrigatorio)
 - Runtime WASM com limites normativos
 - Capsulas com semantica local (governanca, mercado, mutirao)
+- Fundacao comunitaria minima com 2 pessoas; triades e coletivos maiores
+  aumentam robustez institucional
 
 ## Arquitetura em uma linha
 

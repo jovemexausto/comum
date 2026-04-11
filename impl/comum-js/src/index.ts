@@ -585,7 +585,7 @@ export function validateGenesisPayload(payload: Uint8Array): void {
     throw new Error("invalid name");
 
   if (map.founders.type !== "array") throw new Error("invalid founders");
-  if (map.founders.value.length < 3) throw new Error("invalid founders");
+  if (map.founders.value.length < 2) throw new Error("invalid founders");
   for (const item of map.founders.value) {
     if (item.type !== "text" || !item.value.startsWith("did:comum:"))
       throw new Error("invalid founder");
@@ -593,6 +593,8 @@ export function validateGenesisPayload(payload: Uint8Array): void {
 
   if (map.threshold.type !== "uint") throw new Error("invalid threshold");
   if (map.threshold.value === 0 || map.threshold.value > map.founders.value.length)
+    throw new Error("invalid threshold");
+  if (map.founders.value.length === 2 && map.threshold.value !== 2)
     throw new Error("invalid threshold");
 
   if (map.capsules.type !== "array") throw new Error("invalid capsules");

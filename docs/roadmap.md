@@ -32,3 +32,4 @@
 - Extracao de ComumClient (API de alto nivel no SDK)
 - Padronizacao de naming (boundary TS: camelCase)
 - Reducao de vazamento de CBOR no nivel de app
+- Framing e testes iniciais de autoridade emergente auditavel

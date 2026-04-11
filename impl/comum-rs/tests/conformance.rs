@@ -536,13 +536,24 @@ fn receive_payload_invalid() {
 fn genesis_payload_roundtrip() {
     use comum_rs::{build_genesis_payload, validate_genesis_payload};
 
+    let founders_pair = ["did:comum:alpha", "did:comum:bravo"];
+    let capsules = [[0x11u8; 32], [0x22u8; 32]];
+    let mint_policy = [0x33u8; 32];
+    let pair_payload = build_genesis_payload(
+        "Comum Par",
+        2,
+        &founders_pair,
+        &capsules,
+        0,
+        &mint_policy,
+    );
+    validate_genesis_payload(&pair_payload).expect("valid pair genesis payload");
+
     let founders = [
         "did:comum:alpha",
         "did:comum:bravo",
         "did:comum:charlie",
     ];
-    let capsules = [[0x11u8; 32], [0x22u8; 32]];
-    let mint_policy = [0x33u8; 32];
     let payload = build_genesis_payload(
         "Comum Demo",
         2,
@@ -560,7 +571,6 @@ fn genesis_payload_invalid() {
 
     let bad_founders = encode_array(vec![
         encode_tstr("did:comum:only"),
-        encode_tstr("did:comum:two"),
     ]);
     let payload = encode_map(vec![
         [encode_tstr("name"), encode_tstr("Comum")].concat(),
@@ -568,6 +578,23 @@ fn genesis_payload_invalid() {
         [encode_tstr("capsules"), encode_array(vec![])].concat(),
         [encode_tstr("founders"), bad_founders].concat(),
         [encode_tstr("threshold"), encode_uint(2)].concat(),
+        [encode_tstr("mint_policy"), encode_bstr(&[0x11; 32])].concat(),
+    ]);
+    assert!(validate_genesis_payload(&payload).is_err());
+
+    let payload = encode_map(vec![
+        [encode_tstr("name"), encode_tstr("Comum Par")].concat(),
+        [encode_tstr("supply"), encode_uint(0)].concat(),
+        [encode_tstr("capsules"), encode_array(vec![])].concat(),
+        [
+            encode_tstr("founders"),
+            encode_array(vec![
+                encode_tstr("did:comum:alpha"),
+                encode_tstr("did:comum:bravo"),
+            ]),
+        ]
+        .concat(),
+        [encode_tstr("threshold"), encode_uint(1)].concat(),
         [encode_tstr("mint_policy"), encode_bstr(&[0x11; 32])].concat(),
     ]);
     assert!(validate_genesis_payload(&payload).is_err());
