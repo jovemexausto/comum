@@ -9,6 +9,11 @@ Artefatos atuais:
 
 - `roadmap.md`
 - `implementation-plan.md`
+- `feira-mvp-packet.md`
 - `reference-stack.md`
 - `paper-01-packet.md`
 - `releases/`
+
+Prioridade atual:
+
+- `Feira MVP` como vertical slice vivo entre teoria, protocolo, SDK e app

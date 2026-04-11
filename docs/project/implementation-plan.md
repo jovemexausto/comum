@@ -13,19 +13,47 @@ Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
 Legenda: [x] = feito, [~] = em andamento (apenas um por vez)
 
-- [~] Paridade de runtime (JS mobile vs Rust)
-- [ ] Suite de conformance cross-runtime
-- [ ] Fault injection em transporte (delay/drop/reorder)
+- [~] Feira MVP como vertical slice principal
 - [ ] Extracao de ComumClient para o SDK
+- [ ] Remocao de vazamento de CBOR no nivel de app
+- [ ] Paridade de runtime no fluxo Feira (JS mobile vs Rust)
+- [ ] Suite de conformance cross-runtime focada no fluxo Feira
+- [ ] Fault injection em transporte (delay/drop/reorder)
 - [ ] Padronizacao de naming (boundary TS)
 - [ ] Unificacao de API de transporte (WS/BLE/NFC)
-- [ ] Remocao de vazamento de CBOR no nivel de app
 
 ## Direcao
 
-- Foco em estabilidade, previsibilidade e interop
-- Evitar expansao de features antes de garantir paridade
-- Consolidar API de alto nivel antes de novos casos de uso
+- Foco em um produto vivo antes de expandir teoria ou paper
+- Usar Feira como prova pratica do Comum rodando entre nos reais
+- Fechar API de alto nivel e fluxo de app antes de abrir novos vertical slices
+- Paridade importa na medida em que sustenta o fluxo Feira completo
+
+## Feira MVP
+
+Definicao curta:
+
+- duas instancias do app conseguem publicar oferta, aceitar oferta e observar o
+  receipt sincronizado sem precisar lidar com CBOR cru ou detalhes internos de
+  Commoner
+
+Submetas:
+
+- `ComumClient` ou superficie equivalente no SDK
+- fluxo app -> SDK -> transporte -> sync -> capsula sem vazamento excessivo de detalhes
+- receipt observavel no app remoto apos convergencia
+- roteiro manual curto e reprodutivel
+
+Critero de pronto:
+
+- fluxo completo reproduzivel entre dois nos
+- comportamento coerente entre JS mobile e runtime canônico no que o fluxo expõe
+- demo explicavel sem exigir leitura do repo inteiro
+
+## Trabalho secundario
+
+- paper 1 continua vivo, mas subordinado ao que o produto realmente sustentar
+- teoria nova so sobe de prioridade se mudar o vertical slice ou o contrato
 
 ## Pesquisa aplicada — Coerencia (nao normativo)
 

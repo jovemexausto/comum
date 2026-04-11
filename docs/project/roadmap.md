@@ -25,11 +25,17 @@
 
 ## v0.4
 
-- Paridade de runtime (JS mobile vs Rust canônico)
-- Suite de conformance cross-runtime
+- Feira MVP como vertical slice principal (offer -> accept -> receipt entre dois nos)
+- Extracao de ComumClient (API de alto nivel no SDK)
+- Reducao de vazamento de CBOR no nivel de app
+- Paridade de runtime no fluxo Feira (JS mobile vs Rust canônico)
+- Suite de conformance cross-runtime focada no fluxo Feira
 - Robustez de transporte (fault injection: drop/delay/reorder)
 - Unificacao de API de transporte (WS/BLE/NFC)
-- Extracao de ComumClient (API de alto nivel no SDK)
 - Padronizacao de naming (boundary TS: camelCase)
-- Reducao de vazamento de CBOR no nivel de app
+
+## Depois do Feira MVP
+
 - Framing e testes iniciais de autoridade emergente auditavel
+- ampliar vertical slices para Agora e Mutirao
+- aumentar evidencia para paper 1 sem competir com entrega de produto
