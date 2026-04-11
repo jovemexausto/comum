@@ -16,8 +16,8 @@
     "bs58": "^5.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.10.2",
     "@noble/ed25519": "^2.2.3",
+    "@types/node": "^22.10.2",
     "typescript": "^5.5.4"
   }
 }

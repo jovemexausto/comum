@@ -14,7 +14,7 @@ import {
   buildAcceptPayload,
   buildReceiptPayload,
   computeOfferId,
-} from "./mobile.js";
+} from "./core.mobile.js";
 
 export type OfferParams = {
   item: string;
