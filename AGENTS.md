@@ -102,6 +102,19 @@ Quando uma tarefa chega, o agente ativo deve responder internamente:
 - quando algo for exploratorio, nao vestir como consolidado
 - quando algo for norma, apontar o artefato normativo vivo
 
+## Reference Stack
+
+Quando houver duvida entre sentido, contrato, execucao e claim publica, usar a
+reference stack do projeto (`docs/project/reference-stack.md`).
+
+Regra curta:
+
+- corpus da sentido
+- spec da obrigacao
+- implementation da execucao
+- evidence da permissao
+- paper da claim publica
+
 ## Build e Plan
 
 O ambiente pode oferecer agentes embutidos como `Build` e `Plan`.

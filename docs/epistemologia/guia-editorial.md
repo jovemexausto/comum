@@ -14,6 +14,19 @@ Cada documento do repo deve ter um unico papel dominante.
 - `docs/notes/`: laboratorio curto
 - `spec/`: contrato normativo
 
+## Reference stack
+
+Quando houver duvida entre teoria, norma, implementacao e claim publica, usar a
+disciplina em `docs/project/reference-stack.md`.
+
+Regra curta:
+
+- corpus da sentido
+- spec da obrigacao
+- implementation da execucao
+- evidence da permissao
+- paper da claim publica
+
 ## Regras para agentes
 
 ### 1. Nao duplicar papeis

@@ -9,5 +9,6 @@ Artefatos atuais:
 
 - `roadmap.md`
 - `implementation-plan.md`
+- `reference-stack.md`
 - `paper-01-packet.md`
 - `releases/`
