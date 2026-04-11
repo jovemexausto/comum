@@ -108,12 +108,12 @@ Os principais sintomas sao:
 
 | Arquivo | Categoria | Publico principal | Status | Destino sugerido |
 | --- | --- | --- | --- | --- |
-| `docs/release-notes/v0.1.md` | release/planejamento | comunidade, mantenedores | ativo | manter |
-| `docs/release-notes/v0.2.md` | release/planejamento | comunidade, mantenedores | ativo | manter |
-| `docs/release-notes/v0.3.md` | release/planejamento | comunidade, mantenedores | ativo | manter |
-| `docs/roadmap.md` | release/planejamento | comunidade, mantenedores | ativo | manter |
-| `docs/implementation-plan.md` | release/planejamento | mantenedores | ativo | manter, como plano operacional |
-| `docs/context.md` | release/planejamento | mantenedores, agentes, onboarding | precisa atualizar | alinhar com v0.3 entregue e v0.4 ativo |
+| `docs/project/releases/v0.1.md` | release/planejamento | comunidade, mantenedores | ativo | manter |
+| `docs/project/releases/v0.2.md` | release/planejamento | comunidade, mantenedores | ativo | manter |
+| `docs/project/releases/v0.3.md` | release/planejamento | comunidade, mantenedores | ativo | manter |
+| `docs/project/roadmap.md` | release/planejamento | comunidade, mantenedores | ativo | manter |
+| `docs/project/implementation-plan.md` | release/planejamento | mantenedores | ativo | manter, como plano operacional |
+| `.archive/docs/04-project-ops/00-contexto-de-evolucao.md` | release/planejamento | mantenedores, agentes, onboarding | arquivado | preservar apenas como contexto historico |
 
 ## 7. Simulacoes e laboratorios
 

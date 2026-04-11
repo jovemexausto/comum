@@ -167,17 +167,17 @@ spec/
 - `spec/registries/*`
 - `spec/schemas/*`
 - `spec/test-vectors/*`
-- `docs/release-notes/*`
-- `docs/roadmap.md`
-- `docs/implementation-plan.md`
+- `docs/project/releases/*`
+- `docs/project/roadmap.md`
+- `docs/project/implementation-plan.md`
 
 ### Devem migrar ou ser espelhados no corpus tecnico
 
 - fundamentos conceituais curtos devem ser absorvidos por `docs/corpus/`
-- `docs/architecture/overview.md` -> `docs/20-arquitetura/overview.md`
-- `docs/architecture/wasm-abi.md` -> `docs/20-arquitetura/wasm-abi.md`
-- `docs/sdk/mobile-contract.md` -> `docs/20-arquitetura/sdk-mobile-contract.md`
-- `docs/interop/README.md` -> `docs/20-arquitetura/interop.md`
+- `docs/architecture/overview.md` -> `docs/implementation/overview.md`
+- `docs/architecture/wasm-abi.md` -> `docs/implementation/wasm-abi.md`
+- `docs/sdk/mobile-contract.md` -> `docs/implementation/sdk-mobile-contract.md`
+- `docs/interop/README.md` -> `docs/implementation/interop.md`
 
 ### Devem alimentar principalmente o livro
 

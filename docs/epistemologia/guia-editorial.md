@@ -109,10 +109,10 @@ Taxonomia recomendada para novas notas:
 
 Onde:
 
-- `docs/roadmap.md`
-- `docs/implementation-plan.md`
-- `docs/release-notes/`
-- `docs/context.md`
+- `docs/project/roadmap.md`
+- `docs/project/implementation-plan.md`
+- `docs/project/releases/`
+- contexto operacional superado deve ser arquivado, nao mantido no corpus vivo
 
 Funcao:
 
