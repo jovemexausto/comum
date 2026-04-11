@@ -72,12 +72,12 @@ Os principais sintomas sao:
 
 | Arquivo | Categoria | Publico principal | Status | Destino sugerido |
 | --- | --- | --- | --- | --- |
-| `spec/rfcs/RFC-0001 v0.1.md` | legado | historiadores do projeto | legado | manter arquivado |
-| `spec/rfcs/RFC-0001 v0.2.md` | legado | historiadores do projeto | legado | manter arquivado |
-| `spec/rfcs/RFC-0001 v0.3.md` | legado | historiadores do projeto | legado | manter arquivado |
-| `spec/rfcs/RFC-0002 Commoner Facade.md` | arquitetura | implementadores | precisa fundir | absorver no corpus de arquitetura/SDK se ainda relevante |
-| `spec/rfcs/RFC-0003 Agora, Feira e Mutirao.md` | arquitetura | implementadores, designers de capsula | precisa fundir | alinhar com CIP-0003 e docs de capsula |
-| `spec/rfcs/RFC-0004 Capsulas Flexiveis e VM Deterministica.md` | arquitetura | implementadores runtime | precisa fundir | alinhar com CIP-0001 e docs de ABI |
+| `.archive/spec/00-rfcs/00-RFC-0001-v0.1.md` | legado | historiadores do projeto | arquivado | manter fora do corpus vivo |
+| `.archive/spec/00-rfcs/01-RFC-0001-v0.2.md` | legado | historiadores do projeto | arquivado | manter fora do corpus vivo |
+| `.archive/spec/00-rfcs/02-RFC-0001-v0.3.md` | legado | historiadores do projeto | arquivado | manter fora do corpus vivo |
+| `.archive/spec/00-rfcs/03-RFC-0002-Commoner-Facade.md` | arquitetura | implementadores | arquivado | absorver no corpus tecnico se ainda relevante |
+| `.archive/spec/00-rfcs/04-RFC-0003-Agora-Feira-e-Mutirao.md` | arquitetura | implementadores, designers de capsula | arquivado | alinhar com CIP-0003 e docs de capsula |
+| `.archive/spec/00-rfcs/05-RFC-0004-Capsulas-Flexiveis-e-VM-Deterministica.md` | arquitetura | implementadores runtime | arquivado | alinhar com CIP-0001 e docs de ABI |
 
 ## 4. Teoria do protocolo e fundamento conceitual
 
