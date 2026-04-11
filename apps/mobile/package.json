@@ -12,12 +12,12 @@
     "comum-js": "file:../../packages/comum-js",
     "expo": "^51.0.0",
     "react": "18.2.0",
-    "react-native": "0.74.0",
     "ws": "^8.18.3"
   },
   "devDependencies": {
-    "@types/react": "^18.3.28",
+    "@types/react": "~18.2.79",
     "@types/react-native": "^0.72.8",
-    "typescript": "^6.0.2"
+    "react-native": "^0.74.5",
+    "typescript": "~5.3.3"
   }
 }
