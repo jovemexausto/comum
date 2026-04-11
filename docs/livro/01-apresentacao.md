@@ -1,47 +1,68 @@
 # Apresentacao
 
-Este livro nao nasce do desejo de adicionar mais uma teoria sobre redes,
-plataformas ou moedas. Ele nasce de um problema mais antigo e mais material:
-como coordenar vida coletiva sem entregar a forma da coordenacao a um centro
-que passa a mandar no que conecta.
+Este livro nasce de uma suspeita: a de que boa parte das infraestruturas
+contemporaneas falha nao apenas por concentrar poder, mas por tornar opaca a
+forma pela qual esse poder se institui. Elas conectam, registram, medem,
+ranqueiam, autorizam e excluem, mas fazem isso como se sua propria forma fosse
+natural, inevitavel ou puramente tecnica. O Comum surge no interior dessa
+suspeita.
 
-O Comum surgiu como protocolo, mas nao cabe mais apenas nessa palavra. Ha nele
-um problema tecnico, sem duvida: como fazer com que evidencias locais,
-assinadas e verificaveis, possam circular, compor historia e sustentar
-interoperabilidade. Mas ha tambem um problema politico mais fundo: como criar
-infraestrutura comum sem transformar o comum em mais uma abstracao imperial.
+Ele nasceu como protocolo, mas nao cabe mais apenas nessa palavra. Ha nele um
+problema tecnico real: como fazer com que evidencias locais, assinadas e
+verificaveis possam circular, compor historia e sustentar interoperabilidade sem
+consenso global obrigatorio. Mas ha tambem um problema mais fundo: como criar um
+meio comum de relacao sem permitir que esse meio se feche como soberania sobre
+aquilo que conecta.
 
-Por isso este livro nao e um manual. Nao e uma especificacao. Nao e um changelog
-do projeto. Ele existe para elaborar o campo teorico e politico aberto pelo
-Comum: testemunho, legitimidade, pluralidade de valor, federacao,
-interoperabilidade, anti-colonizacao e instituicoes programaveis.
+Por isso este livro nao e manual, especificacao nem changelog. O que ele tenta
+fazer e outra coisa: explicitar o campo teorico e politico aberto pelo Comum.
+Testemunho, legibilidade publica, legitimidade, autoridade auditavel,
+pluralidade de valor, federacao, instituicoes programaveis e limites da forma
+aparecem aqui como partes de um mesmo problema. O livro nao busca provar que o
+projeto ja resolveu esse problema. Busca mostrar por que ele vale a pena.
 
-Seu ponto de partida e simples: coordenacao exige alguma semantica compartilhada.
-Sem isso, ha apenas ruido. Mas quando a semantica compartilhada cresce demais,
-ela deixa de coordenar e passa a substituir os mundos que pretendia servir. E
-nesse intervalo estreito entre caos e captura que o Comum tenta existir.
+O capitulo anterior respondeu de modo provisório a pergunta "o que e o Comum?".
+Mas essa resposta ainda precisa de uma moldura. Se o Comum e uma infraestrutura
+para produzir memoria publica, autoridade local revisavel e relacao federativa
+entre mundos diferentes, entao e preciso entender de que problema historico e
+conceitual essa infraestrutura emerge. Que tipo de impasse ela tenta deslocar?
+Contra que tentacoes ela precisa se defender? E que tipo de promessas ela nao
+deve fazer?
 
-Este livro nao parte da premissa de que toda troca deve ser comparavel, de que
-toda comunidade deva caber na mesma forma, ou de que toda interoperabilidade
-precise desembocar numa equivalencia unica. Ao contrario: ele tenta pensar como
-mundos locais soberanos podem se relacionar sem serem absorvidos por uma
-medida universal, uma plataforma unica ou uma soberania abstrata superior.
+O ponto de partida mais simples continua sendo este: coordenacao exige alguma
+forma compartilhada. Sem forma minima, ha apenas dispersao, ruido ou dominio do
+mais forte. Mas forma demais produz outro risco: o de transformar o meio comum
+numa instancia superior que mede, compara, classifica e governa os mundos locais
+de fora. O Comum tenta habitar esse intervalo estreito entre insuficiencia de
+forma e excesso de forma.
 
-Tambem por isso, ele fala de engenharia apenas o suficiente. O Testemunho, o
-grafo, as Capsulas, a sincronizacao e o runtime aparecem aqui nao como fascinio
-tecnico, mas como formas concretas pelas quais uma filosofia da coordenacao se
-torna legivel e discutivel. Arquitetura nunca e neutra; toda infraestrutura
-carrega uma metafisica de valor, legitimidade e poder. Este livro leva isso a
-serio.
+Isso implica algumas recusas. O livro nao parte da premissa de que toda troca
+deve ser comparavel, de que toda comunidade deva caber na mesma arquitetura, de
+que toda interoperabilidade deva desembocar numa equivalencia unica ou de que a
+boa coordenacao consista em apagar o problema da autoridade. Ao contrario: ele
+tenta pensar como mundos locais podem produzir memoria, criterio e instituicao
+sem serem absorvidos por um centro irrevisavel e sem fingirem que a politica
+desaparece quando aparece um bom protocolo.
 
-O que se segue, portanto, nao e uma defesa do protocolo como solucao total.
-E uma exploracao de suas perguntas mais fortes:
+Tambem por isso, a engenharia aparece aqui apenas o suficiente. Testemunho,
+grafo, capsulas, sincronizacao, runtime e registries nao entram como fetiche
+tecnico. Entram como formas concretas pelas quais uma filosofia da coordenacao
+ganha consistencia material. Toda infraestrutura carrega uma teoria implicita do
+que vale como prova, do que conta como relacao, do que merece memoria e do que
+pode ser esquecido. O Comum nao escapa dessa regra. O livro existe para tornar
+essa teoria explicita e, portanto, discutivel.
 
-- como formalizar sem colonizar?
-- como interoperar sem reduzir a pluralidade a uma equivalencia unica?
-- como federar sem recriar um centro?
-- como abrir instituicoes sem reduzir a vida a codigo?
+O percurso que se segue tem uma ordem. Primeiro, o problema da coordenacao sera
+reaberto em seus termos politicos e epistemicos. Depois, a figura do centro sera
+deslocada em favor de uma forma mais fraca e mais distribuida de legibilidade.
+Na sequencia, o testemunho, o contexto, a prova, a autoridade e a escala
+institucional serao trabalhados como componentes de uma ontologia minima do
+Comum. So entao o livro avancara para comunidade, federacao, valor plural,
+compensacao, instituicoes programaveis e, por fim, para o problema decisivo dos
+limites: como impedir que a propria infraestrutura do Comum se torne o novo
+centro que ela prometia evitar.
 
-Se o Comum tiver alguma utilidade duradoura, ela talvez nao esteja apenas no
-que implementa, mas no que obriga a pensar. Este livro e uma tentativa de nao
-perder esse campo de pensamento.
+Se o Comum tiver utilidade duradoura, ela nao estara apenas no que implementa,
+mas no que obriga a pensar com mais rigor. Este livro e uma tentativa de nao
+perder esse campo de pensamento justamente quando o projeto ganha mais densidade
+tecnica e institucional.

@@ -34,12 +34,12 @@ pretende representar o todo; nao elimina conflito. Ele apenas afirma algo de
 forma local, assinada, referenciavel e verificavel. E exatamente por ser mais
 fraco que ele pode compor sem absorver.
 
-Por isso o Comum nao e antissocial nem anti-institucional. Ele e anti-central.
-Quer dizer: recusa a forma de instituicao que so funciona esmagando a
-heterogeneidade dos mundos locais sob uma semantica superior. Essa recusa nao e
-um detalhe ideologico acidental. E um criterio de arquitetura. Um sistema que
-obriga toda coordenacao a passar por um unico ponto de verdade, saldo ou
-identidade ja decidiu politicamente a favor do centro, mesmo que se anuncie
+Por isso o Comum nao e antissocial nem anti-institucional. Sua recusa e mais
+precisa: ele resiste a forma central que so funciona esmagando a heterogeneidade
+dos mundos locais sob uma semantica superior. Essa recusa nao e um detalhe
+ideologico acidental. E um criterio de arquitetura. Um sistema que obriga toda
+coordenacao a passar por um unico ponto de verdade, saldo, identidade ou
+jurisdicao ja decidiu politicamente a favor do centro, mesmo que se anuncie
 como aberto.
 
 O centro nao domina apenas pela coercao. Ele domina tambem pela comodidade.
@@ -82,10 +82,10 @@ infraestrutura comum, entao o comum ja se tornou soberania superior sobre ela.
 Nada disso elimina tensao. Ao contrario: torna a tensao constitutiva. Um mundo
 sem centro nao e um mundo sem coordenação; e um mundo em que coordenar exige
 mais disciplina, mais criterio explicito e mais responsabilidade distribuida.
-Sem centro, nao ha para onde terceirizar a legitimidade. Isso aumenta a carga
-do local. E exatamente por isso o Comum nao e uma celebracao leve da autonomia,
-mas uma tentativa de dar forma tecnica a uma responsabilidade politica mais
-densa.
+Sem centro, nao ha para onde terceirizar a legitimidade. Isso aumenta a carga do
+local e torna inevitavel o problema da autoridade situada. E exatamente por isso
+o Comum nao e uma celebracao leve da autonomia, mas uma tentativa de dar forma
+tecnica a uma responsabilidade politica mais densa.
 
 Neste ponto, a recusa do centro encontra seu limite mais delicado. Sem alguma
 forma comum, nao ha interoperabilidade. Sem alguma legibilidade publica, nao ha
@@ -96,5 +96,7 @@ quando fiel a si mesmo, deve existir como infraestrutura entre mundos, nao como
 mundo unico ao qual todos devam se conformar.
 
 Essa e a aposta. Nao abolir mediacao, mas desentronizar o mediador. Nao negar a
-necessidade de abstracao, mas limitar seu alcance. Nao recusar o comum, mas
-impedir que o comum se transforme em nome nobre para um novo centro.
+necessidade de abstracao, mas limitar seu alcance. Nao recusar a autoridade,
+mas impedir que ela se feche como instancia superior e irrevisavel. Nao recusar
+o comum, mas impedir que o comum se transforme em nome nobre para um novo
+centro.

@@ -26,6 +26,13 @@ Ainda assim, coordenacao exige algum grau de semantica compartilhada, algum grau
 de memoria, algum grau de reconhecimento mutuo. Sem isso, o que existe nao e
 pluralidade: e ruido.
 
+Mas essa insuficiencia epistemica nao produz apenas um problema de conhecimento.
+Produz tambem um problema de autoridade. Quem decide quando a memoria compartilhada
+ja e suficiente? Quem arbitra conflito quando diferentes leituras do mesmo campo
+social se chocam? Quem ganha o direito de dizer que certa forma de relacao,
+valor ou evidencia passou a contar publicamente? Coordenacao nunca e apenas
+sincronizacao de comportamento; e distribuicao de criterio.
+
 Por isso, o dilema nao pode ser formulado como uma oposicao simples entre
 ordem e liberdade, ou entre formalizacao e espontaneidade. O verdadeiro dilema
 e outro: como criar abstracao suficiente para coordenar sem permitir que essa
@@ -46,6 +53,12 @@ Em vez de partir do soberano, parte do testemunho. Em vez de partir da verdade
 global, parte da evidencia localizada. Em vez de partir da ordem imposta de
 cima, parte de historias parciais que podem circular, se referenciar e compor
 legibilidade publica sem exigir consenso universal.
+
+Essa mudanca de unidade nao dissolve o problema da autoridade. Ela apenas o
+recoloca. Em vez de uma autoridade que fala de cima, aparece a possibilidade de
+autoridade emergente, situada e revisavel. Em vez de uma verdade administrativa
+pronta, aparece um campo de memoria publica no qual criterio, contestacao e
+revogacao passam a depender de instituicoes locais e de suas formas de leitura.
 
 Essa mudanca de unidade nao resolve tudo. Mas muda a pergunta. Se a unidade
 basica ja nao for uma identidade total, um saldo universal ou um registro
