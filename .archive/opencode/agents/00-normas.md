@@ -1,7 +1,6 @@
 ---
 description: Verifica alinhamento entre implementacao, CIPs, registries e CDDL
 mode: subagent
-temperature: 0.1
 permission:
   read: allow
   glob: allow

@@ -1,7 +1,6 @@
 ---
 description: Estressa hipoteses, argumentos e teses com rigor falsificacionista
 mode: subagent
-temperature: 0.1
 permission:
   read: allow
   glob: allow

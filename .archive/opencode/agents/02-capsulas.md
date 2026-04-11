@@ -1,7 +1,6 @@
 ---
 description: Cuida da semantica local das capsulas sem deixar isso vazar para o core
 mode: subagent
-temperature: 0.2
 permission:
   read: allow
   glob: allow

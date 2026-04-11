@@ -1,7 +1,6 @@
 ---
 description: Foca em paridade Rust-JS-mobile e limites praticos de runtime
 mode: subagent
-temperature: 0.1
 permission:
   read: allow
   glob: allow

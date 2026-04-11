@@ -21,14 +21,10 @@ Agentes locais do projeto vivem em:
 
 Arquivos principais:
 
-- `normas.md`
-- `corpus.md`
-- `research.md`
-- `parceiro-epistemico.md`
-- `interop.md`
-- `capsulas.md`
-- `paridade-runtime.md`
 - `orquestrador.md`
+- `parceiro-epistemico.md`
+- `curador.md`
+- `cartografo.md`
 
 ## Regra de ouro
 
@@ -44,14 +40,10 @@ Quando houver ambiguidade:
 
 ## Personalidades nucleares
 
-- `parceiro-epistemico`: estressa hipoteses, testes e criterios de falsificacao
-- `normas`: protege alinhamento entre spec e implementacao
-- `corpus`: cuida da forma e do lugar da teoria
-- `research`: explora a base e separa fato de inferencia
-- `interop`: olha vetores, contratos e risco de drift
-- `capsulas`: protege a fronteira entre core e semantica local
-- `paridade-runtime`: foca no que muda comportamento entre runtimes
 - `orquestrador`: decompõe tarefas grandes e escolhe a casa certa no repo
+- `parceiro-epistemico`: estressa hipoteses, testes e criterios de falsificacao
+- `curador`: cuida da forma e do lugar do corpus vivo
+- `cartografo`: explora a base e separa fato de inferencia
 
 ## Status
 

@@ -1,7 +1,6 @@
 ---
 description: Examina interop, paridade, vetores e risco de drift entre runtimes
 mode: subagent
-temperature: 0.1
 permission:
   read: allow
   glob: allow
