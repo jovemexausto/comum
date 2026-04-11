@@ -6,25 +6,34 @@ changelog.
 
 ## Pergunta central
 
-Este livro deixa de girar apenas em torno da pergunta "como coordenar sem
-centro?" e passa a assumir uma pergunta mais funda:
+> O que e o Comum, e contra que condicao ele se ergue?
 
-> O que e o Comum, afinal?
+O livro se organiza em torno de uma contra-tese. Se o tecnofeudalismo e a forma
+pela qual a mediacao digital se tornou senhorio — identidade como concessao,
+memoria como refem, atencao como renda, saida como punicao — entao o Comum e a
+tentativa de construir uma contra-arquitetura federativa: comunidades soberanas,
+com suas proprias economias, governancas e criterios de legitimidade,
+relacionando-se por um substrato tecnico fino o bastante para coordenar e fraco o
+bastante para nao virar o novo centro.
 
-Resposta provisoria que organiza esta versao do corpus:
+Resposta provisoria:
 
 > O Comum e uma infraestrutura para produzir legibilidade publica,
 > autoridade local auditavel e relacao federativa entre mundos que
-> permanecem diferentes.
+> permanecem diferentes. E tecnofederalismo como contra-tese ao
+> tecnofeudalismo.
 
 ## O que o livro faz
 
-- formula a razao de ser do Comum
+- nomeia a condicao feudal da mediacao digital como o adversario
+- formula a razao de ser do Comum como contra-arquitetura
 - explicita sua ontologia politica
 - elabora os limites da formalizacao
 - situa testemunho, legitimidade, autoridade, federacao e valor plural num mesmo
   campo teorico
 - usa engenharia apenas o suficiente para sustentar o argumento
+- examina por que as respostas anteriores (blockchain, fediverso, plataformas
+  civicas) falharam de modos especificos
 
 ## O que o livro nao faz
 
@@ -33,51 +42,63 @@ Resposta provisoria que organiza esta versao do corpus:
 - nao e roadmap
 - nao deve repetir README, CIPs ou docs operacionais em prosa longa
 
-## Tese editorial desta rodada
+## Tese editorial
 
-Tres mudancas recentram o livro:
+Quatro eixos recentram o livro:
 
-1. O Comum nao deve mais ser narrado apenas por negacao do centro.
+1. O Comum nao deve mais ser narrado apenas por negacao do centro. Ele deve
+   nomear o adversario: a forma feudal da mediacao digital.
 2. Autoridade nao desaparece; ela precisa tornar-se situada, limitada,
    revogavel e auditavel.
 3. O par e reconhecido como unidade instituinte minima, enquanto a triade surge
    como forma minima forte de coerencia institucional.
+4. As implementacoes de referencia carregam principios de design que sao
+   consequencia direta da posicao anti-feudal do protocolo.
+
+## Voz
+
+A escrita segue os principios do agente escritor (`.opencode/agents/escritor.md`):
+fusao entre erudição e cultura popular, metafora concreta, humor como forma de
+pensamento, a frase que pode ser lida em voz alta sem que ninguem tropece.
+Referencia: Ariano Suassuna — o sertao nao e menor que a academia.
 
 ## Espinha atual do livro
 
-### Bloco A — Pergunta e tese
+### Bloco A — Condicao e contra-tese
 
-0. `00-o-que-e-o-comum.md`
-1. `01-apresentacao.md`
+0. `00-o-que-e-o-comum.md` — nomeia o adversario, formula a contra-tese
+1. `01-apresentacao.md` — abre o livro, situa o diagnóstico
 2. `02-o-problema-da-coordenacao.md`
 3. `03-do-centro-ao-comum.md`
 
 ### Bloco B — Forma minima do Comum
 
-4. `04-testemunho-e-legibilidade-publica.md`
-5. `05-contexto-prova-e-legitimidade.md`
-6. `06-autoridade-emergente-e-revogabilidade.md`
-7. `07-par-triade-e-escala-institucional.md`
+1. `04-testemunho-e-legibilidade-publica.md`
+2. `05-contexto-prova-e-legitimidade.md`
+3. `06-autoridade-emergente-e-revogabilidade.md`
+4. `07-par-triade-e-escala-institucional.md`
 
 ### Bloco C — Comunidade, valor e federacao
 
-8. `08-comunidade-fronteira-e-federacao.md`
-9. `09-valor-plural-e-interoperabilidade.md`
-10. `10-compensacao-sem-equivalencia-unica.md`
+1. `08-comunidade-fronteira-e-federacao.md`
+2. `09-valor-plural-e-interoperabilidade.md`
+3. `10-compensacao-sem-equivalencia-unica.md`
 
-### Bloco D — Limites e horizonte
+### Bloco D — Limites, horizonte e oficio
 
-11. `11-infraestrutura-e-colonizacao-abstrata.md`
-12. `12-instituicoes-programaveis-e-limites.md`
-13. `13-conclusoes-e-perguntas-abertas.md`
+1. `11-infraestrutura-e-colonizacao-abstrata.md`
+2. `12-instituicoes-programaveis-e-limites.md`
+3. `13-design-como-etica-da-forma.md` — a etica do projeto sobre suas proprias ferramentas
+4. `14-conclusoes-e-perguntas-abertas.md`
 
-## Funcao de cada bloco
+### Funcao de cada bloco
 
 ### Bloco A
 
-- abrir a pergunta do livro
-- abandonar o enquadramento puramente negativo
-- mostrar por que coordenacao e sempre questao politica e epistemica
+- nomear a condicao feudal da mediacao digital
+- abrir a contra-tese: tecnofederalismo
+- mostrar por que as respostas anteriores falharam
+- situar o Comum no campo da coordenacao como problema politico e epistemico
 
 ### Bloco B
 
@@ -88,20 +109,22 @@ Tres mudancas recentram o livro:
 ### Bloco C
 
 - tratar comunidade, fronteira e federacao
-- elaborar pluralidade de valor e interoperabilidade
-- preparar a infraestrutura de compensacao sem equivalencia unica
+- elaborar pluralidade de valor e interoperabilidade sem equivalencia unica
+- preparar a infraestrutura de compensacao
 
 ### Bloco D
 
 - explicitar os limites da programabilidade
 - enfrentar o risco de colonizacao abstrata pelo proprio Comum
 - preservar as perguntas que o projeto nao deve fechar cedo demais
+- enunciar os principios de design como consequencia do campo teorico
 
 ## Relacao com o restante do repo
 
 - `spec/`: contrato normativo
 - fundamentos conceituais curtos agora devem ser absorvidos por `docs/corpus/`
 - `docs/notes/`: excedente, aberto, curiosidade e dossies ainda nao integrados
+- `.opencode/agents/escritor.md`: guia a voz de toda escrita do projeto
 
 O livro recebe ideias promovidas do laboratorio. As notas nao devem continuar
 funcionando como lugar principal da teoria longa.
@@ -112,10 +135,11 @@ Uma nota sobe para capitulo quando:
 
 - ganhou tese reconhecivel
 - deixou de ser apenas brainstorming
-- ja influencia o vocabulário do projeto
+- ja influencia o vocabulario do projeto
 - exige desenvolvimento argumentativo maior do que uma nota curta permite
 
 ## Status
 
-Estrutura editorial revisada do livro. Esta versao recentra o corpus teorico no
-problema do que e o Comum, e nao apenas no que ele rejeita.
+Estrutura editorial revisada com a contra-tese ao tecnofeudalismo como eixo
+central. Capitulos 00 e 01 reescritos para nomear o adversario e posicionar o
+Comum como tecnofederalismo. Principios de design incorporados ao corpus.

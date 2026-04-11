@@ -1,24 +1,57 @@
 # O que e o Comum
 
-Responder a pergunta "o que e o Comum?" exige recusar duas simplificacoes.
+Ha um nome novo para uma coisa velha. Chamam de tecnofeudalismo: o arranjo em
+que as plataformas digitais ja nao competem no mercado — elas sao o mercado. O
+dono da praca cobra entrada de quem vende e de quem compra, decide quem fica e
+quem sai, e ainda guarda para si a memoria de toda transacao que aconteceu ali
+dentro. A identidade de quem participa nao e um direito; e uma concessao
+revogavel. Os dados nao sao de quem os produziu; sao refens. A atencao nao e
+respeitada; e extraida. A saida nao e dificil por acidente; e dificil por
+desenho.
+
+Isso nao e metafora. E a arquitetura real dos sistemas que hoje medeiam trabalho,
+identidade, coordenacao, comercio e governanca para a maioria da populacao
+conectada do planeta. E como todo feudalismo, ele se sustenta nao apenas por
+coercao, mas por comodidade: e mais facil ficar no feudo do que construir fora
+dele, porque fora dele nao ha estrada, nao ha portao, nao ha outra praca.
+
+O Comum nasce de uma aposta contra essa condicao. Nao contra a tecnologia — a
+tecnologia e parte da resposta. Contra a forma feudal que a tecnologia assumiu
+quando deixou de servir como infraestrutura e passou a operar como senhorio.
+
+Mas responder a pergunta "o que e o Comum?" exige recusar duas simplificacoes.
 Primeira: a de que ele seria apenas um protocolo tecnico para redes offline.
 Segunda: a de que ele seria apenas um nome politico generoso para qualquer forma
 de cooperacao descentralizada. O Comum toca as duas coisas, mas se esgota em
 nenhuma delas.
 
-O Comum e, antes de tudo, uma tentativa de construir infraestrutura para que a
-vida coletiva possa produzir memoria publica, autoridade local e relacao entre
-comunidades sem depender de um centro irrevisavel. Nao se trata de abolir toda
-mediacao. Trata-se de impedir que a mediacao se feche como instancia superior de
-verdade, valor e legitimidade.
+O Comum e uma tentativa de construir infraestrutura para que a vida coletiva
+possa produzir memoria publica, autoridade local e relacao entre comunidades sem
+depender de um centro irrevisavel. Nao se trata de abolir toda mediacao. Trata-se
+de impedir que a mediacao se feche como instancia superior de verdade, valor e
+legitimidade — que e exatamente o que as plataformas feudais fizeram com a
+mediacao digital.
 
 Essa formulacao importa porque projetos politicos diferentes costumam colapsar
 em respostas tecnicamente parecidas. Uma blockchain, uma plataforma civica, uma
-rede social federada, um sistema de identidade soberana ou uma moeda
-comunitaria podem compartilhar certos componentes: assinaturas, registros,
-grafos, replicacao, contratos, protocolos de sync. Mas a pergunta decisiva nao
-e apenas quais componentes existem. E que tipo de mundo eles tornam mais facil
-de existir.
+rede social federada, um sistema de identidade soberana ou uma moeda comunitaria
+podem compartilhar certos componentes: assinaturas, registros, grafos,
+replicacao, contratos, protocolos de sync. Mas a pergunta decisiva nao e apenas
+quais componentes existem. E que tipo de mundo eles tornam mais facil de existir.
+
+As blockchains prometeram descentralizacao e entregaram um novo centro: o ledger
+global com custo proibitivo e governanca ditada pelo tamanho do bolso. O fediverso
+prometeu federacao e entregou ilhas com pouca interoperabilidade real. As
+plataformas civicas prometeram participacao e entregaram formularios que ninguem
+le. Cada uma dessas respostas falhou de um modo especifico, e cada modo de falha
+ensina algo.
+
+A blockchain falhou porque confundiu descentralizacao topologica com
+descentralizacao politica. Distribuir nos nao distribui poder quando o criterio
+de participacao e o custo computacional ou financeiro. O fediverso falhou porque
+federou a superficie — o protocolo de transporte — sem federar a profundidade:
+valor, governanca, identidade, memoria. As plataformas civicas falharam porque
+tentaram caber dentro das proprias plataformas feudais que deveriam substituir.
 
 No Comum, a unidade minima nao e o saldo, a conta, o cadastro nem a verdade do
 sistema. E o testemunho: um fragmento situado, assinado, verificavel e
@@ -51,14 +84,23 @@ preservar causalidade e permitir interoperabilidade minima. Nao pode, sem se
 transformar em centro, decretar universalmente o que conta como comunidade justa,
 autoridade valida, valor correto ou reparacao suficiente em todos os casos.
 
-Essa recusa do centro tambem nao significa culto a fragmentacao. O Comum nao e
-um elogio do isolamento. Uma comunidade fechada em si mesma, incapaz de trocar,
+Essa recusa do centro nao significa culto a fragmentacao. O Comum nao e um
+elogio do isolamento. Uma comunidade fechada em si mesma, incapaz de trocar,
 compensar, aprender, federar ou se deixar contestar, nao realiza o comum; ela o
 encolhe. O problema da federacao entra exatamente aqui: como mundos locais podem
 se relacionar sem se dissolver numa forma superior unica? Como criar
 interoperabilidade sem transformar a traducao em assimilacao? Como fazer do meio
 de relacao uma infraestrutura entre mundos, e nao o novo mundo ao qual todos se
 submetem?
+
+Se o tecnofeudalismo e a condicao — a concentracao da mediacao digital em feudos
+privados que extraem renda de toda relacao que permitem existir — entao o Comum
+e uma tentativa de resposta federativa. Nao um federalismo de papel nem de
+protocolo internacional. Um tecnofederalismo: federacao cuja vinculacao e
+tecnica na forma e politica na substancia. Comunidades soberanas, com suas
+proprias economias, governancas, fronteiras e criterios de legitimidade,
+relacionando-se por um substrato tecnico fino o bastante para coordenar e fraco
+o bastante para nao virar o novo centro.
 
 Talvez seja por isso que o Comum precise ser descrito em varias camadas ao mesmo
 tempo.
@@ -67,7 +109,7 @@ Ele e protocolo, porque precisa de forma minima, contrato publico,
 reprodutibilidade e interoperabilidade.
 
 Ele e infraestrutura politica, porque organiza o modo como memoria,
-responsabilidade, entrada, revogacao e coordenação se tornam legiveis.
+responsabilidade, entrada, revogacao e coordenacao se tornam legiveis.
 
 Ele e horizonte institucional, porque abre a possibilidade de comunidades
 compararem, forkarem, adaptarem e abandonarem parte de suas proprias formas de
@@ -76,6 +118,13 @@ governanca sem depender de um legislador unico.
 Ele e problema filosofico, porque obriga a pensar como abstrair sem colonizar,
 como formalizar sem esmagar o vivido, como partilhar criterio sem produzir uma
 ontologia imperial.
+
+E ele e contra-tese, porque nomeia o adversario. O adversario nao e a tecnologia.
+O adversario e a forma feudal que a tecnologia assumiu: identidade como
+concessao, memoria como refem, atencao como renda, saida como porta trancada,
+mediacao como senhorio. O Comum existe para mostrar que essa forma nao e
+inevitavel — que e possivel construir infraestrutura digital que amplie
+soberania local em vez de captura-la.
 
 O Comum, entao, nao e apenas uma tecnologia de rede nem apenas uma tese sobre o
 local. E uma disciplina de limite. Pede abstracao suficiente para coordenar, mas
