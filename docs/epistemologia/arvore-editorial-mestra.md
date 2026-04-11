@@ -29,6 +29,7 @@ O erro a evitar e fazer o livro virar documentacao ou a documentacao virar ensai
 
 ```text
 README.md
+ABSTRACT.md
 
 docs/
   00-introducao/
@@ -95,6 +96,13 @@ spec/
 - porta de entrada do projeto
 - tom politico e productish
 - sem excesso de operacionalidade
+
+### `ABSTRACT.md`
+
+- compressao precisa do estado e do escopo real do repo
+- ponte entre manifesto, spec, implementacao e corpus conceitual
+- deve evitar promessas acima da implementacao atual
+- bom ponto de entrada para leitores tecnicos, pesquisadores e revisores
 
 ### `docs/00-introducao/`
 

@@ -18,8 +18,11 @@ pub use did::{build_key_rotate_payload, derive_did, validate_key_rotate_payload}
 
 mod claim;
 pub use claim::{
-    build_genesis_payload, build_receive_payload, validate_genesis_payload,
-    validate_receive_payload,
+    build_auth_nullifier_payload, build_genesis_payload,
+    build_identity_commitment_payload, build_identity_vouch_payload,
+    build_receive_payload, validate_auth_nullifier_payload, validate_claim_payload,
+    validate_genesis_payload, validate_identity_commitment_payload,
+    validate_identity_vouch_payload, validate_receive_payload,
 };
 
 mod frost;

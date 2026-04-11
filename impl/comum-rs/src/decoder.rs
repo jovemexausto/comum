@@ -1,5 +1,7 @@
 use std::collections::BTreeMap;
 
+use crate::validate_claim_payload;
+
 #[derive(Debug, Clone)]
 pub enum CborValue {
     Unsigned(u64),
@@ -280,18 +282,20 @@ pub fn validate_testimony_cbor(data: &[u8]) -> Result<(), DecodeError> {
     }
 
     // Claim validation
-    match claim_map.get(&0) {
+    let claim_verb = match claim_map.get(&0) {
         Some(CborValue::Text(s)) => {
             if s.is_empty() {
                 return Err(DecodeError::InvalidValue);
             }
+            s.as_str()
         }
         _ => return Err(DecodeError::InvalidType),
-    }
-    match claim_map.get(&1) {
-        Some(CborValue::Bytes(_)) => {}
+    };
+    let claim_payload = match claim_map.get(&1) {
+        Some(CborValue::Bytes(b)) => b.as_slice(),
         _ => return Err(DecodeError::InvalidType),
-    }
+    };
+    validate_claim_payload(claim_verb, claim_payload)?;
 
     // Context validation
     match context_map.get(&0) {

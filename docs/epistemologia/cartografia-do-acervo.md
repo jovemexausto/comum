@@ -42,6 +42,7 @@ Os principais sintomas sao:
 | Arquivo | Categoria | Publico principal | Status | Destino sugerido |
 | --- | --- | --- | --- | --- |
 | `README.md` | manifesto | publico geral, devs, comunidades | ativo | manter como porta de entrada manifesto/productish |
+| `ABSTRACT.md` | manifesto/tecnico | leitores novos, pesquisadores, implementadores | ativo | manter como compressao precisa do estado e do escopo do repo |
 | `CONTRIBUTING.md` | governanca | contribuidores | ativo | manter, mas expandir com guia editorial futuro |
 | `GOVERNANCE.md` | governanca | mantenedores, comunidade | ativo | manter em camada institucional |
 | `SECURITY.md` | governanca | mantenedores, auditores | ativo | manter |

@@ -1,4 +1,7 @@
-use comum_rs::{Commoner, CommonerErrorKind, ContextInput, ProofInput, COMUM_TRANSFER, COMUM_VOUCH};
+use comum_rs::{
+    Commoner, CommonerErrorKind, ContextInput, ProofInput, COMUM_IDENTITY_COMMITMENT,
+    COMUM_TRANSFER, COMUM_VOUCH,
+};
 
 fn empty_map() -> Vec<u8> {
     vec![0xa0]
@@ -63,6 +66,22 @@ fn commoner_requires_known_author_key() {
     let b = Commoner::new(sk_b, 1);
     let err = b.validate(&testimony.cbor).expect_err("should fail");
     assert_eq!(err.kind, CommonerErrorKind::Proof);
+}
+
+#[test]
+fn commoner_rejects_invalid_identity_commitment_payload_on_emit() {
+    let sk = [0x66u8; 32];
+    let mut c = Commoner::new(sk, 1);
+    let ctx = ContextInput {
+        r#type: "proximity".to_string(),
+        payload_cbor: empty_map(),
+        proof: ProofInput::default(),
+    };
+
+    let err = c
+        .emit(COMUM_IDENTITY_COMMITMENT, &empty_map(), ctx)
+        .expect_err("should fail");
+    assert_eq!(err.kind, CommonerErrorKind::Format);
 }
 
 fn a_pk_from_sk(sk: [u8; 32]) -> [u8; 32] {

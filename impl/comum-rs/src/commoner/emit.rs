@@ -1,6 +1,9 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 
-use crate::{compute_id_hex, encode_testimony_without_id, sign_ed25519, TestimonyWithoutId};
+use crate::{
+    compute_id_hex, encode_testimony_without_id, sign_ed25519, validate_claim_payload,
+    TestimonyWithoutId,
+};
 
 use super::codec::encode_testimony_with_id;
 use super::types::{CommonerError, ContextInput, Testimony};
@@ -15,6 +18,8 @@ pub(crate) fn emit_testimony(
     if verb.is_empty() {
         return Err(CommonerError::format("empty verb"));
     }
+    validate_claim_payload(verb, payload_cbor)
+        .map_err(|e| CommonerError::format(&format!("invalid claim payload: {:?}", e)))?;
 
     let prev_id = commoner.last_ids.get(&commoner.author).map(hex::encode);
     let t = TestimonyWithoutId {

@@ -2,8 +2,11 @@ use std::fs;
 use std::path::Path;
 
 use comum_rs::{
-    compute_id_hex, encode_testimony_without_id, validate_testimony_cbor, Vector,
-    COMUM_TRANSFER,
+    build_auth_nullifier_payload, build_identity_commitment_payload,
+    build_identity_vouch_payload, compute_id_hex, encode_testimony_without_id,
+    validate_auth_nullifier_payload, validate_identity_commitment_payload,
+    validate_identity_vouch_payload, validate_testimony_cbor, Vector,
+    COMUM_IDENTITY_COMMITMENT, COMUM_TRANSFER,
 };
 
 #[test]
@@ -372,6 +375,29 @@ fn build_testimony_with_maps(
     ])
 }
 
+fn minimal_context_map(context_type: &str) -> Vec<Vec<u8>> {
+    let context_proof = encode_map(vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(vec![])].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ]);
+    vec![
+        [encode_uint(0), encode_tstr(context_type)].concat(),
+        [encode_uint(1), encode_bstr(&[])].concat(),
+        [encode_uint(2), context_proof].concat(),
+    ]
+}
+
+fn minimal_proof_map() -> Vec<Vec<u8>> {
+    vec![
+        [encode_uint(0), encode_uint(1)].concat(),
+        [encode_uint(1), encode_array(vec![encode_bstr(&[0x11; 64])])].concat(),
+        [encode_uint(2), encode_array(vec![])].concat(),
+        [encode_uint(3), encode_array(vec![])].concat(),
+    ]
+}
+
 #[test]
 fn context_payloads_invalid() {
     use comum_rs::validate_context_payload;
@@ -398,6 +424,81 @@ fn context_payloads_invalid() {
         [encode_tstr("timestamp"), encode_uint(987)].concat(),
     ]);
     assert!(validate_context_payload("vouch", &vouch_payload).is_err());
+}
+
+#[test]
+fn zk_identity_payloads_validate() {
+    let commitment_payload = build_identity_commitment_payload(
+        &[0x11; 32],
+        7,
+        "ultrahonk",
+        &[0x22; 32],
+        Some(&[0x33; 32]),
+    );
+    validate_identity_commitment_payload(&commitment_payload)
+        .expect("valid identity_commitment payload");
+
+    let nullifier_payload = build_auth_nullifier_payload(
+        &[0x44; 32],
+        &[0x55; 32],
+        &[0x66; 32],
+        &[0x77; 32],
+        "groth16",
+        &[0x88; 32],
+    );
+    validate_auth_nullifier_payload(&nullifier_payload)
+        .expect("valid auth_nullifier payload");
+
+    let vouch_payload = build_identity_vouch_payload(&[0x99; 32], 3, &[0xaa; 32]);
+    validate_identity_vouch_payload(&vouch_payload).expect("valid identity_vouch payload");
+}
+
+#[test]
+fn zk_identity_commitment_testimony_validates() {
+    let claim_map = vec![
+        [encode_uint(0), encode_tstr(COMUM_IDENTITY_COMMITMENT)].concat(),
+        [
+            encode_uint(1),
+            encode_bstr(&build_identity_commitment_payload(
+                &[0x11; 32],
+                7,
+                "ultrahonk",
+                &[0x22; 32],
+                None,
+            )),
+        ]
+        .concat(),
+    ];
+
+    let data = build_testimony_with_maps(
+        vec![],
+        claim_map,
+        minimal_context_map("proximity"),
+        minimal_proof_map(),
+    );
+    validate_testimony_cbor(&data).expect("valid zk identity testimony");
+}
+
+#[test]
+fn security_rejects_invalid_identity_commitment_payload() {
+    let invalid_payload = encode_map(vec![
+        [encode_tstr("epoch"), encode_uint(7)].concat(),
+        [encode_tstr("commitment"), encode_bstr(&[0x11; 32])].concat(),
+        [encode_tstr("circuit_id"), encode_bstr(&[0x22; 32])].concat(),
+        [encode_tstr("proof_system"), encode_tstr("bad")].concat(),
+    ]);
+    let claim_map = vec![
+        [encode_uint(0), encode_tstr(COMUM_IDENTITY_COMMITMENT)].concat(),
+        [encode_uint(1), encode_bstr(&invalid_payload)].concat(),
+    ];
+
+    let data = build_testimony_with_maps(
+        vec![],
+        claim_map,
+        minimal_context_map("proximity"),
+        minimal_proof_map(),
+    );
+    assert!(validate_testimony_cbor(&data).is_err());
 }
 
 #[test]
