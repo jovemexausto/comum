@@ -1,0 +1,51 @@
+version: 1
+registry: transport-profiles
+entries:
+  - profile: ble-5
+    transport: BLE 5.0
+    mtu_bytes: 512
+    half_duplex: true
+    throughput_ge_5bps: true
+    framing_encoding: gatt + cte
+    link_trigger: ble connect
+    proximity_proof: true
+    origin_hint: opcional
+    notes: MAC rotation por sessao
+    status: Active
+    cip: CIP-0001
+  - profile: nfc-1
+    transport: NFC
+    mtu_bytes: 8192
+    half_duplex: true
+    throughput_ge_5bps: true
+    framing_encoding: ndef + cte
+    link_trigger: nfc tap
+    proximity_proof: true
+    origin_hint: opcional
+    notes: alcance ~5cm
+    status: Active
+    cip: CIP-0001
+  - profile: qr-1
+    transport: QR fisico
+    mtu_bytes: 3072
+    half_duplex: true
+    throughput_ge_5bps: true
+    framing_encoding: base45 + qr
+    link_trigger: qr reassembly
+    proximity_proof: false
+    origin_hint: nao
+    notes: assincrono
+    status: Active
+    cip: CIP-0001
+  - profile: rns-1
+    transport: RNS/LoRa
+    mtu_bytes: 500
+    half_duplex: true
+    throughput_ge_5bps: true
+    framing_encoding: rns + cte
+    link_trigger: rns peer
+    proximity_proof: false
+    origin_hint: obrigatorio quando author omitido
+    notes: mesh sem infraestrutura
+    status: Active
+    cip: CIP-0001

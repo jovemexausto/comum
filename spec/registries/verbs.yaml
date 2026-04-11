@@ -1,0 +1,59 @@
+version: 1
+registry: verbs
+entries:
+  - verb: comum/transfer
+    description: Transferencia de Comuns
+    status: Active
+    cip: CIP-0001
+  - verb: comum/vouch
+    description: Endosso de reputacao
+    status: Active
+    cip: CIP-0001
+  - verb: comum/encounter
+    description: Encontro fisico co-assinado
+    status: Active
+    cip: CIP-0001
+  - verb: comum/vote
+    description: Voto em proposta
+    status: Active
+    cip: CIP-0001
+  - verb: comum/propose
+    description: Submissao de proposta
+    status: Active
+    cip: CIP-0001
+  - verb: comum/revoke
+    description: Revogacao social
+    status: Active
+    cip: CIP-0001
+  - verb: comum/key_rotate
+    description: Rotacao de chave
+    status: Active
+    cip: CIP-0001
+  - verb: comum/receive
+    description: Confirmacao de recebimento
+    status: Active
+    cip: CIP-0001
+  - verb: comum/identity_commitment
+    description: Commitment de identidade ZK
+    status: Draft
+    cip: CIP-0004
+  - verb: comum/auth_nullifier
+    description: Nullifier de sessao ZK
+    status: Draft
+    cip: CIP-0004
+  - verb: comum/identity_vouch
+    description: Vouch para identidade ZK
+    status: Draft
+    cip: CIP-0004
+  - verb: capsule/invoke
+    description: Invocacao de Capsula
+    status: Active
+    cip: CIP-0001
+  - verb: capsule/result
+    description: Resultado de Capsula
+    status: Active
+    cip: CIP-0001
+  - verb: genesis
+    description: Fundacao comunitaria
+    status: Active
+    cip: CIP-0001

@@ -1,0 +1,38 @@
+version: 1
+registry: cte-types
+entries:
+  - id: 0
+    type: HELLO
+    description: Anuncio de capacidades
+    status: Active
+    cip: CIP-0001
+  - id: 1
+    type: HELLO_ACK
+    description: Aceite de suite
+    status: Active
+    cip: CIP-0001
+  - id: 2
+    type: TESTIMONY
+    description: Testimony CBOR
+    status: Active
+    cip: CIP-0001
+  - id: 3
+    type: SNAPSHOT
+    description: Snapshot CBOR
+    status: Active
+    cip: CIP-0001
+  - id: 4
+    type: REQUEST
+    description: Solicitacao de dados
+    status: Active
+    cip: CIP-0001
+  - id: 5
+    type: RESPONSE
+    description: Resposta a solicitacao
+    status: Active
+    cip: CIP-0001
+  - id: 6
+    type: GOSSIP
+    description: Disseminacao por gossip
+    status: Active
+    cip: CIP-0001

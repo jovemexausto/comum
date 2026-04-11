@@ -1,0 +1,23 @@
+version: 1
+registry: context-types
+entries:
+  - type: proximity
+    description: Proximidade fisica (NFC/BLE)
+    status: Active
+    cip: CIP-0001
+  - type: beacon
+    description: Beacon comunitario
+    status: Active
+    cip: CIP-0001
+  - type: place
+    description: Ancora de lugar (hash)
+    status: Active
+    cip: CIP-0001
+  - type: vouch
+    description: Vouch comunitario
+    status: Active
+    cip: CIP-0001
+  - type: none
+    description: Sem prova de contexto
+    status: Active
+    cip: CIP-0001

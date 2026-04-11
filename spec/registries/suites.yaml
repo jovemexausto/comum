@@ -1,0 +1,13 @@
+version: 1
+registry: suites
+entries:
+  - id: 0x0001
+    name: CLASSIC_1
+    algorithms: Ed25519 + Bulletproofs
+    status: Active
+    cip: CIP-0001
+  - id: 0x0002
+    name: PQ_HYBRID_1
+    algorithms: Ed25519 + Falcon-512 + Bulletproofs
+    status: Active
+    cip: CIP-0001
