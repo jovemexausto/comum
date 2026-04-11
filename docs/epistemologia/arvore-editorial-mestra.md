@@ -72,7 +72,7 @@ docs/
       v0.2.md
       v0.3.md
 
-  livro/
+  corpus/
     00-o-que-e-o-comum.md
     01-apresentacao.md
     02-o-problema-da-coordenacao.md
@@ -144,7 +144,7 @@ spec/
 - planejamento, contexto temporal e marcos entregues
 - evita contaminar teoria e manifesto com cronograma
 
-### `docs/livro/`
+### `docs/corpus/`
 
 - corpus teorico, filosofico e politico
 - modular, autoral e argumentativo

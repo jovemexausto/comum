@@ -17,7 +17,7 @@ O corpus tecnico do repo deve servir a:
 - contexto de desenvolvimento
 
 Quando uma elaboracao exigir desenvolvimento filosofico, politico ou economico
-mais longo, ela deve alimentar `docs/livro/` ou permanecer como nota
+mais longo, ela deve alimentar `docs/corpus/` ou permanecer como nota
 exploratoria, sem capturar a documentacao operacional.
 
 ## Tipos de documento
@@ -151,7 +151,7 @@ Tom:
 - depende de pesquisa ou experimento
 - pode ser abandonada sem dano a coerencia do projeto
 
-### Vai para `docs/livro/` quando:
+### Vai para `docs/corpus/` quando:
 
 - exige desenvolvimento teorico longo
 - trata de valor, soberania, pluralidade, federacao ou colonizacao

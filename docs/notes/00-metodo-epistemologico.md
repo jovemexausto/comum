@@ -88,7 +88,7 @@ Uma nota sobe de nivel quando:
 
 Destinos possiveis:
 
-- `docs/livro/`
+- `docs/corpus/`
 - `spec/`
 - docs tecnicos
 - capsula / RFC / simulacao
