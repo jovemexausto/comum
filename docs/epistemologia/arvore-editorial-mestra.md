@@ -44,6 +44,10 @@ docs/
 
   30-laboratorio/
     introducao.md
+    notes/
+      README.md
+      00-metodo-epistemologico.md
+      INDEX.md
     bloco-coerencia/
       coherence.md
       triadic-coherence-comum.md
@@ -69,17 +73,20 @@ docs/
       v0.3.md
 
   livro/
-    00-apresentacao.md
-    01-o-problema-da-coordenacao.md
-    02-o-comum-contra-o-centro.md
-    03-testemunho-e-legibilidade-publica.md
-    04-contexto-prova-e-legitimidade.md
-    05-comunidade-fronteira-e-federacao.md
-    06-valor-plural-e-interoperabilidade.md
-    07-compensacao-sem-equivalencia-unica.md
-    08-infraestrutura-e-colonizacao-abstrata.md
-    09-instituicoes-programaveis-e-limites.md
-    10-conclusoes-e-perguntas-abertas.md
+    00-o-que-e-o-comum.md
+    01-apresentacao.md
+    02-o-problema-da-coordenacao.md
+    03-do-centro-ao-comum.md
+    04-testemunho-e-legibilidade-publica.md
+    05-contexto-prova-e-legitimidade.md
+    06-autoridade-emergente-e-revogabilidade.md
+    07-par-triade-e-escala-institucional.md
+    08-comunidade-fronteira-e-federacao.md
+    09-valor-plural-e-interoperabilidade.md
+    10-compensacao-sem-equivalencia-unica.md
+    11-infraestrutura-e-colonizacao-abstrata.md
+    12-instituicoes-programaveis-e-limites.md
+    13-conclusoes-e-perguntas-abertas.md
 
 spec/
   cips/
@@ -125,6 +132,7 @@ spec/
 
 - hipoteses, pesquisa aplicada, brainstorms, experimentos
 - espaco onde ideias podem existir sem virarem compromisso editorial maduro
+- notas novas devem ser curtas, classificadas e indexadas
 
 ### `docs/40-governanca-do-corpus/`
 
@@ -142,6 +150,7 @@ spec/
 - modular, autoral e argumentativo
 - usa engenharia apenas o suficiente para sustentar o argumento
 - nao vira manual, contrato tecnico nem release note
+- responde centralmente: o que e o Comum?
 
 ### `spec/`
 

@@ -1,10 +1,11 @@
-# O Comum contra o centro
+# Do centro ao Comum
 
-Dizer que o Comum se organiza contra o centro nao significa romantizar a
-desordem, celebrar a fragmentacao ou negar a necessidade de coordenacao. O que
-esta em jogo e algo mais preciso: recusar que a coordenacao dependa de uma
-instancia superior que se arroga o direito de definir, para todos, o que conta
-como realidade valida, valor legivel e decisao legitima.
+Dizer que o Comum se organiza a partir de uma recusa do centro nao significa
+romantizar a desordem, celebrar a fragmentacao ou negar a necessidade de
+coordenacao. O que esta em jogo e algo mais preciso: deslocar a coordenacao de
+uma instancia superior que se arroga o direito de definir, para todos, o que
+conta como realidade valida, valor legivel e decisao legitima, para um campo de
+legibilidade publica produzida entre perspectivas situadas.
 
 O centro, aqui, nao e apenas um lugar institucional. E uma forma. Ele pode
 aparecer como Estado, mercado, plataforma, padrao monetario, score de
@@ -94,6 +95,6 @@ comum se converta em instancia soberana acima daquilo que conecta. O Comum,
 quando fiel a si mesmo, deve existir como infraestrutura entre mundos, nao como
 mundo unico ao qual todos devam se conformar.
 
-Essa e a aposta. Nao abolir mediação, mas desentronizar o mediador. Nao negar a
-necessidade de abstração, mas limitar seu alcance. Nao recusar o comum, mas
+Essa e a aposta. Nao abolir mediacao, mas desentronizar o mediador. Nao negar a
+necessidade de abstracao, mas limitar seu alcance. Nao recusar o comum, mas
 impedir que o comum se transforme em nome nobre para um novo centro.

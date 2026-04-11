@@ -88,12 +88,22 @@ Onde:
 Funcao:
 
 - registrar hipoteses, achados, brainstorms e direcoes em aberto
+- registrar excedentes, aberturas, curiosidades e dossies sem inflar o centro
+  teorico nem a spec
 
 Tom:
 
 - honesto
 - provisoriamente incompleto
 - explicitamente nao normativo
+
+Taxonomia recomendada para novas notas:
+
+- `01-...`: excedente
+- `02-...`: aberto
+- `03-...`: curiosidade
+- `90-...`: dossie
+- `99-...`: arquivo
 
 ### 5. Planejamento e contexto temporal
 
@@ -171,6 +181,12 @@ Neste caso, ela pode:
 - virar secao de teoria do protocolo
 - virar documento tecnico mais claro
 
+Antes de uma nota subir, perguntar:
+
+- a tese ja esta clara?
+- o leitor ideal ja apareceu?
+- o texto ainda cabe numa nota curta ou virou capitulo/dossie?
+
 ## Regra de duplicacao aceitavel
 
 Uma mesma ideia pode aparecer em mais de um corpus, desde que cumpra papeis
@@ -189,6 +205,7 @@ Nao vale manter duas copias equivalentes do mesmo texto.
 - spec: normativa e seca
 - arquitetura: tecnica e verificavel
 - notas: abertas e explicitamente provisórias
+- notas: curtas, classificadas e com destino epistemologico claro
 - livro: teorico-politico, com engenharia apenas como sustentacao
 
 ## Criterio de qualidade editorial

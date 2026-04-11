@@ -202,9 +202,9 @@ Este bloco conversa diretamente com:
 
 Pode entrar especialmente em:
 
-- `docs/livro/08-infraestrutura-e-colonizacao-abstrata.md`
-- `docs/livro/09-instituicoes-programaveis-e-limites.md`
-- `docs/livro/11-conclusoes-e-perguntas-abertas.md`
+- `docs/livro/11-infraestrutura-e-colonizacao-abstrata.md`
+- `docs/livro/12-instituicoes-programaveis-e-limites.md`
+- `docs/livro/13-conclusoes-e-perguntas-abertas.md`
 
 ## 10. Frases-chave a preservar
 

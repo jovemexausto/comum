@@ -281,12 +281,12 @@ estruturante.
 - testemunho como recorte discreto do vivido
 - legibilidade publica como compressao parcial, nao esgotamento
 
-### Entrada 2 — `09-infraestrutura-e-colonizacao-abstrata.md`
+### Entrada 2 — `11-infraestrutura-e-colonizacao-abstrata.md`
 
 - a infraestrutura coloniza quando esquece que e forma parcial
 - thin waist como disciplina de limite da forma
 
-### Entrada 3 — `11-conclusoes-e-perguntas-abertas.md`
+### Entrada 3 — `13-conclusoes-e-perguntas-abertas.md`
 
 - coordenacao, forma e resto como uma das teses finais do livro
 
