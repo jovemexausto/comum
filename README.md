@@ -40,6 +40,16 @@ plataforma, centro ou medida unica.
 - contexto operacional do projeto: `docs/project/`
 - laboratorio vivo: `docs/notes/`
 
+## Superficie do monorepo
+
+- `apps/`: apps de referencia
+- `crates/`: crates Rust
+- `packages/`: pacotes JS/TS
+- `capsules/`: semantica local executavel
+- `simulations/`: simulacoes e exercicios de comportamento
+- `spec/`: contrato normativo
+- `docs/`: corpus, implementacao, projeto e notas
+
 ## Principios curtos
 
 - abstracao suficiente para coordenar, nao para colonizar
@@ -58,7 +68,7 @@ Ou manual:
 
 ```sh
 cargo test
-cd impl/comum-js && npm run build && npm test
+cd packages/comum-js && npm run build && npm test
 ```
 
 ## Licenca

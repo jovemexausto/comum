@@ -9,3 +9,10 @@ Arquivos canonicos atuais:
 - `wasm-abi.md`
 - `sdk-mobile-contract.md`
 - `interop.md`
+
+Superficie de codigo correspondente:
+
+- `crates/`
+- `packages/`
+- `capsules/`
+- `simulations/`

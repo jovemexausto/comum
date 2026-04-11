@@ -23,7 +23,7 @@ Referencias:
 
 - `spec/cips/CIP-0001.md` (secao 9.1)
 - `spec/registries/transport-profiles.md`
-- `impl/comum-rs/src/transport.rs`
+- `crates/comum-rs/src/transport.rs`
 
 ### 2. Execution triggers
 

@@ -8,7 +8,7 @@
     "e2e:multi-node": "node e2e/multi-node.e2e.mjs"
   },
   "dependencies": {
-    "comum-js": "file:../../impl/comum-js",
+    "comum-js": "file:../../packages/comum-js",
     "expo": "^51.0.0",
     "react": "18.2.0",
     "react-native": "0.74.0",

@@ -1,57 +1,64 @@
 use std::fs;
 use std::path::Path;
 
-use capsula_feira::{
-    build_accept_payload, build_dispute_payload, build_offer_payload, build_receipt_payload,
-    compute_offer_id,
+use capsula_mutirao::{
+    build_checkin_payload, build_commit_payload, build_complete_payload, build_reward_payload,
+    build_task_payload, compute_task_id,
 };
 use comum_rs::{Commoner, ContextInput, ProofInput, CAPSULE_INVOKE};
 use ed25519_dalek::SigningKey;
 use sha3::{Digest, Sha3_256};
 
 fn main() {
-    let capsule_id = read_capsule_id("feira");
+    let capsule_id = read_capsule_id("mutirao");
 
-    let offer_id = compute_offer_id("cafe", 5, "comum", 1_700_000_200_000, "did:comum:s");
-    let offer_params = build_offer_payload("cafe", 5, "comum", 1_700_000_200_000, "did:comum:s");
-    let offer_invoke = build_invoke_payload(&capsule_id, "offer", &offer_params);
+    let task_id = compute_task_id("limpeza", "praça", 3, 1_700_000_300_000, "did:comum:c");
+    let task_params = build_task_payload("limpeza", "praça", 3, 1_700_000_300_000, "did:comum:c");
+    let task_invoke = build_invoke_payload(&capsule_id, "task", &task_params);
 
-    let accept_params = build_accept_payload(&offer_id, "did:comum:b");
-    let accept_invoke = build_invoke_payload(&capsule_id, "accept", &accept_params);
+    let commit_params = build_commit_payload(&task_id, "did:comum:w");
+    let commit_invoke = build_invoke_payload(&capsule_id, "commit", &commit_params);
 
-    let receipt_params = build_receipt_payload(&offer_id, 1_700_000_210_000);
-    let receipt_invoke = build_invoke_payload(&capsule_id, "receipt", &receipt_params);
+    let checkin_params = build_checkin_payload(&task_id, 1_700_000_300_100);
+    let checkin_invoke = build_invoke_payload(&capsule_id, "checkin", &checkin_params);
 
-    let dispute_params = build_dispute_payload(&offer_id, "item divergente");
-    let dispute_invoke = build_invoke_payload(&capsule_id, "dispute", &dispute_params);
+    let complete_params = build_complete_payload(&task_id, 1_700_000_300_200);
+    let complete_invoke = build_invoke_payload(&capsule_id, "complete", &complete_params);
 
-    let mut seller = Commoner::new([0x11u8; 32], 1);
-    let mut buyer = Commoner::new([0x22u8; 32], 1);
-    let mut arbiter = Commoner::new([0x33u8; 32], 1);
+    let reward_params = build_reward_payload(&task_id, 2, 1_700_000_300_300);
+    let reward_invoke = build_invoke_payload(&capsule_id, "reward", &reward_params);
 
-    let pk_s = public_key_from_sk([0x11u8; 32]);
-    let pk_b = public_key_from_sk([0x22u8; 32]);
-    arbiter.register_pk(pk_s);
-    arbiter.register_pk(pk_b);
+    let mut creator = Commoner::new([0x11u8; 32], 1);
+    let mut worker = Commoner::new([0x22u8; 32], 1);
+    let mut verifier = Commoner::new([0x33u8; 32], 1);
+
+    let pk_c = public_key_from_sk([0x11u8; 32]);
+    let pk_w = public_key_from_sk([0x22u8; 32]);
+    verifier.register_pk(pk_c);
+    verifier.register_pk(pk_w);
 
     let ctx = default_context();
-    let t_offer = seller.emit(CAPSULE_INVOKE, &offer_invoke, ctx.clone()).expect("offer");
-    arbiter.ingest(&t_offer.cbor).expect("ingest offer");
+    let t_task = creator.emit(CAPSULE_INVOKE, &task_invoke, ctx.clone()).expect("task");
+    verifier.ingest(&t_task.cbor).expect("ingest task");
 
-    let t_accept = buyer.emit(CAPSULE_INVOKE, &accept_invoke, ctx.clone()).expect("accept");
-    arbiter.ingest(&t_accept.cbor).expect("ingest accept");
+    let t_commit = worker.emit(CAPSULE_INVOKE, &commit_invoke, ctx.clone()).expect("commit");
+    verifier.ingest(&t_commit.cbor).expect("ingest commit");
 
-    let t_receipt = buyer.emit(CAPSULE_INVOKE, &receipt_invoke, ctx.clone()).expect("receipt");
-    arbiter.ingest(&t_receipt.cbor).expect("ingest receipt");
+    let t_checkin = worker.emit(CAPSULE_INVOKE, &checkin_invoke, ctx.clone()).expect("checkin");
+    verifier.ingest(&t_checkin.cbor).expect("ingest checkin");
 
-    let t_dispute = buyer.emit(CAPSULE_INVOKE, &dispute_invoke, ctx).expect("dispute");
-    arbiter.ingest(&t_dispute.cbor).expect("ingest dispute");
+    let t_complete = creator.emit(CAPSULE_INVOKE, &complete_invoke, ctx.clone()).expect("complete");
+    verifier.ingest(&t_complete.cbor).expect("ingest complete");
 
-    println!("[feira-sim] offer_id={}", to_hex(&offer_id));
-    println!("[feira-sim] offer_id_testimony={}", t_offer.id_hex);
-    println!("[feira-sim] accept_id={}", t_accept.id_hex);
-    println!("[feira-sim] receipt_id={}", t_receipt.id_hex);
-    println!("[feira-sim] dispute_id={}", t_dispute.id_hex);
+    let t_reward = creator.emit(CAPSULE_INVOKE, &reward_invoke, ctx).expect("reward");
+    verifier.ingest(&t_reward.cbor).expect("ingest reward");
+
+    println!("[mutirao-sim] task_id={}", to_hex(&task_id));
+    println!("[mutirao-sim] task_id_testimony={}", t_task.id_hex);
+    println!("[mutirao-sim] commit_id={}", t_commit.id_hex);
+    println!("[mutirao-sim] checkin_id={}", t_checkin.id_hex);
+    println!("[mutirao-sim] complete_id={}", t_complete.id_hex);
+    println!("[mutirao-sim] reward_id={}", t_reward.id_hex);
 }
 
 fn default_context() -> ContextInput {
@@ -73,7 +80,7 @@ fn build_invoke_payload(capsule_id: &[u8; 32], action: &str, params: &[u8]) -> V
 
 fn read_capsule_id(name: &str) -> [u8; 32] {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
-    let wasm_path = root.join(format!("impl/capsulas/{}/{}.wasm", name, name));
+    let wasm_path = root.join(format!("capsules/{}/{}.wasm", name, name));
     let wasm = fs::read(wasm_path).expect("read capsule wasm");
     let mut hasher = Sha3_256::new();
     hasher.update(&wasm);

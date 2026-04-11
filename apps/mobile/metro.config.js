@@ -3,7 +3,7 @@ const { getDefaultConfig } = require('expo/metro-config')
 
 const config = getDefaultConfig(__dirname)
 
-config.watchFolders = [path.resolve(__dirname, '../../impl/comum-js')]
+config.watchFolders = [path.resolve(__dirname, '../../packages/comum-js')]
 config.resolver.unstable_enableSymlinks = true
 config.resolver.nodeModulesPaths = [
   path.resolve(__dirname, 'node_modules'),

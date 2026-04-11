@@ -89,7 +89,7 @@ Por que importa: valida a camada de SDK e o caminho ponta-a-ponta.
 O que significa: os mesmos Testimonies sao gerados e ingeridos em JS.
 
 ```sh
-(cd impl/comum-js && npm run e2e:feira)
+(cd packages/comum-js && npm run e2e:feira)
 ```
 
 Requer `comum-napi` disponivel (instalado ou via `COMUM_NAPI_PATH`).

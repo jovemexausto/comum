@@ -109,7 +109,7 @@ Recomendacao: manter no texto como politica local, sem schema novo nesta fase.
 1. Fechar o texto normativo de `spec/cips/CIP-0004.md` com foco apenas no fluxo
    online e nos tres verbos principais.
 2. Atualizar `spec/registries/verbs.md` quando o texto estiver estabilizado.
-3. Atualizar `impl/comum-rs/src/verbs.rs` com novas constantes.
+3. Atualizar `crates/comum-rs/src/verbs.rs` com novas constantes.
 4. Adicionar validacao de payloads e testes minimos em Rust/JS.
 5. So depois decidir se o fluxo offline entra no mesmo CIP ou numa extensao.
 

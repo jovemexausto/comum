@@ -8,7 +8,7 @@ capturar o papel do corpus, da spec ou da documentacao tecnica.
 
 ## Regra simples
 
-- livro: teoria longa e integrada
+- corpus: teoria longa e integrada
 - spec: contrato normativo
 - docs tecnicos: arquitetura e operacao
 - notas: excedente, aberto, curiosidade, dossie ou arquivo

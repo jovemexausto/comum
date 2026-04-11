@@ -17,7 +17,7 @@ import {
 
 function readCapsuleId(): Uint8Array {
   const root = resolve(dirname(fileURLToPath(import.meta.url)), "../../../..");
-  const wasmPath = resolve(root, "impl/capsulas/feira/feira.wasm");
+  const wasmPath = resolve(root, "capsules/feira/feira.wasm");
   const wasm = readFileSync(wasmPath);
   return sha3_256(new Uint8Array(wasm));
 }

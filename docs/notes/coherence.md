@@ -21,7 +21,7 @@ normativas no protocolo.
 - Modelo: `triadic-coherence-comum.md` (P/A/PHI aplicado a Testimony)
 - Fenomeno: `coercive-masking.md` (coercao mascarada)
 - Hipotese operacional: `phi-expectations.md` (PHI esperado por verbo)
-- Simulacao: `impl/simulations/coherence-sim/`
+- Simulacao: `simulations/coherence/`
 - Resultados: `coherence-findings-001.md`
 - Contexto relacionado: `identity-and-sybil.md`
 
