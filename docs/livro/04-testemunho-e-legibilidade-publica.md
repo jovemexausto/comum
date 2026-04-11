@@ -17,6 +17,9 @@ precisa ser composta a partir de enunciados parciais. O que circula nao e a
 visao total, mas vestigios assinados que podem ser lidos em relacao uns aos
 outros. Assim, a coordenacao nao depende de um ponto de vista absoluto; depende
 da possibilidade de articular perspectivas situadas sem perder verificabilidade.
+E isso significa, tambem, que a propria autoridade so pode aparecer de modo
+legitimo quando deixa vestigios dessa composicao, em vez de surgir como comando
+sem rastro.
 
 Isso muda a natureza da legibilidade publica. Em muitos sistemas, tornar algo
 legivel significa traduzi-lo por inteiro para as categorias do centro. O que o
@@ -26,12 +29,19 @@ modesta. Tornar algo legivel nao significa esgotar seu significado, mas dar-lhe
 forma suficiente para que outros possam reconhecer que algo foi dito, por quem,
 em que relacao causal e sob quais condicoes de prova.
 
-Essa distincao e decisiva. Legibilidade nao equivale a transparência total.
+Essa distincao e decisiva. Legibilidade nao equivale a transparencia total.
 Uma coisa e fazer com que um compromisso possa ser verificado ou referenciado.
 Outra, muito diferente, e exigir que toda a espessura do contexto seja exposta
 ao sistema. O testemunho, quando bem entendido, opera como limite da propria
 formalizacao: ele formaliza o bastante para circular e compor memoria, mas nao
 pretende transformar a totalidade da vida local em dado administravel.
+
+Essa modestia formal tem consequencias diretas para accountability. Um sistema
+que tudo expoe tende a confundir memoria publica com vigilancia. Um sistema que
+nada registra tende a deixar a autoridade dissolver-se em costume, carisma ou
+forca. O testemunho tenta ocupar um meio-termo mais dificil: registrar o bastante
+para que compromissos, alegacoes, recusas, apoios e revogacoes possam ser lidos,
+sem pretender absorver toda a textura da vida social.
 
 Por isso o testemunho tem uma estrutura interna importante. Nao basta dizer o
 que foi afirmado; importa tambem sob que contexto a afirmacao foi emitida e com
@@ -64,6 +74,12 @@ de leitura do grafo, de instituicoes locais e, em muitos casos, de conflito.
 Isso pode parecer uma fragilidade. Mas talvez seja justamente uma recusa de
 pretensoes epistemicas imperiais disfarçadas de infraestrutura.
 
+Por isso o testemunho nao deve ser pensado apenas como unidade de memoria, mas
+como condicao minima de responsabilidade publica. Ele nao decide sozinho quem tem
+razao, quem manda, quem deve reparar ou quem merece confianca. Mas ele dificulta
+que essas coisas acontecam sem aparecer. Nao substitui julgamento; impede que o
+julgamento se feche inteiramente na opacidade.
+
 Se o testemunho nao encerra a verdade, ele tambem nao encerra o valor. Isso sera
 decisivo mais adiante, quando o livro entrar no problema da pluralidade e da
 compensacao entre comunidades. Por enquanto, basta notar que escolher o
@@ -86,4 +102,7 @@ Ao escolher o testemunho, o Comum aceita conviver com parcialidade, conflito e
 incompletude para nao depender de uma instancia superior de verdade. E dessa
 decisao aparentemente modesta que pode emergir uma forma diferente de memoria
 publica: menos totalizante, mais situada, mais auditavel e mais compatível com
-mundos que nao querem ser absorvidos por um registro unico.
+mundos que nao querem ser absorvidos por um registro unico. Nos proximos
+capitulos, isso se tornara mais exigente: contexto e prova mostrarao por que a
+legibilidade publica nao basta sozinha, e o problema da autoridade reaparecera
+como questao de criterio, contestacao e revogabilidade.

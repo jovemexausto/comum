@@ -12,12 +12,17 @@ emitida; outra, ainda, e com que tipo de evidencia ela se sustenta. Sem essa
 separacao, o sistema ou confunde tudo sob um unico criterio de verdade, ou se
 torna incapaz de distinguir entre ato, condicao e justificativa.
 
-Essa distinção importa porque a legitimidade nunca e puramente tecnica. Uma
+Essa distincao importa porque a legitimidade nunca e puramente tecnica. Uma
 assinatura pode provar autoria; um hash pode provar integridade; um contexto de
 proximidade pode provar encontro; um conjunto de vouches pode sugerir relacao.
 Mas nada disso, isoladamente, decide o valor social de um ato. O salto entre
 validade estrutural e legitimidade e sempre situado. Se o sistema esquecer isso,
 ele troca prova por soberania.
+
+Mais do que isso: ele troca distribuicao de criterio por uma autoridade que se
+apresenta como neutra. E esse e um dos riscos centrais que o Comum tenta evitar.
+Nao basta reconhecer que pessoas divergem. E preciso impedir que a propria forma
+tecnica da prova passe a ocupar silenciosamente o lugar do julgamento.
 
 No centro, costuma acontecer justamente essa fusao. A mesma infraestrutura que
 registra tambem interpreta, qualifica, ranqueia e decide. Quem controla o
@@ -77,6 +82,11 @@ porque nao reclama para si a totalidade da legitimidade. Ele nao diz o que a
 comunidade deve pensar em todos os casos; diz apenas sob quais condicoes certas
 leituras podem ser feitas com responsabilidade publica.
 
+Isso significa que o protocolo organiza um campo de leitura, nao um tribunal
+final. Ele distribui vestigios, referencias, contextos e provas a partir dos
+quais uma comunidade pode produzir criterio. Mas nao pode capturar esse criterio
+sem reincidir exatamente na forma centro que pretendia deslocar.
+
 Isso tambem ajuda a esclarecer por que a legitimidade, no Comum, nao pode ser
 confundida com consenso. Uma comunidade pode divergir sobre a interpretacao de
 um mesmo conjunto de testemunhos. Pode aceitar excecoes, instituir julgamento,
@@ -84,6 +94,12 @@ criar procedimentos de reparacao, elevar thresholds ou relaxa-los em certos
 casos. Nada disso viola o protocolo, desde que a disputa se mantenha dentro de
 formas publicas e auditaveis. O objetivo nao e apagar a politica; e evitar que a
 politica seja substituida por uma autoridade invisivel travestida de tecnica.
+
+Quando essa ideia e levada a serio, a pergunta seguinte aparece quase sozinha:
+se legitimidade depende de instituicoes locais e de suas formas de leitura, como
+pensar a autoridade que emerge dessas instituicoes sem faze-la recair outra vez
+na opacidade? Essa passagem nos leva diretamente ao problema da autoridade
+situada, limitada e revogavel.
 
 Nesse ponto, a separacao entre contexto, prova e legitimidade revela sua aposta
 mais profunda. Ela recusa duas violencias opostas. A primeira e a violencia do
