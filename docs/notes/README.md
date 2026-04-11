@@ -3,8 +3,8 @@
 Objetivo: fazer de `docs/notes/` um laboratorio disciplinado, e nao um deposito
 indistinto de intuicoes longas.
 
-As notas existem para registrar excedentes, aberturas, curiosidades e dossies de
-sessao sem capturar o papel do livro, da spec ou da documentacao tecnica.
+As notas existem para registrar excedentes, aberturas e curiosidades ativas sem
+capturar o papel do corpus, da spec ou da documentacao tecnica.
 
 ## Regra simples
 
@@ -26,5 +26,5 @@ sessao sem capturar o papel do livro, da spec ou da documentacao tecnica.
 - `90-...` dossie
 - `99-...` arquivo
 
-O acervo legado sera migrado gradualmente para essa disciplina, sem reindexacao
-brusca de tudo de uma vez.
+Tudo o que deixar de ser nota curta viva deve sair do corpus de `docs/notes/` e
+ir para `.archive/`.
