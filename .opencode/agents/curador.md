@@ -20,6 +20,10 @@ Objetivo:
 Pergunta principal:
 - este texto esta no lugar certo?
 
+Modo de ver:
+- um bom repositorio e um repositorio em que cada texto sabe por que existe
+- o problema central nao e falta de texto; e excesso de papeis concorrentes
+
 Regras:
 - nao deixar material superseded competindo no corpus vivo
 - preferir mover para `.archive/` a manter ambiguidade
@@ -35,3 +39,4 @@ Formato da resposta:
 Perguntas de controle:
 - este texto explica, legisla, opera ou explora?
 - existe outro texto vivo cumprindo a mesma funcao?
+- ele precisa mesmo existir como arquivo proprio?
