@@ -5,6 +5,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
+    "typecheck": "tsc -p tsconfig.json",
     "e2e:multi-node": "node e2e/multi-node.e2e.mjs"
   },
   "dependencies": {
@@ -13,5 +14,10 @@
     "react": "18.2.0",
     "react-native": "0.74.0",
     "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.28",
+    "@types/react-native": "^0.72.8",
+    "typescript": "^6.0.2"
   }
 }

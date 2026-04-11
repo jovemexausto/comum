@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "Bundler",
+    "jsx": "react-native",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      "comum-js": ["../../packages/comum-js/dist/mobile.d.ts"]
+    }
+  },
+  "include": ["App.tsx", "src/**/*"]
+}
