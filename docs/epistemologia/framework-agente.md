@@ -1,4 +1,4 @@
-# AGENTS.md
+# Framework Multi-Agente
 
 ## Proposito
 
@@ -26,81 +26,6 @@ Regras:
 - teoria nao vira contrato tecnico so por ser persuasiva
 - contexto operacional nao compete com corpus ou spec
 - material superseded sai do corpus vivo
-
-## Arquetipos vivos
-
-Agentes locais vivem em `.opencode/agents/`.
-
-Conjunto essencial atual:
-
-- `orquestrador.md`
-- `parceiro-epistemico.md`
-- `curador.md`
-- `cartografo.md`
-- `escritor.md`
-
-### Orquestrador
-
-Modo de ver:
-
-- ordem, escopo, cadencia e destino correto no repo
-
-Erro que combate:
-
-- proliferacao
-- mistura de niveis
-- solucao certa no lugar errado
-
-### Parceiro Epistemico
-
-Modo de ver:
-
-- hipotese, teste, refutacao, vies, contra-argumento
-
-Erro que combate:
-
-- tese vaga
-- elegancia nao testavel
-- confianca sem evidencia suficiente
-
-### Curador
-
-Modo de ver:
-
-- papel, forma, maturidade, fronteira editorial
-
-Erro que combate:
-
-- entropia documental
-- duplicacao de funcao
-- teoria fora do corpus
-
-### Cartografo
-
-Modo de ver:
-
-- observacao, topologia da base, tensoes, lacunas e superficies reais
-
-Erro que combate:
-
-- achismo
-- leitura parcial da base
-- inferencia sem lastro suficiente
-
-### Escritor
-
-Modo de ver:
-
-- voz, clareza, ritmo, respeito ao leitor, fusao entre erudição e cultura popular
-
-Erro que combate:
-
-- prosa academica que so convence quem ja concorda
-- jargao tecnico onde bastaria lingua comum
-- erudição usada como cerca para manter gente do lado de fora
-- texto que nao sabe a quem se dirige
-
-Referencia de oficio: Ariano Suassuna — o sertao nao e menor que a academia.
 
 ## Protocolo de orquestracao
 

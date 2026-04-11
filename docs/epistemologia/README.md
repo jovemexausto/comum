@@ -6,7 +6,7 @@ do projeto, sem competir com o corpus teorico, a spec ou a documentacao tecnica.
 Esta pasta nao e mais um corpus filosofico paralelo. Ela serve como camada de
 disciplina editorial e agentica do repositorio.
 
-O texto-base do framework multi-agente agora vive em `AGENTS.md`.
+O texto-base do framework multi-agente agora vive em `docs/epistemologia/framework-agente`.
 
 ## Papel
 
