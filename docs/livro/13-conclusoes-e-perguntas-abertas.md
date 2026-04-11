@@ -17,9 +17,11 @@ sem se dissolver numa forma unica superior.
 Essa hipotese tem alcance tecnico, mas nao e principalmente tecnica. Ela sugere
 uma outra imagem do comum. Nao o comum como substancia uniforme, nem como nome
 poetico para um centro mais benevolente, mas como infraestrutura federativa de
-relacao entre mundos que permanecem diferentes. O desafio, nessa imagem, nao e
-descobrir a medida universal que finalmente traduz tudo. E construir formas de
-legibilidade e interoperabilidade suficientemente robustas para compor memoria e
+relacao entre mundos que permanecem diferentes. Mais precisamente: como
+infraestrutura de memoria publica, autoridade revisavel e federacao entre mundos
+que permanecem diferentes. O desafio, nessa imagem, nao e descobrir a medida
+universal que finalmente traduz tudo. E construir formas de legibilidade e
+interoperabilidade suficientemente robustas para compor memoria e
 responsabilidade publica sem converter a diferenca em defeito.
 
 Vimos que isso exige varias recusas simultaneas. Recusar o centro nao significa
@@ -63,6 +65,8 @@ Perguntas como:
 - Como manter interoperabilidade sem empurrar tudo para equivalencia unica?
 - Como desenhar compensacao intercomunitaria sem restaurar um centro monetario?
 - Como abrir instituicoes sem tecnocratizar a vida comum?
+- Como tornar autoridade local auditavel sem fazer da auditabilidade uma nova forma de captura?
+- Como distinguir fundacao minima de robustez institucional sem negar o par nem romantizar sua fragilidade?
 - Como sustentar semantica compartilhada sem ontologia imperial?
 - Como preservar o direito ao opaco sem colapsar a verificabilidade publica?
 - Como federar sem transformar a borda em soberania superior?

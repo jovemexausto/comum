@@ -21,6 +21,12 @@ pratica de cuidado, numa relacao de confianca ou numa comunidade politica pode
 nao caber integralmente no mesmo regime de comparacao. Isso nao e defeito do
 social; e parte da sua espessura.
 
+E justamente porque o valor e institucional que ele nunca e apenas economico. O
+que vale numa comunidade tambem depende de quem pode reconhecer, registrar,
+aceitar, contestar ou recusar certas formas de contribuicao. Valor plural e,
+portanto, inseparavel de pluralidade de criterio e de autoridade local sobre o
+que conta como relevante.
+
 Mas reconhecer pluralidade de valor nao resolve o problema da interoperabilidade.
 Ao contrario: o torna mais exigente. Se os mundos locais atribuem sentidos
 diferentes a trabalho, reciprocidade, obrigacao, prestigio, escassez ou prova,
@@ -60,7 +66,8 @@ coordenacao, mas pobre demais para esgotar o campo do valor social. Receipts,
 vouches, encounters, revogacoes, compromissos e historias de relacao tambem
 carregam valor, ainda que nao se apresentem imediatamente como quantidade
 fungivel. Reduzir tudo a saldo produziria uma economia mais simples, mas tambem
-mais cega.
+mais cega. Uma economia assim talvez facilitasse contabilidade, mas empobreceria
+justamente a parte institucional do valor que o Comum tenta preservar.
 
 E exatamente por isso que a discussao sobre moeda, remessa e compensacao precisa
 ser tratada com cuidado conceitual. Uma moeda unica costuma parecer a solucao

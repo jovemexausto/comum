@@ -47,6 +47,12 @@ funcao de sua propria forma. Outro, ainda, quando a legibilidade publica e
 confundida com exposicao total, como se tudo o que importa precisasse caber na
 memoria formal do sistema para existir politicamente.
 
+Outro sinal aparece quando a infraestrutura comeca a imaginar que pode resolver,
+sozinha, o problema da autoridade. Nesse ponto, o meio comum deixa de apenas
+organizar rastros, provas e relacoes para passar a se insinuar como juiz
+universal do conflito. A colonizacao abstrata nao opera apenas sobre valor ou
+comunidade; pode operar tambem sobre legitimidade e disputa.
+
 Talvez o teste mais simples seja este: a infraestrutura amplia a autonomia local
 ou obriga o local a caber nela? Essa pergunta nao resolve tudo, mas funciona
 como alarme. Sempre que o local aparece apenas como caso particular, como dado a
@@ -81,6 +87,10 @@ assinatura, causalidade, reproducibilidade, limites de runtime, contratos de
 interoperabilidade. Mas precisa dizer com a mesma clareza o que nao lhe cabe
 garantir: a totalidade do valor, a legitimidade final de toda comunidade, a
 verdade ultima de toda disputa, a medida comum de toda vida social.
+
+So assim o Comum permanece fiel a sua propria disciplina de limite. Sem essa
+disciplina, accountability escorrega para tecnocracia, auditabilidade escorrega
+para vigilancia e o comum reaparece como nova forma de centro.
 
 Ha aqui uma licao mais ampla. Todo projeto que pretenda enfrentar o poder das
 plataformas corre o risco de repetir sua operacao num outro vocabulário. Basta

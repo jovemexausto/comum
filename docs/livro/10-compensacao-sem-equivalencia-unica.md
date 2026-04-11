@@ -84,6 +84,11 @@ de integridade, seguranca e verificabilidade. Mas sua governanca nao pode
 degradar em instancia de definicao do valor local. Ela administra o mecanismo,
 nao o sentido inteiro da vida economica.
 
+Do mesmo modo, a autoridade necessaria para operar a borda nao deve se converter
+em jurisdicao superior sobre os interiores. Sempre que o mecanismo de settlement
+passa a dizer o que conta como bom valor, boa instituicao ou boa economia local,
+ele deixa de ser borda e comeca a funcionar como centro.
+
 Quinto, reversibilidade. Comunidades precisam poder aderir, limitar exposicao,
 sair, suspender ou renegociar o modo como participam da borda intercomunitaria.
 Sem reversibilidade, a federacao tende a cristalizar-se em dependencia.

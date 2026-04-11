@@ -40,6 +40,12 @@ ontologica precisa ser preservada. Sem ela, a programabilidade vira nova forma
 de tecnocracia: a ilusao de que o que nao foi codificado ainda nao foi pensado,
 ou pior, de que o que nao cabe na Capsula deixa de contar politicamente.
 
+Isso vale em especial para autoridade, accountability e disputa. O Comum pode
+abrir espaco para que uma comunidade explicite mandatos, contestacoes,
+jurisdicoes e revogacoes. Mas nenhuma capsula deve ser confundida com a propria
+comunidade viva que a interpreta. Uma instituicao executavel e sempre recorte,
+nao totalidade.
+
 Apesar disso, seria um erro abandonar a potencia das instituicoes programaveis
 por medo de excesso. Ha algo genuinamente novo e poderoso na possibilidade de
 uma comunidade dizer: esta regra de mutirao pode ser ajustada; este mecanismo de
@@ -102,6 +108,11 @@ romper tanto com a plataforma proprietaria quanto com a burocracia opaca. Pode
 permitir que comunidades comparem arranjos, aprendam entre si e inventem formas
 de federacao que nao dependam de um centro legislativo unico. Pode tornar
 regras menos magicas e instituicoes menos naturalizadas.
+
+Pode, tambem, tornar a autoridade menos invisivel. Nao porque o codigo a resolva,
+mas porque a forma executavel pode obrigar certos atos de delegacao, escopo,
+contestacao e revogacao a deixarem memoria publica. O valor politico disso nao e
+substituir a instituicao vivida, e sim reduzir o espaco da opacidade impune.
 
 Mas esse ganho so existe se a programabilidade for tratada como meio e nao como
 destino. Quando o codigo deixa de ser ferramenta de abertura e passa a funcionar

@@ -39,7 +39,8 @@ seus membros, nem que bloqueie o resto do grafo. Um Commoner pode pertencer a
 mais de um arranjo de leitura; pode manter relacoes que atravessam comunidades;
 pode estar implicado em historias cujos efeitos nao cabem numa unica moldura.
 Isso torna a comunidade menos substantiva e mais politica: ela existe na medida
-em que consegue sustentar um regime de leitura, responsabilidade e instituicao.
+em que consegue sustentar um regime de leitura, responsabilidade, autoridade e
+instituicao.
 
 Aqui aparece a federacao em sentido forte. Federar nao e simplesmente conectar
 comunidades previamente dadas por uma camada superior. Federar e construir um
@@ -63,6 +64,12 @@ por um centro exterior. Mas essa capacidade nao implica isolamento. Uma
 soberania que so subsiste fechando-se completamente ao exterior vira pobreza de
 relacao; uma soberania que so existe se homologada por uma instancia superior
 ja nao e soberania propriamente dita.
+
+Isso tambem significa que autoridade local, quando existe, nao deve ser pensada
+como miniatura de um centro. Uma comunidade federada nao se torna menos fiel ao
+Comum por produzir mandato, criterio ou jurisdicao locais. O risco aparece quando
+essa autoridade deixa de ser situada e passa a reclamar validade superior sobre
+outras comunidades.
 
 E por isso que a federacao so pode funcionar se a interoperabilidade for pensada
 como traducao limitada, nao como fusao. O que uma comunidade leva a serio pode
