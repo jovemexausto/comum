@@ -1,6 +1,8 @@
 # Capsula Agora
 
-Capsula de governanca com semantica de votacao e testes.
+Capsula de governanca minima com semantica de votacao e fechamento local.
+Esta referencia cobre proposta, voto e close. Nao implementa, nesta fase,
+mandato, contestacao, escalacao ou resolucao de disputa.
 Compila para WASM (wasm32-unknown-unknown, no_std).
 
 Build manual:

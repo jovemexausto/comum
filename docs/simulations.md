@@ -31,9 +31,9 @@ Saida esperada:
 
 ## Cenario 2 — Agora (governanca)
 
-O que simula: ciclo de decisao local (proposta, voto, fechamento).
-Por que importa: mostra como a capsula aplica regras sociais sem impor
-ordenacao global, usando apenas referencias.
+O que simula: ciclo de decisao local minima (proposta, voto, fechamento).
+Por que importa: mostra como a capsula aplica uma semantica basica de
+governanca sem impor ordenacao global, usando apenas referencias.
 O que significa: o fechamento reflete quorum e votos observados pelo
 Commoner avaliador.
 
