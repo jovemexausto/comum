@@ -46,9 +46,7 @@ Tom:
 
 Onde:
 
-- `docs/architecture/`
-- `docs/sdk/`
-- `docs/interop/`
+- `docs/implementation/`
 - READMEs de implementacao
 
 Funcao:
