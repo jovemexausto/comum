@@ -1,6 +1,6 @@
 ---
 description: Cuida da forma do corpus vivo e reduz entropia documental
-mode: subagent
+mode: all
 permission:
   read: allow
   glob: allow

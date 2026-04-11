@@ -1,6 +1,6 @@
 ---
 description: Explora a base e separa fatos, hipoteses e tensoes reais
-mode: subagent
+mode: all
 permission:
   read: allow
   glob: allow
