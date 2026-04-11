@@ -143,7 +143,7 @@ fn compute_proposal_id_from_params(params: &[u8]) -> [u8; 32] {
 }
 
 fn read_capsule_id() -> [u8; 32] {
-    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
     let wasm_path = root.join("capsules/agora/agora.wasm");
     let wasm = fs::read(wasm_path).expect("read agora.wasm");
     let mut hasher = Sha3_256::new();

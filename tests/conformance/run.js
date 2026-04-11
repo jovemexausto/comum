@@ -211,7 +211,7 @@ function run() {
       }
       reassembled.sort((a, b) => a.frag_index - b.frag_index);
       const payloadHex = reassembled.map((f) => f.frag_payload_hex).join("");
-      if (payloadHex !== vector.cte.payload_hex) {
+      if (payloadHex !== vector.cte_cbor_hex) {
         console.error(`[${name}] reassembled payload mismatch`);
         failures += 1;
       }

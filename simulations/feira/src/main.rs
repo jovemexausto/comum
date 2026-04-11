@@ -72,7 +72,7 @@ fn build_invoke_payload(capsule_id: &[u8; 32], action: &str, params: &[u8]) -> V
 }
 
 fn read_capsule_id(name: &str) -> [u8; 32] {
-    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
     let wasm_path = root.join(format!("capsules/{}/{}.wasm", name, name));
     let wasm = fs::read(wasm_path).expect("read capsule wasm");
     let mut hasher = Sha3_256::new();
