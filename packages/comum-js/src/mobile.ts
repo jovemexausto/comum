@@ -355,3 +355,7 @@ export type {
   ReceiptResult,
   NodeTransport,
 } from "./client.mobile.js";
+
+// Re-export WebSocket transport (usa apenas APIs de plataforma, sem node:)
+export { makeWsTransport } from "./transport/ws.js";
+export type { WsTransportOptions } from "./transport/ws.js";

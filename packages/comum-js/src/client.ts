@@ -36,6 +36,8 @@ export type OfferParams = {
 export type Offer = {
   id: Uint8Array;
   idHex: string;
+  /** ID do testemunho que publicou esta oferta (hex de 64 chars). */
+  testimonyIdHex: string;
   item: string;
   price: number;
   currency: string;
@@ -154,6 +156,7 @@ export class ComumClient {
     const offer: Offer = {
       id,
       idHex: bytesToHex(id),
+      testimonyIdHex: out.id_hex,
       item: params.item,
       price: params.price,
       currency: params.currency,
