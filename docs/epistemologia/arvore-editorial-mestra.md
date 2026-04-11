@@ -173,7 +173,7 @@ spec/
 
 ### Devem migrar ou ser espelhados no corpus tecnico
 
-- `docs/teoria-do-protocolo.md` continua como ponte conceitual tecnico-teorica do repo
+- fundamentos conceituais curtos devem ser absorvidos por `docs/corpus/`
 - `docs/architecture/overview.md` -> `docs/20-arquitetura/overview.md`
 - `docs/architecture/wasm-abi.md` -> `docs/20-arquitetura/wasm-abi.md`
 - `docs/sdk/mobile-contract.md` -> `docs/20-arquitetura/sdk-mobile-contract.md`

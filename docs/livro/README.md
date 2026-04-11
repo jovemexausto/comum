@@ -100,7 +100,7 @@ Tres mudancas recentram o livro:
 ## Relacao com o restante do repo
 
 - `spec/`: contrato normativo
-- `docs/teoria-do-protocolo.md`: ponte curta entre teoria e arquitetura
+- fundamentos conceituais curtos agora devem ser absorvidos por `docs/corpus/`
 - `docs/notes/`: excedente, aberto, curiosidade e dossies ainda nao integrados
 
 O livro recebe ideias promovidas do laboratorio. As notas nao devem continuar

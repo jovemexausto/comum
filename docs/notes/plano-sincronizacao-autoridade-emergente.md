@@ -15,7 +15,7 @@ discurso, norma e implementacao apos a mudanca de framing.
 
 - `ABSTRACT.md`
 - `README.md`
-- `docs/teoria-do-protocolo.md`
+- `docs/corpus/`
 - `spec/cips/CIP-0001.md`
 - `impl/comum-rs/src/claim.rs`
 - `impl/comum-rs/tests/conformance.rs`

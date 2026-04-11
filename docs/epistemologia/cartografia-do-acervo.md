@@ -83,7 +83,7 @@ Os principais sintomas sao:
 
 | Arquivo | Categoria | Publico principal | Status | Destino sugerido |
 | --- | --- | --- | --- | --- |
-| `docs/teoria-do-protocolo.md` | teoria | leitores conceituais, designers de sistema | maduro | virar capitulo-base do livro modular |
+| `docs/corpus/` | teoria | leitores conceituais, designers de sistema | maduro | concentrar o corpus teorico do projeto |
 | `docs/epistemologia/README.md` | teoria | mantenedores, editores do corpus | ativo | manter como mapa epistemologico mestre |
 | `docs/epistemologia/plano-de-reestruturacao.md` | teoria | mantenedores, editores do corpus | ativo | manter como plano editorial |
 | `docs/epistemologia/cartografia-do-acervo.md` | teoria | mantenedores, editores do corpus | ativo | manter como diagnostico editorial vivo |
@@ -166,7 +166,7 @@ conteudo ja tenha emergido nas notas e conversas:
 
 ### Promover primeiro
 
-- `docs/teoria-do-protocolo.md`
+- `docs/corpus/`
 - `docs/notes/interoperabilidade-sem-equivalencia-unica.md`
 - `docs/notes/community-boundaries.md`
 - `docs/notes/identity-and-sybil.md`

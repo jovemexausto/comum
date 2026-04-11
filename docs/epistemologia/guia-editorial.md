@@ -65,7 +65,7 @@ Tom:
 
 Onde:
 
-- `docs/teoria-do-protocolo.md`
+- `docs/corpus/`
 - textos conceituais estritamente ligados a leitura da spec
 
 Funcao:
