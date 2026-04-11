@@ -37,9 +37,8 @@ Notas curtas e vivas do laboratorio atual.
 
 ## Arquivadas
 
-Materiais longos, dossies ou consolidacoes foram movidos para:
-
-- `.archive/docs/02-notes-dossiers/`
+Materiais longos, dossies ou consolidacoes foram movidos para o arquivo do
+projeto.
 
 ## Regra de uso do indice
 

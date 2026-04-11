@@ -27,4 +27,4 @@ capturar o papel do corpus, da spec ou da documentacao tecnica.
 - `99-...` arquivo
 
 Tudo o que deixar de ser nota curta viva deve sair do corpus de `docs/notes/` e
-ir para `.archive/`.
+ir para o arquivo do projeto.
