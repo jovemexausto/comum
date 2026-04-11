@@ -345,3 +345,13 @@ export function computeNullifier(sk: Uint8Array, testimonyId: Uint8Array): Uint8
   const key = hkdf(sha3_256, sk, new Uint8Array(), info, 32);
   return hmac(sha3_256, key, testimonyId);
 }
+
+// Re-export high-level client (mobile build)
+export { ComumClient } from "./client.mobile.js";
+export type {
+  OfferParams,
+  Offer,
+  AcceptResult,
+  ReceiptResult,
+  NodeTransport,
+} from "./client.mobile.js";

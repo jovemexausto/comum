@@ -607,3 +607,13 @@ export function validateGenesisPayload(payload: Uint8Array): void {
   if (map.mint_policy.type !== "bytes" || map.mint_policy.value.length !== 32)
     throw new Error("invalid mint_policy");
 }
+
+// Re-export high-level client
+export { ComumClient } from "./client.js";
+export type {
+  OfferParams,
+  Offer,
+  AcceptResult,
+  ReceiptResult,
+  NodeTransport,
+} from "./client.js";
