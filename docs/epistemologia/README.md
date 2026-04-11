@@ -8,8 +8,8 @@ unica para um futuro livro/whitepaper modular.
 
 O Comum nao e apenas um protocolo de dados, nem apenas um app, nem apenas uma
 teoria politica. E uma tentativa de construir coordenacao verificavel entre
-comunidades soberanas sem depender de autoridade central, consenso global ou
-plataforma unica.
+comunidades soberanas sem depender de consenso global obrigatorio, plataforma
+unica ou autoridade central irrevisavel.
 
 Seu nucleo tecnico e simples: Testimonies assinados, grafo causal,
 serializacao deterministica, sync eventual e semantica local em Capsulas.

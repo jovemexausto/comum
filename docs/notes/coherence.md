@@ -33,7 +33,8 @@ normativas no protocolo.
 
 ## Resultado atual
 
-- Sinais de coerencia sao observaveis sem autoridade central.
+- Sinais de coerencia sao observaveis por leitura local do grafo, sem depender
+  de validacao central irrevisavel.
 - Gaps e repeticoes afetam leitura do grafo de forma distinta.
 - Diversidade de contexto (PHI) pode mitigar comportamentos repetitivos.
 

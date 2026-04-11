@@ -60,7 +60,7 @@ just feira-sim
 
 O que simula: ciclo de trabalho coletivo com compromissos e recompensa.
 Por que importa: exercita dependencias entre tarefas e validacao de
-progresso sem autoridade central.
+progresso sem dependencia de autoridade central irrevisavel.
 O que significa: a sequencia produz um fluxo completo de trabalho local.
 
 Fluxo minimo: task -> commit -> checkin -> complete -> reward.
