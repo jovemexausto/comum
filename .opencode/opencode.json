@@ -1,0 +1,9 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    ["/Users/jovemexausto/Labs/opencode/opencode-journal",  { "epoch": "weekly", "tools": false, "memory": true }]
+  ],
+  "data": {
+    "local": false
+  }
+}
