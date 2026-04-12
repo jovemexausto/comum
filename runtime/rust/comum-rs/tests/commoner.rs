@@ -1,6 +1,6 @@
 use comum_rs::{
     Commoner, CommonerErrorKind, ContextInput, ProofInput, COMUM_IDENTITY_COMMITMENT,
-    COMUM_TRANSFER, COMUM_VOUCH,
+    COMUM_ATTEST, COMUM_TRANSFER,
 };
 
 fn empty_map() -> Vec<u8> {
@@ -42,7 +42,7 @@ fn commoner_rejects_empty_context_proof_for_vouch() {
     };
 
     let testimony = c
-        .emit(COMUM_VOUCH, &empty_map(), ctx)
+        .emit(COMUM_ATTEST, &empty_map(), ctx)
         .expect("emit");
 
     let err = c.validate(&testimony.cbor).expect_err("should fail");

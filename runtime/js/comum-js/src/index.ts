@@ -16,10 +16,8 @@ export type EncodeOptions = {
 };
 
 export const VERB_COMUM_TRANSFER = "comum/transfer";
-export const VERB_COMUM_VOUCH = "comum/vouch";
+export const VERB_COMUM_ATTEST = "comum/attest";
 export const VERB_COMUM_ENCOUNTER = "comum/encounter";
-export const VERB_COMUM_VOTE = "comum/vote";
-export const VERB_COMUM_PROPOSE = "comum/propose";
 export const VERB_COMUM_REVOKE = "comum/revoke";
 export const VERB_COMUM_KEY_ROTATE = "comum/key_rotate";
 export const VERB_COMUM_RECEIVE = "comum/receive";

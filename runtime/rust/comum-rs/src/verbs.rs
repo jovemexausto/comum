@@ -1,8 +1,6 @@
 pub const COMUM_TRANSFER: &str = "comum/transfer";
-pub const COMUM_VOUCH: &str = "comum/vouch";
+pub const COMUM_ATTEST: &str = "comum/attest";
 pub const COMUM_ENCOUNTER: &str = "comum/encounter";
-pub const COMUM_VOTE: &str = "comum/vote";
-pub const COMUM_PROPOSE: &str = "comum/propose";
 pub const COMUM_REVOKE: &str = "comum/revoke";
 pub const COMUM_KEY_ROTATE: &str = "comum/key_rotate";
 pub const COMUM_RECEIVE: &str = "comum/receive";

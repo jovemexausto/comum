@@ -1,6 +1,6 @@
 ; EpochSnapshot — estado agregado do grafo por periodo
 ; Chaves em ordem canonical: epoch(5) period_end(10) signatures(10) period_start(12)
-; balances_root(13) capsules_root(13) prev_snapshot(13) nullifiers_root(15) reputation_root(15)
+; balances_root(13) capsules_root(13) prev_snapshot(13) nullifiers_root(15)
 
 EpochSnapshot = {
   "epoch":           uint,
@@ -10,6 +10,5 @@ EpochSnapshot = {
   "balances_root":   bstr .size 32,
   "capsules_root":   bstr .size 32,
   "prev_snapshot":   bstr .size 32,
-  "nullifiers_root": bstr .size 32,
-  "reputation_root": bstr .size 32
+  "nullifiers_root": bstr .size 32
 }

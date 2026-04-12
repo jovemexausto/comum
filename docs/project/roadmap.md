@@ -12,7 +12,7 @@
 
 - Commoner facade (API de no)
 - Perfis de transporte NFC/BLE/QR/RNS
-- Semantica formal da Capsula Agora (CIP-0003)
+- Primeira referencia historica de Agora antes da virada para apps/capsulas do monorepo
 - SDKs iniciais (JS/mobile)
 
 ## v0.3 (entregue)

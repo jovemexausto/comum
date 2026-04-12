@@ -8,7 +8,6 @@ pub struct EpochSnapshot {
     pub period_start: u64,
     pub period_end: u64,
     pub balances_root: [u8; 32],
-    pub reputation_root: [u8; 32],
     pub nullifiers_root: [u8; 32],
     pub capsules_root: [u8; 32],
     pub prev_snapshot: [u8; 32],
@@ -18,8 +17,7 @@ pub struct EpochSnapshot {
 pub fn encode_epoch_snapshot(snapshot: &EpochSnapshot) -> Vec<u8> {
     let mut pairs = Vec::new();
     // epoch(5) < period_end(10) < signatures(10) < period_start(12)
-    // balances_root(13) < capsules_root(13) < prev_snapshot(13)
-    // nullifiers_root(15) < reputation_root(15)
+    // balances_root(13) < capsules_root(13) < prev_snapshot(13) < nullifiers_root(15)
     pairs.push([encode_tstr("epoch"), encode_uint(snapshot.epoch as u64)].concat());
     pairs.push([
         encode_tstr("period_end"),
@@ -57,11 +55,6 @@ pub fn encode_epoch_snapshot(snapshot: &EpochSnapshot) -> Vec<u8> {
         encode_bstr(&snapshot.nullifiers_root),
     ]
     .concat());
-    pairs.push([
-        encode_tstr("reputation_root"),
-        encode_bstr(&snapshot.reputation_root),
-    ]
-    .concat());
     encode_map(pairs)
 }
 
@@ -87,7 +80,6 @@ pub fn decode_epoch_snapshot(data: &[u8]) -> Result<EpochSnapshot, DecodeError> 
     };
 
     let balances_root = read_root(map.get("balances_root"))?;
-    let reputation_root = read_root(map.get("reputation_root"))?;
     let nullifiers_root = read_root(map.get("nullifiers_root"))?;
     let capsules_root = read_root(map.get("capsules_root"))?;
     let prev_snapshot = read_root(map.get("prev_snapshot"))?;
@@ -111,7 +103,6 @@ pub fn decode_epoch_snapshot(data: &[u8]) -> Result<EpochSnapshot, DecodeError> 
         period_start,
         period_end,
         balances_root,
-        reputation_root,
         nullifiers_root,
         capsules_root,
         prev_snapshot,

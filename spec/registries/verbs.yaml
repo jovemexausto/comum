@@ -5,20 +5,12 @@ entries:
     description: Transferencia em unidade local de valor
     status: Active
     cip: CIP-0001
-  - verb: comum/vouch
-    description: Endosso de reputacao
+  - verb: comum/attest
+    description: Atestacao relacional local
     status: Active
     cip: CIP-0001
   - verb: comum/encounter
     description: Encontro fisico co-assinado
-    status: Active
-    cip: CIP-0001
-  - verb: comum/vote
-    description: Voto em proposta
-    status: Active
-    cip: CIP-0001
-  - verb: comum/propose
-    description: Submissao de proposta
     status: Active
     cip: CIP-0001
   - verb: comum/revoke

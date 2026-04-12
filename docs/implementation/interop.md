@@ -18,6 +18,6 @@
 | Recurso                    | Especificacao | Runtime WASM (comum-rs) | Capsulas |
 | -------------------------- | ------------- | ----------------------- | -------- |
 | Runtime WASM + limites     | CIP-0001      | OK                      | N/A      |
-| Capsula Agora (governanca) | CIP-0001      | OK                      | OK       |
-| Capsula Feira (mercado)    | CIP-0003      | OK                      | OK       |
-| Capsula Mutirao (trabalho) | CIP-0003      | OK                      | OK       |
+| Capsula Agora (referencia) | app-local     | OK                      | OK       |
+| Capsula Feira (referencia) | app-local     | OK                      | OK       |
+| Mutirao legacy             | legacy        | OK                      | OK       |
