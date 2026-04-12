@@ -7,8 +7,9 @@
 
 import { ComumClient, makeWsTransport } from '../../../../runtime/js/comum-js/dist/mobile.js'
 import { WebSocket } from 'ws'
+import capsuleBuild from '../../capsules/capsule.build.json' with { type: 'json' }
 
-const CAPSULE_ID = new Uint8Array(32).fill(0x46)
+const CAPSULE_ID = hexToBytes(capsuleBuild.capsule_id)
 
 /** @type {ComumClient | null} */
 let client = null

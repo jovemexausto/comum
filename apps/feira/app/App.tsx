@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
+import capsuleBuild from '../capsules/capsule.build.json'
 import {
   FlatList,
   StyleSheet,
@@ -13,7 +14,16 @@ import { ComumClient, type Offer } from 'comum-js'
 // Seed fixa para demo — em producao virá de secure storage
 // ---------------------------------------------------------------------------
 const DEMO_SEED = new Uint8Array(32).fill(0x11)
-const DEMO_CAPSULE_ID = new Uint8Array(32).fill(0x46)
+const DEMO_CAPSULE_ID = hexToBytes(capsuleBuild.capsule_id)
+
+function hexToBytes(hex: string) {
+  if (hex.length % 2 !== 0) throw new Error('invalid hex')
+  const out = new Uint8Array(hex.length / 2)
+  for (let i = 0; i < out.length; i += 1) {
+    out[i] = Number.parseInt(hex.slice(i * 2, i * 2 + 2), 16)
+  }
+  return out
+}
 
 // ---------------------------------------------------------------------------
 // App

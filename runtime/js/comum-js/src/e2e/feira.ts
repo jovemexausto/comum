@@ -1,7 +1,6 @@
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { sha3_256 } from "@noble/hashes/sha3";
 import * as ed25519 from "@noble/ed25519";
 
 import { Commoner, loadNative } from "../index.js";
@@ -17,9 +16,18 @@ import {
 
 function readCapsuleId(): Uint8Array {
   const root = resolve(dirname(fileURLToPath(import.meta.url)), "../../../../..");
-  const wasmPath = resolve(root, "apps/feira/capsules/feira.wasm");
-  const wasm = readFileSync(wasmPath);
-  return sha3_256(new Uint8Array(wasm));
+  const buildPath = resolve(root, "apps/feira/capsules/capsule.build.json");
+  const build = JSON.parse(readFileSync(buildPath, "utf8")) as { capsule_id: string };
+  return hexToBytes(build.capsule_id);
+}
+
+function hexToBytes(hex: string): Uint8Array {
+  if (hex.length % 2 !== 0) throw new Error("invalid hex");
+  const out = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < out.length; i += 1) {
+    out[i] = Number.parseInt(hex.slice(i * 2, i * 2 + 2), 16);
+  }
+  return out;
 }
 
 function emptyContext() {

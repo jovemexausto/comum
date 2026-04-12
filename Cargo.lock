@@ -18,6 +18,8 @@ dependencies = [
  "capsula-agora",
  "comum-rs",
  "ed25519-dalek",
+ "serde",
+ "serde_yaml",
  "sha3",
 ]
 
@@ -784,6 +786,8 @@ dependencies = [
  "capsula-feira",
  "comum-rs",
  "ed25519-dalek",
+ "serde",
+ "serde_yaml",
  "sha3",
 ]
 

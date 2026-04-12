@@ -2,6 +2,7 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "resolveJsonModule": true,
     "paths": {
       "comum-js": ["../../../runtime/js/comum-js/dist/mobile.d.ts"]
     }

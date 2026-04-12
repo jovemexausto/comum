@@ -7,7 +7,7 @@ use capsula_feira::{
 };
 use comum_rs::{Commoner, ContextInput, ProofInput, CAPSULE_INVOKE};
 use ed25519_dalek::SigningKey;
-use sha3::{Digest, Sha3_256};
+use serde::Deserialize;
 
 fn main() {
     let capsule_id = read_capsule_id("feira");
@@ -73,13 +73,31 @@ fn build_invoke_payload(capsule_id: &[u8; 32], action: &str, params: &[u8]) -> V
 
 fn read_capsule_id(name: &str) -> [u8; 32] {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
-    let wasm_path = root.join(format!("apps/{}/capsules/{}.wasm", name, name));
-    let wasm = fs::read(wasm_path).expect("read capsule wasm");
-    let mut hasher = Sha3_256::new();
-    hasher.update(&wasm);
-    let digest = hasher.finalize();
+    let lock_path = root.join(format!("apps/{}/capsules.lock", name));
+    let lock: CapsulesLock = serde_yaml::from_str(&fs::read_to_string(lock_path).expect("read capsules.lock"))
+        .expect("parse capsules.lock");
+    let entry = lock.capsules.into_iter().find(|c| c.name == name).expect("capsule lock entry");
+    parse_capsule_id(&entry.capsule_id)
+}
+
+#[derive(Deserialize)]
+struct CapsulesLock {
+    capsules: Vec<ResolvedCapsule>,
+}
+
+#[derive(Deserialize)]
+struct ResolvedCapsule {
+    name: String,
+    capsule_id: String,
+}
+
+fn parse_capsule_id(value: &str) -> [u8; 32] {
+    let hex = value.strip_prefix("sha3:").unwrap_or(value);
+    assert_eq!(hex.len(), 64, "capsule_id must be 32 bytes hex");
     let mut out = [0u8; 32];
-    out.copy_from_slice(&digest[..32]);
+    for (i, byte) in out.iter_mut().enumerate() {
+        *byte = u8::from_str_radix(&hex[i * 2..i * 2 + 2], 16).expect("valid capsule_id hex");
+    }
     out
 }
 
