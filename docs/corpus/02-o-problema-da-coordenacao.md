@@ -85,7 +85,7 @@ silencio, conflito e fraude.
 O desafio, portanto, nao e abolir mediação. E produzir mediações que nao se
 autonomizem contra aquilo que mediam.
 
-E por isso que o problema da coordenacao, neste livro, nao sera tratado apenas
+E por isso que o problema da coordenacao, neste corpus, nao sera tratado apenas
 como problema tecnico. A forma de coordenar nunca e neutra. Toda infraestrutura
 carrega uma teoria implicita da sociedade: do que conta como prova, do que vale
 como relacao, do que merece circular, do que pode ser esquecido, do que pode

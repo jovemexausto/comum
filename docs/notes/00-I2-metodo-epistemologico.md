@@ -9,7 +9,7 @@ rationale: "Define a disciplina do laboratorio e ja orienta o indice inteiro de 
 # Metodo epistemologico das notas
 
 Objetivo: disciplinar a escrita de notas para que o laboratorio continue vivo
-sem substituir o livro, a spec ou a documentacao tecnica.
+sem substituir o corpus, a spec ou a documentacao tecnica.
 
 ## Tese do metodo
 
@@ -22,7 +22,7 @@ destino claro e status epistemico explicito.
 
 Uso:
 
-- quando uma ideia boa apareceu, mas ainda nao encontrou o lugar certo no livro
+- quando uma ideia boa apareceu, mas ainda nao encontrou o lugar certo no corpus
   ou na arquitetura
 
 Pergunta-tipica:
@@ -93,7 +93,7 @@ rationale: "por que esta nota existe agora"
 
 - nota curta: 300 a 900 palavras
 - acima disso, perguntar se o texto virou:
-  - capitulo de livro
+  - capitulo de corpus
   - dossie
   - documento tecnico
 

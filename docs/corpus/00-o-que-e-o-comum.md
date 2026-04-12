@@ -77,7 +77,7 @@ funcionamento so alguns poucos conseguem compreender. Mas ele tambem nao cai na
 fantasia de que toda instituicao possa ser reduzida a software. O Comum existe
 no intervalo dificil entre explicitar e esgotar.
 
-Por isso, o livro insiste em outra distincao. Determinismo e tarefa do
+Por isso, o corpus insiste em outra distincao. Determinismo e tarefa do
 protocolo; legitimidade e tarefa das instituicoes locais. O protocolo pode dar
 forma publica a evidencias, garantir reprodutibilidade de serializacao,
 preservar causalidade e permitir interoperabilidade minima. Nao pode, sem se
@@ -138,4 +138,4 @@ Se esta descricao estiver certa, entao o nome "Comum" nao indica uma substancia
 uniforme compartilhada por todos. Indica uma infraestrutura pela qual mundos
 diferentes podem produzir memoria publica, autoridade revisavel e relacao
 federativa sem terem de escolher entre isolamento e submissao. Esse e o campo em
-que o restante do livro se move.
+que o restante do corpus se move.

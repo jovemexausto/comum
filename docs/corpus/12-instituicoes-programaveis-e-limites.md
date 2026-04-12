@@ -99,7 +99,7 @@ Quarta: a inteligibilidade da instituicao precisa permanecer acessivel para alem
 do codigo. Uma comunidade nao pode ser obrigada a delegar a um pequeno grupo de
 especialistas a compreensao de suas proprias regras.
 
-Aqui a relacao entre livro e engenharia se torna mais delicada. Porque o valor
+Aqui a relacao entre corpus e engenharia se torna mais delicada. Porque o valor
 de uma Capsula nao esta apenas no seu codigo, mas na possibilidade de uma
 comunidade reconhece-la como sua, contestá-la, adapta-la e, no limite,
 abandoná-la. O codigo pode carregar a forma executavel. Nao pode substituir o

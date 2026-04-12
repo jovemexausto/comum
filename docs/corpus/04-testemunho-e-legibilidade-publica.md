@@ -88,7 +88,7 @@ que essas coisas acontecam sem aparecer. Nao substitui julgamento; impede que o
 julgamento se feche inteiramente na opacidade.
 
 Se o testemunho nao encerra a verdade, ele tambem nao encerra o valor. Isso sera
-decisivo mais adiante, quando o livro entrar no problema da pluralidade e da
+decisivo mais adiante, quando o corpus entrar no problema da pluralidade e da
 compensacao entre comunidades. Por enquanto, basta notar que escolher o
 testemunho como unidade atomica ja significa recusar que o mundo social possa
 ser fundado, desde o inicio, numa equivalencia universal. O testemunho e o

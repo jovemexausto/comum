@@ -8,7 +8,7 @@ changelog.
 
 > O que e o Comum, e contra que condicao ele se ergue?
 
-O livro se organiza em torno de uma contra-tese. Se o tecnofeudalismo e a forma
+O corpus se organiza em torno de uma contra-tese. Se o tecnofeudalismo e a forma
 pela qual a mediacao digital se tornou senhorio — identidade como concessao,
 memoria como refem, atencao como renda, saida como punicao — entao o Comum e a
 tentativa de construir uma contra-arquitetura federativa: comunidades soberanas,
@@ -23,7 +23,7 @@ Resposta provisoria:
 > permanecem diferentes. E tecnofederalismo como contra-tese ao
 > tecnofeudalismo.
 
-## O que o livro faz
+## O que o corpus faz
 
 - nomeia a condicao feudal da mediacao digital como o adversario
 - formula a razao de ser do Comum como contra-arquitetura
@@ -50,7 +50,7 @@ glossario curto de camadas:
 - `Federacao de borda` trata traducao e compensacao limitadas entre mundos diferentes.
 - `Identidade soberana` deve permanecer portavel e desacoplada de um app unico.
 
-## O que o livro nao faz
+## O que o corpus nao faz
 
 - nao substitui `spec/`
 - nao funciona como SSOT tecnico
@@ -59,7 +59,7 @@ glossario curto de camadas:
 
 ## Tese editorial
 
-Quatro eixos recentram o livro:
+Quatro eixos recentram o corpus:
 
 1. O Comum nao deve mais ser narrado apenas por negacao do centro. Ele deve
    nomear o adversario: a forma feudal da mediacao digital.
@@ -77,12 +77,12 @@ fusao entre erudição e cultura popular, metafora concreta, humor como forma de
 pensamento, a frase que pode ser lida em voz alta sem que ninguem tropece.
 Referencia: Ariano Suassuna — o sertao nao e menor que a academia.
 
-## Espinha atual do livro
+## Espinha atual do corpus
 
 ### Bloco A — Condicao e contra-tese
 
 0. `00-o-que-e-o-comum.md` — nomeia o adversario, formula a contra-tese
-1. `01-apresentacao.md` — abre o livro, situa o diagnóstico
+1. `01-apresentacao.md` — abre o corpus, situa o diagnóstico
 2. `02-o-problema-da-coordenacao.md`
 3. `03-do-centro-ao-comum.md`
 
@@ -141,10 +141,10 @@ Referencia: Ariano Suassuna — o sertao nao e menor que a academia.
 - `docs/notes/`: excedente, aberto, curiosidade e dossies ainda nao integrados
 - `.opencode/agents/escritor.md`: guia a voz de toda escrita do projeto
 
-O livro recebe ideias promovidas do laboratorio. As notas nao devem continuar
+O corpus recebe ideias promovidas do laboratorio. As notas nao devem continuar
 funcionando como lugar principal da teoria longa.
 
-## Regra de promocao para o livro
+## Regra de promocao para o corpus
 
 Uma nota sobe para capitulo quando:
 

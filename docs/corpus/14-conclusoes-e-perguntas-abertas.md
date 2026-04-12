@@ -1,6 +1,6 @@
 # Conclusoes e perguntas abertas
 
-Se este livro comecou com o problema da coordenacao, ele termina sem a ilusao de
+Se este corpus comecou com o problema da coordenacao, ele termina sem a ilusao de
 ter resolvido esse problema de uma vez por todas. O que o Comum oferece nao e a
 superacao final da tensao entre pluralidade e interoperabilidade, entre forma e
 vida, entre memoria publica e opacidade, entre federacao e centro. O que ele
@@ -57,7 +57,7 @@ facil ou mais dificil de existir.
 Talvez seja justamente aqui que a tarefa futura comeca. Nao apenas continuar a
 implementacao, mas preservar o espaco reflexivo que impede a implementacao de se
 fechar sobre si mesma. Um sistema assim so permanece fiel ao que pretende se for
-capaz de manter abertas certas perguntas. Algumas delas atravessaram o livro
+capaz de manter abertas certas perguntas. Algumas delas atravessaram o corpus
 inteiro; outras apenas comecaram a aparecer.
 
 Perguntas como:
@@ -85,4 +85,4 @@ instituicoes forkaveis sem reducao da vida a software. Reabre, sobretudo, a
 possibilidade de que mundos locais soberanos nao precisem escolher entre
 isolamento e submissao para se relacionarem.
 
-Este livro para aqui, mas o problema nao. Nem deveria.
+Este corpus para aqui, mas o problema nao. Nem deveria.
