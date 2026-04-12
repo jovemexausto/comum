@@ -11,3 +11,8 @@ Camadas:
 
 Este documento descreve o fluxo fim-a-fim a partir do Genesis e como o
 Commoner aplica regras locais sem consenso global.
+
+Observacao de fronteira: a semantica local de uma capsula nao deve viver aqui
+como se fosse contrato global do protocolo. No monorepo, ela deve viver no SSOT
+local de cada capsula, enquanto esta camada descreve apenas mecanismo de
+execucao, sync e runtime.

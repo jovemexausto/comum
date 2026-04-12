@@ -12,3 +12,6 @@ Cada app pode reunir, no mesmo diretorio de projeto:
 
 Esses projetos vivem no mesmo monorepo, mas nao se confundem com a `spec/` do
 protocolo.
+
+Quando um projeto tiver capsulas proprias, o SSOT semantico local deve viver no
+proprio slice do app, nao na `spec/` nem espalhado entre codigo e simulacao.

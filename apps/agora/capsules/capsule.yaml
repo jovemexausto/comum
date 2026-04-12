@@ -1,0 +1,50 @@
+capsule: agora
+app: agora
+status: reference
+version: 0.1.0
+
+artifact:
+  crate: capsula-agora
+  source: src/lib.rs
+  wasm: agora.wasm
+  runtime_abi: comum-wasm-v1
+  entrypoint: invoke
+
+about: >-
+  Fluxo local de governanca para proposta, voto e fechamento.
+
+testimonies:
+  - verb: agora/propose
+    payload:
+      body: text
+      title: text
+      author: did
+      quorum: integer
+      expires: integer
+      proposal_id: bytes32
+    notes:
+      - proposal_id e derivado deterministicamente do conteudo central da proposta.
+
+  - verb: agora/vote
+    payload:
+      voter: did
+      choice: integer
+      proposal_id: bytes32
+    choices:
+      0: no
+      1: yes
+      2: abstain
+
+  - verb: agora/close
+    payload:
+      timestamp: integer
+      proposal_id: bytes32
+
+  - verb: agora/closed
+    payload:
+      no: integer
+      yes: integer
+      passed: integer
+      abstain: integer
+      quorum_met: integer
+      proposal_id: bytes32

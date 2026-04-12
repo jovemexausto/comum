@@ -2,6 +2,9 @@
 
 Referencia: CIP-0001, Secao 12.3 e 12.4.
 
+Nota: este documento descreve a fronteira de execucao WASM e os contratos do
+runtime. Ele nao substitui o SSOT semantico local de cada capsula.
+
 ## Convencao de Memoria
 
 - Buffers sao passados como (ptr: i32, len: i32).
