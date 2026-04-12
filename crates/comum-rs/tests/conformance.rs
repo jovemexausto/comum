@@ -540,7 +540,7 @@ fn genesis_payload_roundtrip() {
     let capsules = [[0x11u8; 32], [0x22u8; 32]];
     let mint_policy = [0x33u8; 32];
     let pair_payload = build_genesis_payload(
-        "Comum Par",
+        "Mutirao do Bairro",
         2,
         &founders_pair,
         &capsules,
@@ -555,7 +555,7 @@ fn genesis_payload_roundtrip() {
         "did:comum:charlie",
     ];
     let payload = build_genesis_payload(
-        "Comum Demo",
+        "Feira da Se",
         2,
         &founders,
         &capsules,
@@ -573,7 +573,7 @@ fn genesis_payload_invalid() {
         encode_tstr("did:comum:only"),
     ]);
     let payload = encode_map(vec![
-        [encode_tstr("name"), encode_tstr("Comum")].concat(),
+        [encode_tstr("name"), encode_tstr("Feira da Se")].concat(),
         [encode_tstr("supply"), encode_uint(0)].concat(),
         [encode_tstr("capsules"), encode_array(vec![])].concat(),
         [encode_tstr("founders"), bad_founders].concat(),
@@ -583,7 +583,7 @@ fn genesis_payload_invalid() {
     assert!(validate_genesis_payload(&payload).is_err());
 
     let payload = encode_map(vec![
-        [encode_tstr("name"), encode_tstr("Comum Par")].concat(),
+        [encode_tstr("name"), encode_tstr("Mutirao do Bairro")].concat(),
         [encode_tstr("supply"), encode_uint(0)].concat(),
         [encode_tstr("capsules"), encode_array(vec![])].concat(),
         [
@@ -600,7 +600,7 @@ fn genesis_payload_invalid() {
     assert!(validate_genesis_payload(&payload).is_err());
 
     let payload = encode_map(vec![
-        [encode_tstr("name"), encode_tstr("Comum")].concat(),
+        [encode_tstr("name"), encode_tstr("Feira da Se")].concat(),
         [encode_tstr("supply"), encode_uint(0)].concat(),
         [encode_tstr("capsules"), encode_array(vec![])].concat(),
         [

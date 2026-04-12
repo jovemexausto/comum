@@ -19,6 +19,7 @@ import {
 export type OfferParams = {
   item: string;
   price: number;
+  /** Nome da unidade local de valor usada nesta oferta. */
   currency: string;
   expiresAt: number;
 };
@@ -30,6 +31,7 @@ export type Offer = {
   testimonyIdHex: string;
   item: string;
   price: number;
+  /** Unidade local de valor declarada pela oferta. */
   currency: string;
   expiresAt: number;
   seller: string;

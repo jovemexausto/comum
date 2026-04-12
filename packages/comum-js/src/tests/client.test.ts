@@ -9,6 +9,7 @@ import assert from "node:assert/strict";
 import { ComumClient } from "../client.mobile.js";
 
 const CAPSULE_ID = new Uint8Array(32).fill(0x46);
+const LOCAL_UNIT = "feira-credito";
 
 function makeClient(seedByte: number): ComumClient {
   return new ComumClient(new Uint8Array(32).fill(seedByte), CAPSULE_ID);
@@ -33,12 +34,12 @@ function makeClient(seedByte: number): ComumClient {
   const offer = seller.createOffer({
     item: "cafe",
     price: 5,
-    currency: "comum",
+    currency: LOCAL_UNIT,
     expiresAt: Date.now() + 60_000,
   });
   assert.equal(offer.item, "cafe");
   assert.equal(offer.price, 5);
-  assert.equal(offer.currency, "comum");
+  assert.equal(offer.currency, LOCAL_UNIT);
   assert.equal(offer.seller, seller.did());
   assert.equal(offer.id.length, 32, "offer.id deve ser 32 bytes");
   assert.equal(offer.idHex.length, 64, "offer.idHex deve ser 64 chars");
@@ -59,7 +60,7 @@ function makeClient(seedByte: number): ComumClient {
   const offer = seller.createOffer({
     item: "banana",
     price: 10,
-    currency: "comum",
+    currency: LOCAL_UNIT,
     expiresAt: Date.now() + 60_000,
   });
 
@@ -80,7 +81,7 @@ function makeClient(seedByte: number): ComumClient {
   const offer = seller.createOffer({
     item: "mate",
     price: 3,
-    currency: "comum",
+    currency: LOCAL_UNIT,
     expiresAt: Date.now() + 60_000,
   });
 
@@ -102,7 +103,7 @@ function makeClient(seedByte: number): ComumClient {
   const offer = makeClient(0x11).createOffer({
     item: "farinha",
     price: 8,
-    currency: "comum",
+    currency: LOCAL_UNIT,
     expiresAt: Date.now() + 60_000,
   });
 
@@ -137,7 +138,7 @@ function makeClient(seedByte: number): ComumClient {
   const offer = seller.createOffer({
     item: "queijo",
     price: 15,
-    currency: "comum",
+    currency: LOCAL_UNIT,
     expiresAt: Date.now() + 60_000,
   });
   assert.equal(seller.testimonyCount(), 1, "seller: 1 apos offer");
@@ -200,7 +201,7 @@ void (async () => {
   seller.createOffer({
     item: "abacaxi",
     price: 7,
-    currency: "comum",
+    currency: LOCAL_UNIT,
     expiresAt: Date.now() + 60_000,
   });
 

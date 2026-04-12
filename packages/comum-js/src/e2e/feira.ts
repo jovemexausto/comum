@@ -51,7 +51,7 @@ async function main() {
 
   const item = "cafe";
   const price = 5;
-  const currency = "comum";
+  const currency = "feira-credito";
   const expires = 1_700_000_200_000;
 
   const offerParams = buildOfferPayload(item, price, currency, expires, seller.did());
