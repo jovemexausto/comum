@@ -185,9 +185,9 @@ type CreateProps = {
 function CreateOfferScreen({ onSubmit, onCancel }: CreateProps) {
   const [item, setItem] = useState('')
   const [price, setPrice] = useState('')
-  const [currency, setCurrency] = useState('comum')
+  const [currency, setCurrency] = useState('')
 
-  const valid = item.trim().length > 0 && Number(price) > 0
+  const valid = item.trim().length > 0 && Number(price) > 0 && currency.trim().length > 0
 
   return (
     <View style={styles.form}>
@@ -212,10 +212,10 @@ function CreateOfferScreen({ onSubmit, onCancel }: CreateProps) {
         onChangeText={setPrice}
       />
 
-      <Text style={styles.label}>Moeda</Text>
+      <Text style={styles.label}>Unidade local</Text>
       <TextInput
         style={styles.input}
-        placeholder="comum"
+        placeholder="ex: feira-credito"
         placeholderTextColor="#888"
         value={currency}
         onChangeText={setCurrency}
@@ -228,7 +228,7 @@ function CreateOfferScreen({ onSubmit, onCancel }: CreateProps) {
           onSubmit({
             item: item.trim(),
             price: Number(price),
-            currency: currency.trim() || 'comum',
+            currency: currency.trim(),
             // expira em 24h
             expiresAt: Date.now() + 86_400_000,
           })
