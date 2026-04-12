@@ -19,6 +19,9 @@ fn panic(_info: &PanicInfo) -> ! {
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
+#[no_mangle]
+pub static CAPSULE_TAG: [u8; 5] = *b"feira";
+
 pub fn compute_offer_id(
     item: &str,
     price: u64,
@@ -214,6 +217,7 @@ fn encode_map(pairs: Vec<Vec<u8>>) -> Vec<u8> {
 
 #[no_mangle]
 pub extern "C" fn invoke() -> i32 {
+    let _ = CAPSULE_TAG[0];
     0
 }
 

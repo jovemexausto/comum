@@ -15,3 +15,6 @@ protocolo.
 
 Quando um projeto tiver capsulas proprias, o SSOT semantico local deve viver no
 proprio slice do app, nao na `spec/` nem espalhado entre codigo e simulacao.
+
+Cada slice tambem pode declarar, em `capsules.yaml`, quais packages capsulares
+usa no momento.

@@ -16,5 +16,11 @@ Esse arquivo descreve os verbos locais da capsula Feira e seus payloads. Ele nao
 deve ser contaminado por backlog de interface nem por detalhes contingentes do
 runtime atual.
 
+Dependencias capsulares do slice:
+
+- `capsules.yaml`
+
+Esse arquivo declara quais packages capsulares o projeto Feira usa hoje.
+
 Feira e mantida pelo time do Comum como app/case study do ecossistema. Nao e
 parte normativa do protocolo.

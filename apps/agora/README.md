@@ -15,6 +15,12 @@ Esse arquivo descreve os verbos locais da capsula Agora e seus payloads. Ele nao
 deve ser contaminado por backlog de interface nem por detalhes contingentes do
 runtime atual.
 
+Dependencias capsulares do slice:
+
+- `capsules.yaml`
+
+Esse arquivo declara quais packages capsulares o projeto Agora usa hoje.
+
 Uma superficie de app dedicada pode ser adicionada depois sem alterar a posicao
 de Agora: app/case study mantido pelo time do Comum, nao semantica normativa do
 protocolo.

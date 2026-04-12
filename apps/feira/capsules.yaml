@@ -1,0 +1,4 @@
+capsules:
+  - name: feira
+    version: 0.1.x
+    path: capsules

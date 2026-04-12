@@ -11,17 +11,18 @@ Forma atual recomendada:
 
 - `apps/<app>/capsules/capsule.yaml`
 
-Esse arquivo descreve a semantica local da capsula, nao o protocolo inteiro nem
-o mecanismo contingente do runtime.
+Esse arquivo descreve a semantica local da capsula como package, nao o protocolo
+inteiro nem o mecanismo contingente do runtime.
 
 ## O que o SSOT local deve declarar
 
 - nome da capsula
-- app ou projeto ao qual ela pertence
-- artefato principal (`crate`, `source`, `wasm`, `entrypoint`)
+- versao
+- descricao
+- artefato principal (`crate`, `wasm`, `runtime_abi`, `entrypoint`)
 - verbos locais da capsula
 - payload de cada verbo
-- testemunhos de resultado, quando houver
+- verbos de resultado, quando houver
 
 ## O que o SSOT local nao deve declarar
 
@@ -33,7 +34,7 @@ o mecanismo contingente do runtime.
 
 ## Distincao importante
 
-- `capsule.yaml` responde: "qual e a semantica propria desta capsula?"
+- `capsule.yaml` responde: "quem e esta capsula e qual e sua semantica propria?"
 - o runtime responde: "como essa semantica e transportada/executada hoje?"
 
 Essas duas perguntas nao devem ser misturadas.
@@ -57,3 +58,16 @@ apresenta ao mundo do app e da comunidade.
 
 Se o runtime mudar no futuro, o `capsule.yaml` idealmente permanece estavel.
 Se o `capsule.yaml` mudar, e porque a semantica local da capsula mudou.
+
+## Composicao por app
+
+Cada app slice pode declarar suas dependencias capsulares em:
+
+- `apps/<app>/capsules.yaml`
+
+Esse arquivo nao redefine a capsula. Apenas declara quais packages capsulares o
+slice quer usar, com versao desejada e, opcionalmente, `path` local.
+
+O resultado material dessa resolucao pode ser persistido em:
+
+- `apps/<app>/capsules.lock`

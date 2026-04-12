@@ -1,0 +1,7 @@
+capsules:
+- name: agora
+  version: 0.1.0
+  capsule_id: sha3:04e8b3eb02fb12a26d84d8c849337092a1b7a4cde2ef94266589770a46c48787
+  wasm: capsules/agora.wasm
+  runtime_abi: comum-wasm-v1
+  path: capsules

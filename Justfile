@@ -1,6 +1,24 @@
 default:
   @just --list
 
+capsule-list:
+  cargo run -p comum-capsule -- list
+
+capsule-check DIR:
+  cargo run -p comum-capsule -- check {{DIR}}
+
+capsule-build DIR:
+  cargo run -p comum-capsule -- build {{DIR}}
+
+capsule-verify DIR:
+  cargo run -p comum-capsule -- verify {{DIR}}
+
+capsule-inspect DIR:
+  cargo run -p comum-capsule -- inspect {{DIR}}
+
+capsule-resolve APPDIR:
+  cargo run -p comum-capsule -- resolve {{APPDIR}}
+
 conformance:
   node runtime/conformance/run.js
 
@@ -30,19 +48,13 @@ comum-js-tests:
   (cd runtime/js/comum-js && npm test)
 
 capsula-agora-build:
-  rustup target add wasm32-unknown-unknown
-  (cd apps/agora/capsules && RUSTFLAGS="-C link-arg=--export=invoke -C link-arg=--export-memory" cargo build --release --target wasm32-unknown-unknown)
-  cp target/wasm32-unknown-unknown/release/capsula_agora.wasm apps/agora/capsules/agora.wasm
+  cargo run -p comum-capsule -- build apps/agora/capsules
 
 capsula-feira-build:
-  rustup target add wasm32-unknown-unknown
-  (cd apps/feira/capsules && RUSTFLAGS="-C link-arg=--export=invoke -C link-arg=--export-memory" cargo build --release --target wasm32-unknown-unknown)
-  cp target/wasm32-unknown-unknown/release/capsula_feira.wasm apps/feira/capsules/feira.wasm
+  cargo run -p comum-capsule -- build apps/feira/capsules
 
 capsula-mutirao-build:
-  rustup target add wasm32-unknown-unknown
-  (cd cases/mutirao-legacy/capsule && RUSTFLAGS="-C link-arg=--export=invoke -C link-arg=--export-memory" cargo build --release --target wasm32-unknown-unknown)
-  cp target/wasm32-unknown-unknown/release/capsula_mutirao.wasm cases/mutirao-legacy/capsule/mutirao.wasm
+  cargo run -p comum-capsule -- build cases/mutirao-legacy/capsule
 
 
 sim:

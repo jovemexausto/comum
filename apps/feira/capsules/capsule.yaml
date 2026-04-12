@@ -1,20 +1,15 @@
-capsule: feira
-app: feira
-status: reference
+name: feira
 version: 0.1.0
+description: Fluxo local de troca para oferta, aceite, entrega, recibo, cancelamento e disputa.
 
 artifact:
   crate: capsula-feira
-  source: src/lib.rs
   wasm: feira.wasm
   runtime_abi: comum-wasm-v1
   entrypoint: invoke
 
-about: >-
-  Fluxo local de troca para oferta, aceite, entrega, recibo, cancelamento e disputa.
-
-testimonies:
-  - verb: feira/offer
+verbs:
+  - name: feira/offer
     payload:
       item: text
       price: integer
@@ -26,27 +21,27 @@ testimonies:
       - offer_id e derivado deterministicamente do nucleo da oferta.
       - currency nomeia a unidade local usada na oferta.
 
-  - verb: feira/accept
+  - name: feira/accept
     payload:
       buyer: did
       offer_id: bytes32
 
-  - verb: feira/deliver
+  - name: feira/deliver
     payload:
       offer_id: bytes32
       timestamp: integer
 
-  - verb: feira/receipt
+  - name: feira/receipt
     payload:
       offer_id: bytes32
       timestamp: integer
 
-  - verb: feira/cancel
+  - name: feira/cancel
     payload:
       reason: text
       offer_id: bytes32
 
-  - verb: feira/dispute
+  - name: feira/dispute
     payload:
       reason: text
       offer_id: bytes32

@@ -4,6 +4,7 @@ extern crate alloc;
 
 use alloc::collections::BTreeMap;
 use alloc::string::String;
+use alloc::vec;
 use alloc::vec::Vec;
 use sha3::{Digest, Sha3_256};
 
@@ -15,6 +16,13 @@ use core::panic::PanicInfo;
 fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
+
+#[cfg(target_arch = "wasm32")]
+#[global_allocator]
+static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+
+#[no_mangle]
+pub static CAPSULE_TAG: [u8; 5] = *b"agora";
 
 #[derive(Debug, Clone)]
 pub struct AgoraVoteRecord {
@@ -286,6 +294,7 @@ fn encode_map(pairs: Vec<Vec<u8>>) -> Vec<u8> {
 
 #[no_mangle]
 pub extern "C" fn invoke() -> i32 {
+    let _ = CAPSULE_TAG[0];
     0
 }
 

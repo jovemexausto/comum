@@ -1,0 +1,4 @@
+capsules:
+  - name: agora
+    version: 0.1.x
+    path: capsules

@@ -1,0 +1,7 @@
+capsules:
+- name: feira
+  version: 0.1.0
+  capsule_id: sha3:5b5809089c8757ac010d8a7dc78191cc7b4d7754dd529f71fafca1b0d5bf5333
+  wasm: capsules/feira.wasm
+  runtime_abi: comum-wasm-v1
+  path: capsules

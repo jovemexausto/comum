@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
+  "runtime/tooling/comum-capsule",
   "runtime/rust/comum-rs",
   "runtime/rust/comum-rs/napi",
   "apps/agora/capsules",

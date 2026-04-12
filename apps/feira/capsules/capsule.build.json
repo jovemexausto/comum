@@ -1,0 +1,20 @@
+{
+  "schema": "comum-capsule-build-v1",
+  "name": "feira",
+  "version": "0.1.0",
+  "runtime_abi": "comum-wasm-v1",
+  "entrypoint": "invoke",
+  "crate_name": "capsula-feira",
+  "target": "wasm32-unknown-unknown",
+  "wasm_path": "/Users/jovemexausto/Labs/comum-protocol/apps/feira/capsules/feira.wasm",
+  "capsule_id": "5b5809089c8757ac010d8a7dc78191cc7b4d7754dd529f71fafca1b0d5bf5333",
+  "wasm_sha3_256": "5b5809089c8757ac010d8a7dc78191cc7b4d7754dd529f71fafca1b0d5bf5333",
+  "exports": [
+    "memory",
+    "invoke",
+    "CAPSULE_TAG",
+    "__data_end",
+    "__heap_base"
+  ],
+  "imports": []
+}

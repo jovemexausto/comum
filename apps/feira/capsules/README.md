@@ -4,7 +4,7 @@ Capsula local de referencia para o fluxo da Feira.
 
 SSOT local desta capsula:
 
-- `capsule.yaml`: identidade do artefato, verbos locais e payloads
+- `capsule.yaml`: identidade da capsula como package, artefato, verbos locais e payloads
 
 Esse arquivo descreve a semantica propria da capsula Feira. Ele nao deve virar
 mini-spec do protocolo nem carregar estado contingente da interface.

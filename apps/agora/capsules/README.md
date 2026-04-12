@@ -7,7 +7,7 @@ Compila para WASM (wasm32-unknown-unknown, no_std).
 
 SSOT local desta capsula:
 
-- `capsule.yaml`: identidade do artefato, verbos locais e payloads
+- `capsule.yaml`: identidade da capsula como package, artefato, verbos locais e payloads
 
 Esse arquivo descreve a semantica propria da capsula Agora. Ele nao deve virar
 mini-spec do protocolo nem carregar estado contingente da interface.

@@ -1,0 +1,20 @@
+{
+  "schema": "comum-capsule-build-v1",
+  "name": "agora",
+  "version": "0.1.0",
+  "runtime_abi": "comum-wasm-v1",
+  "entrypoint": "invoke",
+  "crate_name": "capsula-agora",
+  "target": "wasm32-unknown-unknown",
+  "wasm_path": "/Users/jovemexausto/Labs/comum-protocol/apps/agora/capsules/agora.wasm",
+  "capsule_id": "04e8b3eb02fb12a26d84d8c849337092a1b7a4cde2ef94266589770a46c48787",
+  "wasm_sha3_256": "04e8b3eb02fb12a26d84d8c849337092a1b7a4cde2ef94266589770a46c48787",
+  "exports": [
+    "memory",
+    "invoke",
+    "CAPSULE_TAG",
+    "__data_end",
+    "__heap_base"
+  ],
+  "imports": []
+}
