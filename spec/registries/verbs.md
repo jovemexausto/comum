@@ -2,7 +2,7 @@
 
 | Verb             | Descricao                   | Status | CIP      |
 | ---------------- | --------------------------- | ------ | -------- |
-| comum/transfer   | Transferencia de Comuns     | Active | CIP-0001 |
+| comum/transfer   | Transferencia em unidade local de valor | Active | CIP-0001 |
 | comum/vouch      | Endosso de reputacao        | Active | CIP-0001 |
 | comum/encounter  | Encontro fisico co-assinado | Active | CIP-0001 |
 | comum/vote       | Voto em proposta            | Active | CIP-0001 |

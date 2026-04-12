@@ -26,8 +26,8 @@ estado de integracao e destino provavel.
 | `01-I3-core-capsula-e-autoridade.md` | excedente | I3 | corpus |
 | `01-I3-humano-rastro-e-legitimidade.md` | excedente | I3 | corpus |
 | `01-I1-comum-e-hawala.md` | excedente | I1 | stay-note |
-| `01-I2-fronteiras-de-comunidade.md` | excedente | I2 | spec |
-| `02-I2-identidade-zk-e-provas-de-sessao.md` | aberto | I2 | spec |
+| `01-I3-fronteiras-de-comunidade.md` | excedente | I3 | spec |
+| `02-I3-identidade-zk-e-provas-de-sessao.md` | aberto | I3 | spec |
 | `02-I1-identidade-e-sybil.md` | aberto | I1 | stay-note |
 | `03-I1-triggers-e-camadas.md` | curiosidade | I1 | stay-note |
 | `03-I0-brainstorm-inferencia-social.md` | curiosidade | I0 | stay-note |

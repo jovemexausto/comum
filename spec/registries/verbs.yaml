@@ -2,7 +2,7 @@ version: 1
 registry: verbs
 entries:
   - verb: comum/transfer
-    description: Transferencia de Comuns
+    description: Transferencia em unidade local de valor
     status: Active
     cip: CIP-0001
   - verb: comum/vouch

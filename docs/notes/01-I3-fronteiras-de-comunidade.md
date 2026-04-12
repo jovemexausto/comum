@@ -1,7 +1,7 @@
 ---
 note_class: "01"
-integration_state: "I2"
-status: "pronta para alimentar especificacao"
+integration_state: "I3"
+status: "parcialmente absorvida pela especificacao"
 destino: "spec"
 rationale: "Define o problema de pertencimento comunitario e ja aponta um criterio composto para futura formalizacao."
 ---

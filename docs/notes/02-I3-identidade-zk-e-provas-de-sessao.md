@@ -1,7 +1,7 @@
 ---
 note_class: "02"
-integration_state: "I2"
-status: "pronta para alimentar especificacao"
+integration_state: "I3"
+status: "parcialmente absorvida pela especificacao"
 destino: "spec"
 rationale: "Consolida decisoes de identidade ZK, commitments e provas de sessao que ja estao convergindo para CIP."
 ---
