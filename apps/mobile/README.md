@@ -2,6 +2,10 @@
 
 Aplicativo de referencia (React Native) em que cada instancia do app e um node/Commoner.
 
+Escopo: este app e uma superficie de referencia para operar o protocolo. Ele nao
+representa a comunidade em si e nao define, por conta propria, regras universais
+de valor ou emissao.
+
 ## Estado atual
 
 - App sobe um node local (`AppNode`) e expõe DID/status
@@ -14,6 +18,12 @@ Aplicativo de referencia (React Native) em que cada instancia do app e um node/C
 - Cada instancia do app e um node soberano
 - Sync ocorre via transporte (WS no ambiente de teste)
 - Fluxos de capsula sao executados localmente e propagados via rede
+
+Observacao de camada:
+
+- politicas de UX/automacao do app sao locais a implementacao;
+- semantica de protocolo e definida pela spec;
+- semantica institucional local pode viver em capsulas.
 
 ## E2E multi-node automatizado
 

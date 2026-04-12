@@ -58,6 +58,13 @@ plataforma, centro ou medida unica.
 - determinismo tecnico sem captura da legitimidade
 - autoridade situada, limitada e revogavel
 
+## Distincoes de camada
+
+- `Comum` nomeia o protocolo/projeto, nao uma unidade monetaria global.
+- Regimes de valor e emissao sao locais a comunidades e suas instituicoes.
+- Um app pode operar fluxos comunitarios, mas nao se confunde com a comunidade.
+- Uma capsula expressa semantica executavel local, nao a totalidade da vida social.
+
 ## Comecar
 
 ```sh
