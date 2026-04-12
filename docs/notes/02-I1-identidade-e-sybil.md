@@ -1,3 +1,11 @@
+---
+note_class: "02"
+integration_state: "I1"
+status: "posicao documentada e ainda aberta"
+destino: "stay-note"
+rationale: "Formula a posicao do projeto sobre Sybil e desloca a confianca para relacao e leitura local do grafo."
+---
+
 # Identidade e Sybil no Comum (nota tecnica)
 
 Objetivo: explicitar a posicao do Comum sobre criacao de identidades

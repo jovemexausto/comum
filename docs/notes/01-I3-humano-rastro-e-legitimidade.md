@@ -1,3 +1,11 @@
+---
+note_class: "01"
+integration_state: "I3"
+status: "parcialmente integrada ao corpus"
+destino: "corpus"
+rationale: "Formula a distincao entre rastro, sistema e legitimidade humana sem entregar soberania ao arquivo ou ao runtime."
+---
+
 # Humano, rastro e legitimidade (nota)
 
 Objetivo: registrar, em chave filosofica e politica, uma formulacao nao

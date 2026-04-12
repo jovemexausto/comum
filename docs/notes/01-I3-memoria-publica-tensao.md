@@ -1,3 +1,11 @@
+---
+note_class: "01"
+integration_state: "I3"
+status: "parcialmente integrada ao corpus"
+destino: "corpus"
+rationale: "Refina o sentido de memoria publica como memoria verificavel e comunitaria, evitando a leitura panoptica do termo."
+---
+
 # Tensão: "memória pública" diz o que não quer dizer
 
 Data: 2026-04-11  

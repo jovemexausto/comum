@@ -15,15 +15,31 @@ capturar o papel do corpus, da spec ou da documentacao tecnica.
 
 ## Arquivos de entrada
 
-- `00-metodo-epistemologico.md`
+- `00-I2-metodo-epistemologico.md`
 - `INDEX.md`
 
 ## Prefixos recomendados para novas notas
 
-- `01-...` excedente
-- `02-...` aberto
-- `03-...` curiosidade
-- `90-...` dossie
-- `99-...` arquivo
+- `01-Ix-...` excedente
+- `02-Ix-...` aberto
+- `03-Ix-...` curiosidade
+- `90-Ix-...` dossie
+- `99-Ix-...` arquivo
+
+Onde `Ix` representa o estado de integracao:
+
+- `I0`: bruto
+- `I1`: nota viva
+- `I2`: pronta para promocao
+- `I3`: parcialmente absorvida
+- `I4`: absorvida, congelada ou arquivada
+
+Frontmatter minimo esperado:
+
+- `note_class`
+- `integration_state`
+- `status`
+- `destino`
+- `rationale`
 
 Tudo o que deixar de ser nota curta viva deve sair do corpus de `docs/notes/`.

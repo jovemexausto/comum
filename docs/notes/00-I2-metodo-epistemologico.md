@@ -1,3 +1,11 @@
+---
+note_class: "00"
+integration_state: "I2"
+status: "guia editorial ativo"
+destino: "stay-note"
+rationale: "Define a disciplina do laboratorio e ja orienta o indice inteiro de notas."
+---
+
 # Metodo epistemologico das notas
 
 Objetivo: disciplinar a escrita de notas para que o laboratorio continue vivo
@@ -61,6 +69,18 @@ Uso:
 - para material superado, congelado ou absorvido por outro corpus
 
 ## Estrutura recomendada para nota curta
+
+Frontmatter minimo:
+
+```yaml
+---
+note_class: "01|02|03|90|99"
+integration_state: "I0|I1|I2|I3|I4"
+status: "frase curta"
+destino: "stay-note|corpus|spec|archive|docs-tech|capsule-rfc-sim"
+rationale: "por que esta nota existe agora"
+---
+```
 
 1. Pergunta
 2. Tese provisoria

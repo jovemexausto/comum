@@ -1,3 +1,11 @@
+---
+note_class: "90"
+integration_state: "I4"
+status: "dossie consolidado e congelado"
+destino: "archive"
+rationale: "Consolida um ciclo anterior de pesquisa e hoje serve mais como memoria de transicao do que como nota viva."
+---
+
 # Pesquisa Comum Protocol — Documento Unico
 
 Este documento substitui os rascunhos anteriores e consolida toda a pesquisa
@@ -121,8 +129,8 @@ Estes pontos ja sao especificacao e nao devem ser alterados por pesquisa:
 ## 6) Entregaveis esperados da pesquisa
 
 - Notas tecnicas em `docs/notes/` para hipoteses.
-- Nota: `docs/notes/triadic-coherence-comum.md` (triade P/A/PHI).
-- Nota: `docs/notes/coercive-masking.md` (coercao mascarada).
+- Nota: `docs/notes/03-I1-triadic-coherence-no-comum.md` (triade P/A/PHI).
+- Nota: `docs/notes/03-I1-coercao-mascarada.md` (coercao mascarada).
 - RFC/CIP draft para `comum/member`.
 - Matriz achado → implicacao → teste.
 

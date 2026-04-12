@@ -1,3 +1,11 @@
+---
+note_class: "01"
+integration_state: "I1"
+status: "nota viva"
+destino: "stay-note"
+rationale: "Preserva uma analogia forte para confianca relacional e remessa local sem ainda virar tese central do corpus."
+---
+
 # Comum e hawala (nota exploratoria)
 
 Objetivo: registrar paralelos e diferencas entre o Comum e culturas de

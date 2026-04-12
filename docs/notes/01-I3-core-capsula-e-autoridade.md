@@ -1,3 +1,11 @@
+---
+note_class: "01"
+integration_state: "I3"
+status: "parcialmente integrada ao corpus"
+destino: "corpus"
+rationale: "Delimita o que pertence ao core, ao nivel capsular e ao laboratorio conceitual de autoridade."
+---
+
 # Matriz: core, capsula e nota para autoridade emergente
 
 Objetivo: evitar inflacao semantica do protocolo base. Esta nota organiza o

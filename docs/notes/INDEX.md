@@ -1,49 +1,59 @@
 # Indice das notas
 
-Objetivo: organizar o acervo de `docs/notes/` por funcao epistemologica e por
-destino provavel, sem reindexar agressivamente todos os arquivos legados de uma
-vez.
+Objetivo: organizar o acervo de `docs/notes/` por classe epistemologica,
+estado de integracao e destino provavel.
 
-## Ativas
+## Legenda
 
-Notas curtas e vivas do laboratorio atual.
+- `01`: excedente
+- `02`: aberto
+- `03`: curiosidade
+- `90`: dossie
+- `99`: arquivo
+- `I0`: bruto
+- `I1`: nota viva
+- `I2`: pronta para promocao
+- `I3`: parcialmente absorvida
+- `I4`: absorvida, congelada ou arquivada
 
-### Excedente
+## Mapa atual
 
-- `community-boundaries.md`
-- `comum-e-hawala.md`
-- `humano-rastro-e-legitimidade.md`
-- `matriz-core-capsula-nota-autoridade.md`
+| arquivo | classe | estado | destino |
+| --- | --- | --- | --- |
+| `00-I2-metodo-epistemologico.md` | metodo | I2 | stay-note |
+| `01-I2-glossario-canonico-de-camadas.md` | excedente | I2 | corpus |
+| `01-I3-memoria-publica-tensao.md` | excedente | I3 | corpus |
+| `01-I3-core-capsula-e-autoridade.md` | excedente | I3 | corpus |
+| `01-I3-humano-rastro-e-legitimidade.md` | excedente | I3 | corpus |
+| `01-I1-comum-e-hawala.md` | excedente | I1 | stay-note |
+| `01-I2-fronteiras-de-comunidade.md` | excedente | I2 | spec |
+| `02-I2-identidade-zk-e-provas-de-sessao.md` | aberto | I2 | spec |
+| `02-I1-identidade-e-sybil.md` | aberto | I1 | stay-note |
+| `03-I1-triggers-e-camadas.md` | curiosidade | I1 | stay-note |
+| `03-I0-brainstorm-inferencia-social.md` | curiosidade | I0 | stay-note |
+| `03-I4-coerencia-no-comum.md` | curiosidade | I4 | archive |
+| `03-I1-triadic-coherence-no-comum.md` | curiosidade | I1 | stay-note |
+| `03-I1-coercao-mascarada.md` | curiosidade | I1 | stay-note |
+| `03-I1-achados-de-coerencia-001.md` | curiosidade | I1 | stay-note |
+| `03-I1-phi-esperado-por-verbo.md` | curiosidade | I1 | stay-note |
+| `90-I1-plano-de-integracao-identidade-e-valor.md` | dossie | I1 | archive |
+| `90-I1-sintese-da-sessao-identidade-valor-e-apps.md` | dossie | I1 | archive |
+| `90-I4-pesquisa-documento-unico.md` | dossie | I4 | archive |
+| `99-I4-dx-api-e-ergonomia-pos-v0-3.md` | arquivo | I4 | archive |
 
-### Aberto
+## Cardinalidade por destino
 
-- `identity-and-sybil.md`
-- `zk-identity-plan.md`
-- `research-plan-001.md`
-
-### Curiosidade
-
-- `triggers-e-camadas.md`
-- `brainstorm-inferencia-social.md`
-- `phi-expectations.md`
-- `dx-api-ergonomics-post-v0.3.md`
-
-### Coerencia
-
-- `coherence.md`
-- `triadic-coherence-comum.md`
-- `coercive-masking.md`
-- `coherence-findings-001.md`
-
-## Retiradas do corpus vivo
-
-Materiais longos, dossies ou consolidacoes nao permanecem em `docs/notes/`.
+- `stay-note`: 8
+- `corpus`: 4
+- `spec`: 2
+- `archive`: 5
+- `guia`: 1
 
 ## Regra de uso do indice
 
-- antes de criar nota nova, verificar se ela e excedente, aberto ou curiosidade
-- antes de expandir nota antiga, perguntar se ela deveria subir para `docs/corpus/`
-- antes de abrir CIP, perguntar se a ideia ja saiu do laboratorio
+- antes de criar nota nova, escolher classe e estado de integracao
+- antes de expandir nota antiga, perguntar se ela deveria subir para `docs/corpus/`, `spec/` ou arquivo
+- antes de abrir CIP, verificar se a nota ja esta em `I2`
 
 ## Status
 

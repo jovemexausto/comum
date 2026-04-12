@@ -1,3 +1,11 @@
+---
+note_class: "03"
+integration_state: "I1"
+status: "achado experimental vivo"
+destino: "stay-note"
+rationale: "Preserva um primeiro resultado de simulacao de coerencia que ainda depende de expansao e validacao adicional."
+---
+
 # Coherence Findings 001
 
 ## Hipotese

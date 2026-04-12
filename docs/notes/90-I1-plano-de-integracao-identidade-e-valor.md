@@ -1,8 +1,16 @@
+---
+note_class: "90"
+integration_state: "I1"
+status: "dossie ativo de integracao"
+destino: "archive"
+rationale: "Coordena a traducao da sessao para teoria, spec e codigo, mas nao pretende virar forma editorial final."
+---
+
 # Plano de integracao do alinhamento (teoria, spec, codigo)
 
 Objetivo: transformar a sintese da sessao em trabalho executavel sem inflar o core.
 
-Referencia de entrada: `docs/notes/sessao-alinhamento-identidade-valor-apps.md`.
+Referencia de entrada: `docs/notes/90-I1-sintese-da-sessao-identidade-valor-e-apps.md`.
 
 ## 1) Entregas por trilha
 

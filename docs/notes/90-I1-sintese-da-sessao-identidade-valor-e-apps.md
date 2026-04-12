@@ -1,3 +1,11 @@
+---
+note_class: "90"
+integration_state: "I1"
+status: "dossie curto de alinhamento"
+destino: "archive"
+rationale: "Registra o fechamento conceitual de uma sessao longa para alimentar etapas seguintes sem perder contexto."
+---
+
 # Sintese de alinhamento da sessao
 
 Objetivo: registrar os pontos que ficaram firmes nesta conversa para orientar teoria, spec e codigo nas proximas etapas.

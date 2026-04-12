@@ -1,3 +1,11 @@
+---
+note_class: "03"
+integration_state: "I1"
+status: "nota exploratoria viva"
+destino: "stay-note"
+rationale: "Ajuda a separar trigger de protocolo, runtime capsular e politica local de app sem ainda exigir promocao."
+---
+
 # Triggers e camadas (nota)
 
 Objetivo: registrar a distincao entre diferentes tipos de "trigger" no

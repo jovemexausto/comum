@@ -1,3 +1,11 @@
+---
+note_class: "03"
+integration_state: "I1"
+status: "nota tecnica viva"
+destino: "stay-note"
+rationale: "Extrai hipoteses operacionais do modelo triadico para simulacao e leitura local, sem virar norma do protocolo."
+---
+
 # Triadic Coherence no Comum (nota tecnica)
 
 Objetivo: extrair do TCC (Triadic Coherence) um conjunto de hipoteses

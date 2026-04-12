@@ -1,3 +1,11 @@
+---
+note_class: "03"
+integration_state: "I0"
+status: "brainstorm bruto preservado"
+destino: "stay-note"
+rationale: "Guarda intuicoes laterais sobre inferencia social programavel sem promover centralidade prematura."
+---
+
 # Brainstorm — inferencia social programavel (nao normativo)
 
 Objetivo: guardar ideias exploratorias sobre inferencia distribuida, aprendizagem

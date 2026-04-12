@@ -1,3 +1,11 @@
+---
+note_class: "01"
+integration_state: "I2"
+status: "pronta para alimentar especificacao"
+destino: "spec"
+rationale: "Define o problema de pertencimento comunitario e ja aponta um criterio composto para futura formalizacao."
+---
+
 # Notas de Trabalho — Fronteiras de Comunidade
 
 ## Problema

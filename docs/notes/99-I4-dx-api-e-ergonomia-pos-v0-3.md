@@ -1,3 +1,11 @@
+---
+note_class: "99"
+integration_state: "I4"
+status: "arquivo pos-v0.3"
+destino: "archive"
+rationale: "Captura um backlog localizado de DX apos v0.3 e deve ser mantido apenas como referencia historica."
+---
+
 # DX, API e Ergonomia — Pos v0.3 (nota)
 
 Objetivo: capturar o estado atual de DX/API/ergonomia apos os avancos de

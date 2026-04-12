@@ -64,6 +64,14 @@ que um arranjo tecnico possa eliminar, por completo, a necessidade de leitura,
 instituicao e julgamento. A boa arquitetura nao elimina conflito interpretativo;
 ela o organiza de maneira verificavel e limitada.
 
+Isso tambem pode ser dito de maneira ainda mais seca. O rastro conserva. O
+sistema organiza. O humano legitima. Misturar essas tres camadas e um dos modos
+mais rapidos de recolocar o centro dentro da propria infraestrutura que dizia
+combatê-lo. Se o rastro passa a mandar, a memoria endurece em mandato. Se o
+sistema passa a mandar, a interpretacao se converte em automatismo. O que o
+Comum tenta preservar e justamente a possibilidade de que registro e prova
+fortaleçam a leitura situada sem usurpar dela a palavra final.
+
 Essa formulacao nos obriga a distinguir duas camadas de verdade.
 
 Primeiro, a verdade estrutural: algo foi emitido por tal autor, com tal forma,

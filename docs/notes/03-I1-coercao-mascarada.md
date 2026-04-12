@@ -1,3 +1,11 @@
+---
+note_class: "03"
+integration_state: "I1"
+status: "nota tecnica viva"
+destino: "stay-note"
+rationale: "Nomeia um fenomeno util para simulacao e leitura local de abuso sem impor deteccao global."
+---
+
 # Coercao mascarada no Comum (nota tecnica)
 
 Objetivo: descrever o fenomeno de coercao mascarada e como sinais locais

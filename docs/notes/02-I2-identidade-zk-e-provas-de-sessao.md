@@ -1,3 +1,11 @@
+---
+note_class: "02"
+integration_state: "I2"
+status: "pronta para alimentar especificacao"
+destino: "spec"
+rationale: "Consolida decisoes de identidade ZK, commitments e provas de sessao que ja estao convergindo para CIP."
+---
+
 # ZK identity: dump de pesquisa e plano
 
 Objetivo: registrar o estado atual da exploracao de identidade ZK no Comum,

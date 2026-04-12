@@ -36,6 +36,13 @@ ao sistema. O testemunho, quando bem entendido, opera como limite da propria
 formalizacao: ele formaliza o bastante para circular e compor memoria, mas nao
 pretende transformar a totalidade da vida local em dado administravel.
 
+Convem explicitar o peso dessa formula, porque a expressao "memoria publica"
+carrega um risco semantico real. Publica, aqui, nao quer dizer universalmente
+visivel nem aberta a um panoptico sem resto. Quer dizer verificavel para quem
+participa da relacao, precisa ler o rastro ou tem responsabilidade legitima
+sobre ele. O comum nao promete vitrine total. Promete que certos atos nao
+possam ser negados sem deixar disputa rastreavel no proprio campo da comunidade.
+
 Essa modestia formal tem consequencias diretas para accountability. Um sistema
 que tudo expoe tende a confundir memoria publica com vigilancia. Um sistema que
 nada registra tende a deixar a autoridade dissolver-se em costume, carisma ou

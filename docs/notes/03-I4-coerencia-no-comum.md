@@ -1,3 +1,11 @@
+---
+note_class: "03"
+integration_state: "I4"
+status: "congelado como pesquisa aplicada"
+destino: "archive"
+rationale: "Resume uma linha experimental de coerencia que permanece nao normativa e hoje funciona mais como arquivo de orientacao."
+---
+
 # Coerencia no Comum (visao geral)
 
 Este eixo registra uma **linha de pesquisa aplicada** sobre como ler
@@ -18,12 +26,12 @@ normativas no protocolo.
 
 ## Componentes
 
-- Modelo: `triadic-coherence-comum.md` (P/A/PHI aplicado a Testimony)
-- Fenomeno: `coercive-masking.md` (coercao mascarada)
-- Hipotese operacional: `phi-expectations.md` (PHI esperado por verbo)
+- Modelo: `03-I1-triadic-coherence-no-comum.md` (P/A/PHI aplicado a Testimony)
+- Fenomeno: `03-I1-coercao-mascarada.md` (coercao mascarada)
+- Hipotese operacional: `03-I1-phi-esperado-por-verbo.md` (PHI esperado por verbo)
 - Simulacao: `simulations/coherence/`
-- Resultados: `coherence-findings-001.md`
-- Contexto relacionado: `identity-and-sybil.md`
+- Resultados: `03-I1-achados-de-coerencia-001.md`
+- Contexto relacionado: `02-I1-identidade-e-sybil.md`
 
 ## Metodo (resumo)
 

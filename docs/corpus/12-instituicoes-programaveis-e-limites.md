@@ -46,6 +46,15 @@ jurisdicoes e revogacoes. Mas nenhuma capsula deve ser confundida com a propria
 comunidade viva que a interpreta. Uma instituicao executavel e sempre recorte,
 nao totalidade.
 
+Essa distincao pede outra, menos ontologica e mais arquitetural. Nem tudo o que
+importa para uma comunidade pertence ao mesmo nivel da stack. Ha um nucleo fino
+de interoperabilidade que precisa permanecer no protocolo base. Ha semanticas
+executaveis que pertencem a Capsulas. E ha hipoteses, leituras teoricas e formas
+institucionais ainda em pesquisa que nao devem subir de nivel cedo demais. Sem
+essa disciplina, o protocolo infla; a Capsula vira legislador total; e a
+pesquisa perde o direito de permanecer aberta enquanto ainda nao ganhou prova,
+caso real ou forma madura.
+
 Apesar disso, seria um erro abandonar a potencia das instituicoes programaveis
 por medo de excesso. Ha algo genuinamente novo e poderoso na possibilidade de
 uma comunidade dizer: esta regra de mutirao pode ser ajustada; este mecanismo de
