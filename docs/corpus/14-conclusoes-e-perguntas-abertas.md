@@ -54,6 +54,30 @@ tudo. Significa apenas que, ao construir sua arquitetura, ele ja toma posicao
 nesses campos. Nenhum protocolo e neutro quanto ao tipo de mundo que torna mais
 facil ou mais dificil de existir.
 
+Isso obriga a uma correcao de perspectiva. A vida do projeto nao mora mais apenas
+na fundacao tecnica, e isso so sera perda se a arquitetura restante nao conseguir carregar
+mundo real. Hoje a vida do Comum precisa morar ao mesmo tempo na elaboracao de
+sentido, na disciplina da forma e, sobretudo, nas praticas concretas que se
+arriscam fora da tela. Em feiras, cinemas, assembleias, check-ins locais,
+caixas comunitarios, grupos de cuidado, circuitos de troca, memoria de conflito
+e instituicoes que se deixam contestar sem desaparecer numa interface ou numa
+planilha. Se a fundacao tecnica ficar mais fina, mas esses lugares ficarem mais
+espessos, o Comum nao empobrece; ele apenas se desloca para onde sempre deveria
+ter vivido.
+
+Talvez por isso valha formular, sem excesso de solenidade, o que permanece
+irredutivelmente Comum depois de tantas delimitacoes necessarias. Nao um centro benevolente, nem
+uma pilha tecnologica qualquer, mas a tentativa de construir memoria publica,
+autoridade revisavel e relacao federativa entre comunidades sem entregar a um
+centro o poder de dizer, sozinho, o que vale, quem vale e o que conta como
+verdade social. O risco atual e conhecido: afinar a arquitetura e esquecer de
+recolocar a vida do projeto em outro lugar visivel. Quando isso acontece, resta
+apenas uma boa arquitetura. O trabalho seguinte, portanto, nao e apenas seguir
+implementando, mas garantir que a mediacao nao volte a ser feudo, que a
+infraestrutura nao substitua os mundos que serve e que a tecnica continue valendo
+somente enquanto ampliar a capacidade local de instituir, lembrar, contestar e
+sair.
+
 Talvez seja justamente aqui que a tarefa futura comeca. Nao apenas continuar a
 implementacao, mas preservar o espaco reflexivo que impede a implementacao de se
 fechar sobre si mesma. Um sistema assim so permanece fiel ao que pretende se for

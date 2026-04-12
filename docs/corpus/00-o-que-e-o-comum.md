@@ -46,6 +46,17 @@ plataformas civicas prometeram participacao e entregaram formularios que ninguem
 le. Cada uma dessas respostas falhou de um modo especifico, e cada modo de falha
 ensina algo.
 
+Houve ainda uma fantasia mais grandiosa: a de que a propria vida comum poderia
+ser finalmente substituida por uma camada digital total. O nome que o mercado deu
+a essa fantasia foi metaverso. Sua promessa era simples e antiga: nao apenas
+mediar o mundo, mas tornar-se o mundo mais importante. Nessa promessa, a tela nao
+era instrumento; era destino. A comunidade nao era mais um acontecimento vivido,
+com corpos, ruas, tempos mortos, clima, cheiro e conflito; passava a ser uma
+experiencia administravel por interfaces, sensores, ativos e jardins murados.
+Zuckerberg foi apenas a figura mais visivel dessa ambicao. O problema, porem,
+nao era um empresario especifico. Era a velha vontade imperial de substituir o
+mundo por sua representacao governavel.
+
 A blockchain falhou porque confundiu descentralizacao topologica com
 descentralizacao politica. Distribuir nos nao distribui poder quando o criterio
 de participacao e o custo computacional ou financeiro. O fediverso falhou porque
@@ -76,6 +87,14 @@ exclusivamente de burocracias opacas, plataformas fechadas ou estruturas cujo
 funcionamento so alguns poucos conseguem compreender. Mas ele tambem nao cai na
 fantasia de que toda instituicao possa ser reduzida a software. O Comum existe
 no intervalo dificil entre explicitar e esgotar.
+
+Se fosse preciso resumir essa recusa em uma frase, ela seria esta: o mundo comum
+do Comum e o mundo real. Nao porque a tecnica seja secundaria, mas porque ela nao
+recebe aqui a tarefa de substituir a vida vivida por uma segunda vida digital.
+Encontro, troca, conflito, cuidado, deliberacao e memoria continuam acontecendo
+entre pessoas e lugares concretos. O que a infraestrutura pode fazer e outra
+coisa: dar rastro, forma, continuidade e coordenacao a essa vida sem capturá-la
+para dentro de um senhorio de interface.
 
 Por isso, o corpus insiste em outra distincao. Determinismo e tarefa do
 protocolo; legitimidade e tarefa das instituicoes locais. O protocolo pode dar
@@ -133,6 +152,26 @@ legibilidade suficiente para haver memoria e accountability, mas nao tanta a
 ponto de transformar a vida em transparencia integral. Pede instituicoes
 programaveis o bastante para serem auditaveis, mas nao codificadas a ponto de se
 fecharem contra o proprio comum que deveriam sustentar.
+
+Dizer isso hoje exige outra precisao. O Comum nao abre mao de ser uma
+infraestrutura para que comunidades produzam memoria publica, autoridade situada
+e relacao federativa sem depender de um centro irrevisavel. Isso implica, ao
+mesmo tempo, testemunho verificavel como unidade minima de rastro publico,
+autoridade situada, limitada e revogavel, valor plural sem equivalencia unica
+obrigatoria, identidade soberana sem captura por aplicativo ou plataforma, computacao
+institucional local e substituivel, federacao sem soberania superior e memoria
+publica sem panoptismo. Se essa lista parece mais politica do que tecnica, e
+porque ela e. O Comum nao e apenas um protocolo fino; e uma disciplina de limite
+contra a recentralizacao da mediacao digital.
+
+Pelo mesmo motivo, o Comum tambem precisou decidir o que nao quer voltar a ser.
+Nao quer ser moeda universal do protocolo, ontologia unica de valor, score global
+de reputacao, uma interface confundida com comunidade, forma institucional
+particular confundida com semantica universal, deposito indiscriminado de tudo o
+que existe, nem centro disfarçado de simples infraestrutura. Tampouco quer a
+promessa preguiçosa de neutralidade vazia. Ao recusar essas formas, o projeto
+nao perde densidade por si. Ele apenas recusa modos errados de
+concentrar poder no proprio meio que deveria servir a vida comum.
 
 Se esta descricao estiver certa, entao o nome "Comum" nao indica uma substancia
 uniforme compartilhada por todos. Indica uma infraestrutura pela qual mundos

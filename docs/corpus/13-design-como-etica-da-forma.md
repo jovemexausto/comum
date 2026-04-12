@@ -19,6 +19,14 @@ vicio comportamental, converter participacao em metrica de visibilidade e,
 acima de tudo, criar a ilusao de que o que nao acontece na tela nao acontece
 de verdade no mundo.
 
+Foi essa ilusao que, em sua forma mais inflada, reapareceu no vocabulario do
+metaverso corporativo. A promessa ali nao era apenas melhorar ferramentas ou
+produzir melhores meios de encontro. Era deslocar o centro de gravidade da vida
+para uma camada digital administravel, onde a experiencia pudesse enfim ser
+encenada, medida e governada sem resto. O Comum parte da intuicao inversa. A
+magia do mundo real nao e um defeito da infraestrutura; e a propria razao de a
+infraestrutura existir. Interfaces devem servir esse mundo, nao competir com ele.
+
 Combater o tecnofeudalismo no protocolo e depois copiar o design da plataforma
 seria como construir uma casa livre e alugar o mobilíario do carcereiro. O
 modo como a interface do Comum se comporta nao e apenas uma escolha de estilo;
@@ -79,4 +87,5 @@ aplicativos ou clientes sobre este protocolo, ainda que nao obedeçam a cada
 linha descrita aqui, farao bem em lembrar do aviso inicial: a ferramenta retem a
 alma da forja. Um design convivial nao prende nem vicia; ele encoraja, por sua
 sobriedade, que as pessoas levantem os olhos da tela para ver se a chuva e fina
-ou grossa.
+ou grossa. Um bom aplicativo do Comum nao pede para ser o lugar principal da
+vida. Pede apenas para servi-la sem humilha-la.

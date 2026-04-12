@@ -64,10 +64,11 @@ mais fina: reconhecer fundacao minima sem confundi-la com robustez plena.
 
 Isso tem consequencias normativas e arquiteturais. No nivel da fundacao, o
 protocolo pode reconhecer o par como unidade instituinte minima e exigir, para
-ele, uma forma forte de co-responsabilidade. No nivel das capsulas, certas
-decisoes podem demandar triangulacao ou pluralidade maior. Ou seja: o protocolo
-nao precisa proibir o par para reconhecer que certas capacidades de governanca
-pedem mais gente, mais mediação e mais distribuicao de criterio.
+ele, uma forma forte de co-responsabilidade. Em camadas institucionais mais
+densas, certas decisoes podem demandar triangulacao ou pluralidade maior. Ou
+seja: o protocolo nao precisa proibir o par para reconhecer que certas
+capacidades de governanca pedem mais gente, mais mediação e mais distribuicao de
+criterio.
 
 Assim, par, triade e coletivo maior deixam de ser apenas numeros e passam a
 funcionar como figuras institucionais distintas.

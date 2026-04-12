@@ -47,9 +47,10 @@ Revogabilidade, contudo, nao significa volatilidade absoluta. Um comum onde tudo
 pode ser revogado a qualquer momento, sem rastro, sem forma e sem consequencia,
 se torna incapaz de produzir confianca. Nao basta poder desfazer; e preciso
 saber quem pode contestar, em que termos, sob quais evidencias e por que vias.
-Isso ja nos empurra para o terreno das instituicoes programaveis e das capsulas.
-O protocolo base apenas abre a possibilidade. As regras concretas de delegacao,
-contestacao, escalacao e decisao pertencem a semanticas locais mais ricas.
+Isso ja nos empurra para o terreno das instituicoes programaveis e de suas
+formas executaveis. O protocolo base apenas abre a possibilidade. As regras
+concretas de delegacao, contestacao, escalacao e decisao pertencem a semanticas
+locais mais ricas.
 
 O ganho politico dessa posicao e importante. Em vez de vender uma fantasia de
 horizontalidade pura, o Comum assume que toda comunidade precisa lidar com a

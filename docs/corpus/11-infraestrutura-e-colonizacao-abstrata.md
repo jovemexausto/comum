@@ -83,8 +83,8 @@ centro soberano.
 Nada disso significa renunciar a rigor. Ao contrario: so uma infraestrutura muito
 rigorosa sabe distinguir o que deve ser universalizado do que deve permanecer
 situado. O protocolo precisa dizer com clareza o que garante: formato,
-assinatura, causalidade, reproducibilidade, limites de runtime, contratos de
-interoperabilidade. Mas precisa dizer com a mesma clareza o que nao lhe cabe
+assinatura, causalidade, reproducibilidade, limites de execucao, pactos minimos
+de interoperabilidade. Mas precisa dizer com a mesma clareza o que nao lhe cabe
 garantir: a totalidade do valor, a legitimidade final de toda comunidade, a
 verdade ultima de toda disputa, a medida comum de toda vida social.
 

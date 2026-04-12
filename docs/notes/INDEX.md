@@ -21,6 +21,7 @@ estado de integracao e destino provavel.
 | arquivo | classe | estado | destino |
 | --- | --- | --- | --- |
 | `00-I2-metodo-epistemologico.md` | metodo | I2 | stay-note |
+| `01-I3-o-que-e-irredutivelmente-comum.md` | excedente | I3 | corpus |
 | `01-I3-glossario-canonico-de-camadas.md` | excedente | I3 | corpus |
 | `01-I3-memoria-publica-tensao.md` | excedente | I3 | corpus |
 | `01-I3-core-capsula-e-autoridade.md` | excedente | I3 | corpus |
@@ -44,7 +45,7 @@ estado de integracao e destino provavel.
 ## Cardinalidade por destino
 
 - `stay-note`: 8
-- `corpus`: 4
+- `corpus`: 5
 - `spec`: 2
 - `archive`: 5
 - `guia`: 1

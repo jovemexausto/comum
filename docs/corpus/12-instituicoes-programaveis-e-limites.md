@@ -19,7 +19,7 @@ Mas o mesmo gesto abriga um perigo. Uma instituicao programavel pode escorregar
 facilmente para a fantasia de que a vida coletiva seria, no fundo, codificavel
 por inteiro. E aqui surge uma confusao recorrente: tornar uma instituicao mais
 legivel nao e o mesmo que reduzir a instituicao a codigo. Abrir regras nao e o
-mesmo que exaurir a vida social em regras. Fazer uma Capsula nao e o mesmo que
+mesmo que exaurir a vida social em regras. Produzir uma forma executavel nao e o mesmo que
 capturar toda a espessura de uma comunidade.
 
 Vale distinguir, portanto, tres coisas.
@@ -33,25 +33,26 @@ transportado para uma forma programavel, com efeitos verificaveis e limites
 publicos. O erro nasce quando a terceira camada pretende substituir as duas
 primeiras.
 
-No Comum, as Capsulas tocam justamente esse terceiro plano. Elas nao sao a
+No Comum, as formas executaveis tocam justamente esse terceiro plano. Elas nao sao a
 comunidade em si. Nao sao a totalidade da instituicao. Sao interpretacoes
 executaveis de certos fluxos de testemunho sob regras delimitadas. Essa modestia
 ontologica precisa ser preservada. Sem ela, a programabilidade vira nova forma
 de tecnocracia: a ilusao de que o que nao foi codificado ainda nao foi pensado,
-ou pior, de que o que nao cabe na Capsula deixa de contar politicamente.
+ou pior, de que o que nao cabe nessa forma deixa de contar politicamente.
 
 Isso vale em especial para autoridade, accountability e disputa. O Comum pode
 abrir espaco para que uma comunidade explicite mandatos, contestacoes,
-jurisdicoes e revogacoes. Mas nenhuma capsula deve ser confundida com a propria
+jurisdicoes e revogacoes. Mas nenhuma forma executavel deve ser confundida com a propria
 comunidade viva que a interpreta. Uma instituicao executavel e sempre recorte,
 nao totalidade.
 
 Essa distincao pede outra, menos ontologica e mais arquitetural. Nem tudo o que
-importa para uma comunidade pertence ao mesmo nivel da stack. Ha um nucleo fino
-de interoperabilidade que precisa permanecer no protocolo base. Ha semanticas
-executaveis que pertencem a Capsulas. E ha hipoteses, leituras teoricas e formas
-institucionais ainda em pesquisa que nao devem subir de nivel cedo demais. Sem
-essa disciplina, o protocolo infla; a Capsula vira legislador total; e a
+importa para uma comunidade pertence ao mesmo nivel da arquitetura. Ha um nucleo
+fino de interoperabilidade que precisa permanecer no protocolo base. Ha
+semanticas executaveis que pertencem as formas institucionais locais. E ha
+hipoteses, leituras teoricas e formas institucionais ainda em pesquisa que nao
+devem subir de nivel cedo demais. Sem essa disciplina, o protocolo infla; a
+forma executavel vira legislador total; e a
 pesquisa perde o direito de permanecer aberta enquanto ainda nao ganhou prova,
 caso real ou forma madura.
 
@@ -83,11 +84,11 @@ em politica.
 Por isso as instituicoes programaveis tambem precisam de limite interno. Esse
 limite tem varias formas.
 
-Primeira: uma Capsula nao deve pretender esgotar a vida da comunidade que a usa.
+Primeira: nenhuma forma executavel deve pretender esgotar a vida da comunidade que a usa.
 Sempre havera excecoes, conflitos, julgamentos, silencios e reajustes que
 excedem a automacao.
 
-Segunda: a comunidade nao deve depender de uma unica Capsula para continuar
+Segunda: a comunidade nao deve depender de uma unica forma executavel para continuar
 existindo. A infraestrutura precisa permitir substituicao, convivio de arranjos,
 depreciacao e recomposicao.
 
@@ -100,7 +101,7 @@ do codigo. Uma comunidade nao pode ser obrigada a delegar a um pequeno grupo de
 especialistas a compreensao de suas proprias regras.
 
 Aqui a relacao entre corpus e engenharia se torna mais delicada. Porque o valor
-de uma Capsula nao esta apenas no seu codigo, mas na possibilidade de uma
+de uma forma executavel nao esta apenas no seu codigo, mas na possibilidade de uma
 comunidade reconhece-la como sua, contestá-la, adapta-la e, no limite,
 abandoná-la. O codigo pode carregar a forma executavel. Nao pode substituir o
 processo politico pelo qual essa forma ganha validade.
@@ -132,5 +133,5 @@ Chegamos, assim, ao ponto em que a promessa do Comum precisa ser formulada com
 cuidado maximo. O projeto pode, sim, hospedar instituicoes programaveis. Pode,
 sim, oferecer uma base para formas de governanca, mercado e cooperacao mais
 legiveis e forkaveis. Mas ele so permanecera fiel ao proprio ethos se lembrar
-que nenhuma Capsula e a comunidade, nenhum runtime e a politica, e nenhum codigo
-esgota o comum.
+que nenhuma forma executavel e a comunidade, nenhuma camada de execucao e a
+politica, e nenhum codigo esgota o comum.

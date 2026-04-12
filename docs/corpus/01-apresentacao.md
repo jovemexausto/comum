@@ -74,8 +74,8 @@ sem serem absorvidos por um centro irrevisavel e sem fingirem que a politica
 desaparece quando aparece um bom protocolo.
 
 Tambem por isso, a engenharia aparece aqui apenas o suficiente. Testemunho,
-grafo, capsulas, sincronizacao, runtime e registries nao entram como fetiche
-tecnico. Entram como formas concretas pelas quais uma filosofia da coordenacao
+grafo, formas executaveis, sincronizacao e contratos publicos nao entram como
+fetiche tecnico. Entram como formas concretas pelas quais uma filosofia da coordenacao
 ganha consistencia material. Toda infraestrutura carrega uma teoria implicita do
 que vale como prova, do que conta como relacao, do que merece memoria e do que
 pode ser esquecido. O Comum nao escapa dessa regra. O corpus existe para tornar
