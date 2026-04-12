@@ -16,4 +16,4 @@ Artefatos atuais:
 
 Prioridade atual:
 
-- `Feira MVP` como vertical slice vivo entre teoria, protocolo, SDK e app
+- `Feira MVP` como vertical slice vivo entre teoria, protocolo, runtime e app

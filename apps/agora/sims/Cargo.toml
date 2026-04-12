@@ -1,0 +1,10 @@
+[package]
+name = "agora-sim"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+capsula-agora = { path = "../capsules" }
+comum-rs = { path = "../../../runtime/rust/comum-rs" }
+ed25519-dalek = "2.1"
+sha3 = "0.10"

@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "comum-js": ["../../../runtime/js/comum-js/dist/mobile.d.ts"]
+    }
+  },
+  "include": ["App.tsx", "src/**/*"]
+}

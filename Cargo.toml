@@ -1,15 +1,15 @@
 [workspace]
 resolver = "2"
 members = [
-  "crates/comum-rs",
-  "crates/comum-rs/napi",
-  "capsules/agora",
-  "capsules/feira",
-  "capsules/mutirao",
-  "simulations/agora",
-  "simulations/feira",
-  "simulations/mutirao",
-  "simulations/coherence"
+  "runtime/rust/comum-rs",
+  "runtime/rust/comum-rs/napi",
+  "apps/agora/capsules",
+  "apps/agora/sims",
+  "apps/feira/capsules",
+  "apps/feira/sims",
+  "cases/mutirao-legacy/capsule",
+  "cases/mutirao-legacy/sim",
+  "cases/coherence/sim"
 ]
 
 [profile.release]

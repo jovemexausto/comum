@@ -12,7 +12,6 @@ Arquivos canonicos atuais:
 
 Superficie de codigo correspondente:
 
-- `crates/`
-- `packages/`
-- `capsules/`
-- `simulations/`
+- `runtime/`
+- `apps/`
+- `cases/`

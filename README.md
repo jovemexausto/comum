@@ -27,7 +27,7 @@ plataforma, centro ou medida unica.
 - especificacao normativa viva via CIPs, registries, CDDL e vetores
 - implementacao de referencia forte em Rust
 - SDK TypeScript/React Native em consolidacao de paridade
-- capsulas de referencia para governanca, troca local e mutirao
+- apps de referencia mantidos pelo time do Comum, com suas capsulas e fluxos locais
 - experimentos reais de topologia distribuida e convergencia
 
 ## Como ler o repositorio
@@ -42,11 +42,9 @@ plataforma, centro ou medida unica.
 
 ## Superficie do monorepo
 
-- `apps/`: apps de referencia
-- `crates/`: crates Rust
-- `packages/`: pacotes JS/TS
-- `capsules/`: semantica local executavel
-- `simulations/`: simulacoes e exercicios de comportamento
+- `apps/`: projetos verticais mantidos pelo time, com app, capsulas, sims e schemas locais
+- `runtime/`: runtimes, bindings, tooling e conformance
+- `cases/`: estudos de caso e legados em transicao
 - `spec/`: contrato normativo
 - `docs/`: corpus, implementacao, projeto e notas
 
@@ -88,7 +86,7 @@ Ou manual:
 
 ```sh
 cargo test
-cd packages/comum-js && npm run build && npm test
+cd runtime/js/comum-js && npm run build && npm test
 ```
 
 ## Licenca

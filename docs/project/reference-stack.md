@@ -77,10 +77,9 @@ interoperaveis. Nem tudo que faz sentido no corpus deve subir para a spec.
 
 Casa:
 
-- `crates/`
-- `packages/`
-- `capsules/`
-- `simulations/`
+- `runtime/`
+- `apps/`
+- `cases/`
 - `docs/implementation/`
 
 Pergunta principal:
@@ -97,12 +96,17 @@ Funcao:
 Implementation tem prioridade operacional. Ela mostra o estado real do projeto,
 mas nao vira norma automaticamente e nao substitui o corpus.
 
+No monorepo atual, apps e capsulas podem viver juntos dentro de `apps/<nome>/`
+como parte de um mesmo workflow mantido pelo time. Esse acoplamento operacional
+NAO transforma esses projetos em semantica normativa do protocolo.
+
 ### 4. Evidence
 
 Casa principal:
 
-- `tests/`
-- `simulations/`
+- `runtime/conformance/`
+- `apps/*/sims/`
+- `cases/*/sim/`
 - test commands documentados
 - pacotes de paper em `docs/project/`
 

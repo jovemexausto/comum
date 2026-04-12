@@ -48,15 +48,15 @@ Resultado visivel do MVP:
 
 ### Produto
 
-- `apps/mobile/`
-- `packages/comum-js/`
+- `apps/feira/app/`
+- `runtime/js/comum-js/`
 
 ### Execucao canonica e suporte
 
-- `crates/comum-rs/`
-- `capsules/feira/`
-- `tests/conformance/`
-- `simulations/feira/`
+- `runtime/rust/comum-rs/`
+- `apps/feira/capsules/`
+- `runtime/conformance/`
+- `apps/feira/sims/`
 
 ### Documentacao
 

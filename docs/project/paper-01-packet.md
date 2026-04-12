@@ -59,17 +59,17 @@ Esses pontos podem aparecer como horizonte, limitacao ou agenda de pesquisa.
 ### Evidencia tecnica ja disponivel
 
 - CIPs vivos, registries, CDDL e vetores em `spec/`
-- implementacao de referencia Rust em `crates/comum-rs/`
-- SDK JS em `packages/comum-js/`
-- runtime capsular e capsulas de referencia em `capsules/`
-- simulacoes em `simulations/`
-- conformance runner em `tests/conformance/`
+- implementacao de referencia Rust em `runtime/rust/comum-rs/`
+- SDK JS em `runtime/js/comum-js/`
+- apps e capsulas de referencia em `apps/`
+- simulacoes em `apps/*/sims/` e `cases/*/sim/`
+- conformance runner em `runtime/conformance/`
 
 ### Evidencia verificada agora
 
 - `cargo test -p comum-rs` passa
-- `npm run build && npm test` em `packages/comum-js` passa
-- `node tests/conformance/run.js` passa
+- `npm run build && npm test` em `runtime/js/comum-js` passa
+- `node runtime/conformance/run.js` passa
 - `cargo run -p agora-sim` passa
 - `cargo run -p feira-sim` passa
 - `cargo run -p mutirao-sim` passa
