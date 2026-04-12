@@ -65,6 +65,19 @@ plataforma, centro ou medida unica.
 - Um app pode operar fluxos comunitarios, mas nao se confunde com a comunidade.
 - Uma capsula expressa semantica executavel local, nao a totalidade da vida social.
 
+## Ontologia minima
+
+- `Node`: instancia tecnica que valida, ingere, emite e sincroniza testemunhos.
+- `Commoner`: fachada tecnica de alto nivel para operar um `Node`.
+- `App`: cliente que opera sobre `Node`/`Commoner` e pode carregar UX e politicas locais.
+- `Capsule`: semantica executavel local; nao substitui a comunidade nem totaliza governanca ou valor.
+- `Comunidade nominal`: recorte ancorado por `Genesis` e `Community ID`.
+- `Comunidade funcional`: recorte emergente do grafo relacional, inclusive sem `Genesis` compartilhado.
+- `Regime local de valor`: regras locais de emissao, reconhecimento, circulacao e revogacao de valor.
+- `Unidade local de valor`: nome da unidade de conta de um regime local, quando houver.
+- `Federacao de borda`: traducao e compensacao limitada entre comunidades, sem equivalencia unica obrigatoria.
+- `Identidade soberana`: capacidade de controlar chaves, personas e provas sem dependencia estrutural de um app unico.
+
 ## Comecar
 
 ```sh

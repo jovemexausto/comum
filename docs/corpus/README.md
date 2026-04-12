@@ -35,6 +35,21 @@ Resposta provisoria:
 - examina por que as respostas anteriores (blockchain, fediverso, plataformas
   civicas) falharam de modos especificos
 
+## Ontologia minima do projeto
+
+Para manter o corpus, a spec e a implementacao alinhados, o projeto assume um
+glossario curto de camadas:
+
+- `Comum` nomeia o protocolo/projeto, nao uma moeda universal.
+- `Node` e a instancia tecnica local.
+- `Commoner` e a fachada tecnica de no.
+- `App` e superficie de uso, nao a comunidade.
+- `Capsule` e instituicao executavel parcial, nao a totalidade da vida social.
+- `Comunidade nominal` e ancorada por `Genesis`; `comunidade funcional` emerge do grafo.
+- `Regime local de valor` pertence a comunidades e suas instituicoes.
+- `Federacao de borda` trata traducao e compensacao limitadas entre mundos diferentes.
+- `Identidade soberana` deve permanecer portavel e desacoplada de um app unico.
+
 ## O que o livro nao faz
 
 - nao substitui `spec/`

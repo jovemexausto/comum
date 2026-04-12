@@ -1,12 +1,12 @@
 ---
 note_class: "01"
-integration_state: "I2"
-status: "rascunho canonico pronto para orientar integracao"
+integration_state: "I3"
+status: "parcialmente absorvido por docs centrais"
 destino: "corpus"
 rationale: "Fecha a desambiguacao terminologica entre protocolo, app, capsula, comunidade, valor e identidade."
 ---
 
-# Glossario canonico de camadas (rascunho)
+# Glossario canonico de camadas
 
 Objetivo: reduzir ambiguidade terminologica entre teoria, spec e implementacao.
 

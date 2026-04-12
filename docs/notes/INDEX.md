@@ -21,7 +21,7 @@ estado de integracao e destino provavel.
 | arquivo | classe | estado | destino |
 | --- | --- | --- | --- |
 | `00-I2-metodo-epistemologico.md` | metodo | I2 | stay-note |
-| `01-I2-glossario-canonico-de-camadas.md` | excedente | I2 | corpus |
+| `01-I3-glossario-canonico-de-camadas.md` | excedente | I3 | corpus |
 | `01-I3-memoria-publica-tensao.md` | excedente | I3 | corpus |
 | `01-I3-core-capsula-e-autoridade.md` | excedente | I3 | corpus |
 | `01-I3-humano-rastro-e-legitimidade.md` | excedente | I3 | corpus |

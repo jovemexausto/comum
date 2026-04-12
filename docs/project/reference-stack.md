@@ -47,6 +47,11 @@ Funcao:
 O corpus tem prioridade interpretativa. Ele orienta o significado do projeto,
 mas nao substitui a spec e nao autoriza claims publicos sozinho.
 
+Nota de alinhamento: conceitos de camada como `Node`, `Commoner`, `App`,
+`Capsule`, `comunidade nominal`, `comunidade funcional`, `regime local de
+valor` e `federacao de borda` devem ser definidos primeiro no corpus ou em docs
+centrais curtos antes de subir como contrato para a spec.
+
 ### 2. Spec
 
 Casa:
