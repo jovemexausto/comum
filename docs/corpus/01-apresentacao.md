@@ -93,6 +93,6 @@ a propria infraestrutura do Comum se torne o novo centro que ela prometia evitar
 forma comum que nao se vigie.
 
 Se o Comum tiver utilidade duradoura, ela nao estara apenas no que implementa,
-mas no que obriga a pensar com mais rigor. Este corpus e uma tentativa de nao
+mas no que sugere pensar com mais rigor. Este corpus e uma tentativa de nao
 perder esse campo de pensamento justamente quando a condicao feudal torna mais
 urgente — e mais perigoso — construir.
